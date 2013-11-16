@@ -1,0 +1,13 @@
+autodetach on
+startup_message off
+termcapinfo xterm* ti@:te@:XT
+vbell off
+
+defencoding utf8
+encoding utf8
+defutf8 on
+utf8 on on
+
+attrcolor b ".I"
+defbce "on"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
