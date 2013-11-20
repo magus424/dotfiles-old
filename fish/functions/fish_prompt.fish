@@ -18,9 +18,9 @@ function fish_prompt --description 'Write out the prompt'
     set_color 55F
     echo -n (prompt_pwd)
 
-    set -l git_branch (git rev-parse --abbrev-ref HEAD ^ /dev/null)
+    set -l git_branch (__fish_git_prompt '%s')
 
-    if not test -z $git_branch
+    if test -n "$git_branch"
         set_color 555
         echo -n ' ('
         set_color 0B0
@@ -31,5 +31,5 @@ function fish_prompt --description 'Write out the prompt'
     echo
 
     set_color normal
-    echo -n '$ '
+    echo -n \u221a' '
 end
