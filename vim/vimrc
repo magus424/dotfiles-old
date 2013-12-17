@@ -101,6 +101,12 @@ if &term == "screen" || &term == "screen-256color"
     set ttymouse=xterm2
 endif
 
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
+
 " Set window title to same as statusline
 " let &titlestring=&statusline
 

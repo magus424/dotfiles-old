@@ -19,6 +19,7 @@ function fish_prompt --description 'Write out the prompt'
     echo -n (prompt_pwd)
 
     set -l git_branch (__fish_git_prompt '%s')
+    set -l git_title (git config branch.$git_branch.description)
 
     if test -n "$git_branch"
         set_color 555
@@ -27,6 +28,13 @@ function fish_prompt --description 'Write out the prompt'
         echo -n $git_branch
         set_color 555
         echo -n ')'
+        if test -n "$git_title"
+            echo -n ' ['
+            set_color FF0
+            echo -n $git_title
+            set_color 555
+            echo -n ']'
+        end
     end
     echo
 
