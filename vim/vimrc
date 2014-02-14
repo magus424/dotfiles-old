@@ -66,11 +66,11 @@ if has("autocmd")
     let php_folding=1
     " let php_sql_query=1
     " let php_htmlInStrings=1
-    augroup per_window_search
-        autocmd!
-        autocmd WinLeave * let w:last_search = @/
-        autocmd WinEnter * if exists('w:last_search') | let @/ = w:last_search | endif
-    augroup END
+    " augroup per_window_search
+    "     autocmd!
+    "     autocmd WinLeave * let w:last_search = @/
+    "     autocmd WinEnter * if exists('w:last_search') | let @/ = w:last_search | endif
+    " augroup END
 endif
 
 " Highlight conflict markers
@@ -179,17 +179,17 @@ nnoremap <silent> <leader>d "_d
 xnoremap <silent> <leader>d "_d
 
 " Show NERDTree
-noremap <silent> <F2> :NERDTreeToggle<CR>
+" noremap <silent> <F2> :NERDTreeToggle<CR>
 
 " Show Tabman
-noremap <silent> <F3> :TMToggle<CR>
+" noremap <silent> <F3> :TMToggle<CR>
 
 " Show Function List
-noremap <silent> <F4> :Flisttoggle<CR>
+" noremap <silent> <F4> :Flisttoggle<CR>
 
 " Save session
-noremap <silent> <F5> :wa <Bar> mksession! ~/.vim/session <Bar> echo "Saved session"<CR>
-noremap <silent> <F6> :source ~/.vim/session<CR>
+noremap <silent> <F8> :wa <Bar> mksession! ~/.vim/session <Bar> echo "Saved session"<CR>
+noremap <silent> <F9> :source ~/.vim/session<CR>
 
 " Ctrl+S to save
 nmap <C-s> :write!<CR>
@@ -282,6 +282,10 @@ function! RunCodingStandards()
     call Preserve("%s/\\Cwhile(/while (/e")
     call Preserve("%s/\\Ccatch(/catch (/e")
     call Preserve("%s/\\s\\+$//e")
+    call Preserve("%s/TRUE/true/g")
+    call Preserve("%s/FALSE/false/g")
+    call Preserve("%s/NULL/null/g")
+    call Preserve("g/foreach/s/AS/as/")
     call Preserve("v/./,/./-j")
     nohlsearch
 endfun

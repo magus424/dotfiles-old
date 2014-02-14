@@ -274,7 +274,7 @@ syn keyword phpRepeat as do endfor endforeach endwhile for foreach while  contai
 syn keyword phpLabel  case default switch contained
 
 " Statement
-syn keyword phpStatement  return break continue exit  contained
+syn keyword phpStatement  try catch return break continue exit  contained
 
 " Keyword
 syn keyword phpKeyword  var const contained

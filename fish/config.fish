@@ -5,6 +5,11 @@ end
 if test -S $SSH_AUTH_SOCK -a ! -L $SSH_AUTH_SOCK
     ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
 end
+if test -n "$SSH_AUTH_SOCK_OLD"
+    set -x SSH_AUTH_SOCK_OLD "$SSH_AUTH_SOCK_OLD"
+else
+    set -x SSH_AUTH_SOCK_OLD "$SSH_AUTH_SOCK"
+end
 set -x SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
 
 if type -f dircolors > /dev/null
@@ -13,7 +18,7 @@ end
 
 set -x WHOIS_HIDE 1
 set EDITOR vim
-set PATH ~/bin $PATH
+set PATH ~/bin ~/local/bin $PATH
 
 set -e GREP_OPTIONS
 set -x GREP_COLOR "1;33"
