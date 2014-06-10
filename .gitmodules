@@ -16,3 +16,6 @@
 [submodule "vim/bundle/tcomment"]
 	path = vim/bundle/tcomment
 	url = http://github.com/tomtom/tcomment_vim
+[submodule "vim/bundle/vim-twig"]
+	path = vim/bundle/vim-twig
+	url = https://github.com/evidens/vim-twig.git
