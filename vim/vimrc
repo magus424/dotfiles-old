@@ -57,8 +57,9 @@ syntax on
 colorscheme default
 set background=dark
 
-" fix diff colors
+" fix colors
 highlight DiffText ctermbg=1
+highlight LineNr ctermfg=8 guifg=DarkGrey
 
 if has("autocmd")
     filetype plugin on
@@ -136,6 +137,9 @@ nnoremap <silent> // :noh<CR>
 " Space toggles folds
 nnoremap <Space> za
 xnoremap <Space> za
+
+" C-n toggles line numbers
+nnoremap <silent> <C-n> :set invnumber<CR>
 
 " z0 = recursively open top-level fold we're in
 nnoremap z0 zCz0
@@ -244,6 +248,17 @@ au VimResized * exe "normal! \<c-w>="
 au BufNewFile,BufRead */templates/*.html   call s:template_binds()
 function! s:template_binds()
     setlocal makeprg=clear;php\ ~/bin/update_templates.php\ %:p
+    nmap <buffer> <C-b> :make!<CR>
+    imap <buffer> <C-b> <C-o>:make!<CR>
+endfun
+
+au BufNewFile,BufRead *.twig               call s:twig_settings()
+function! s:twig_settings()
+    setlocal tabstop=2
+    setlocal softtabstop=2
+    setlocal shiftwidth=2
+    setlocal textwidth=0
+    setlocal makeprg=clear;php\ ~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p
     nmap <buffer> <C-b> :make!<CR>
     imap <buffer> <C-b> <C-o>:make!<CR>
 endfun
