@@ -19,3 +19,6 @@
 [submodule "vim/bundle/vim-twig"]
 	path = vim/bundle/vim-twig
 	url = https://github.com/evidens/vim-twig.git
+[submodule "vim/bundle/twig-indent"]
+	path = vim/bundle/twig-indent
+	url = https://github.com/tokutake/twig-indent.git
