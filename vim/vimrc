@@ -38,6 +38,7 @@ set showmode
 set showtabline=2
 set splitright
 set textwidth=0
+set t_ut=
 set title
 set viminfo='20,\"50
 
@@ -160,8 +161,8 @@ xnoremap <Tab> >gv
 xnoremap <S-Tab> <gv
 
 " Quick word jumping with Ctrl+Arrows
-inoremap <Esc>[A {
-inoremap <Esc>[B }
+inoremap <Esc>[A <C-o>{
+inoremap <Esc>[B <C-o>}
 inoremap <Esc>[C <S-Right>
 inoremap <Esc>[D <S-Left>
 
