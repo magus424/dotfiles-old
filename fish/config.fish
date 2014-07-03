@@ -10,7 +10,9 @@ end
 
 set -x WHOIS_HIDE 1
 set EDITOR vim
-set PATH ~/bin ~/local/bin $PATH
+if test -z "$TMUX"
+    set PATH ~/bin /opt/nodejs/bin $PATH
+end
 
 set -e GREP_OPTIONS
 set -x GREP_COLOR "1;33"

@@ -1,6 +1,10 @@
 function fish_prompt --description 'Write out the prompt'
     echo
 
+    if test -n "$TMUX"
+        fixssh
+    end
+
     # User
     # set_color $fish_color_user
     # echo -n (whoami)
