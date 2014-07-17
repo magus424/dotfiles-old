@@ -257,7 +257,7 @@ au VimResized * exe "normal! \<c-w>="
 au BufNewFile,BufRead */templates/*.html   call s:template_binds()
 function! s:template_binds()
     " setlocal makeprg=clear;php\ ~/bin/update_templates.php\ %:p
-    setlocal makeprg=tmux\ split-window\ -v\ -p\ 20\ \"php\ ~/bin/update_templates.php\ %:p\ ;\ sleep\ 1\"
+    setlocal makeprg=tmux\ split-window\ -v\ -p\ 20\ \"php\ ~/bin/update_templates.php\ %:p\ ;\ sleep\ 1\";tmux\ select-pane\ -U
     " nmap <buffer> <C-b> :make!<CR>
     nmap <buffer> <C-b> :silent make!\|redraw!<CR>
     " imap <buffer> <C-b> <C-o>:make!<CR>
@@ -271,7 +271,7 @@ function! s:twig_settings()
     setlocal shiftwidth=2
     setlocal textwidth=0
     " setlocal makeprg=clear;php\ ~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p
-    setlocal makeprg=tmux\ split-window\ -v\ -p\ 20\ \"~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p\ ;\ sleep\ 1\"
+    setlocal makeprg=tmux\ split-window\ -v\ -p\ 20\ \"~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p\ ;\ sleep\ 1\";tmux\ select-pane\ -U
     " nmap <buffer> <C-b> :make!<CR>
     nmap <buffer> <C-b> :silent make!\|redraw!<CR>
     " imap <buffer> <C-b> <C-o>:make!<CR>
