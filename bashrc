@@ -60,7 +60,7 @@ if [ "$PS1" ]; then
 
     if [ $TERM == "screen" -o $TERM == "xterm" -o $TERM == "xterm-color" ]; then
         PS1='$(__git_ps1 " \e[1;30m(\e[0;32m%s\e[1;30m)")'
-        PS1="\n${CYAN}linode${GREY}:${BLUE}\w${PS1}${NORMAL}\n\\$ "
+        PS1="\n${CYAN}\h${GREY}:${BLUE}\w${PS1}${NORMAL}\n\\$ "
         PROMPT_COMMAND='history -a;echo -ne "\e]0;${USER}@`uname -n` - `date +"%a %b %d %H:%M %p"` - `uname -sr`\a"'
     elif [ $TERM == "linux" ]; then
         PS1="\n\[\e[30;1m\][\[\e[35;1m\]0\[\e[30;1m\]] \[\e[0m\]\[\e[36m\]\h\[\e[37m\]:\[\e[34;1m\]\w\[\e[30;1m\]\\$ \[\e[0m\e7\e[1G\e[1H\e[1K\e[30;1m[\e[33m\j\e[30;1m] [\e[32;1m\!\e[30;1m] [\e[36m\u\e[30;1m] [\e[31;1m\d\e[30;1m] [\e[35m\@\e[30;1m] [\e[0m\e[36m`uname -sr`\e[30;1m] [\e[0m\e[34;1m`tty`\e[30;1m]\e8\]"
