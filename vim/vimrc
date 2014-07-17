@@ -256,9 +256,12 @@ au VimResized * exe "normal! \<c-w>="
 " Special vb template bind
 au BufNewFile,BufRead */templates/*.html   call s:template_binds()
 function! s:template_binds()
-    setlocal makeprg=clear;php\ ~/bin/update_templates.php\ %:p
-    nmap <buffer> <C-b> :make!<CR>
-    imap <buffer> <C-b> <C-o>:make!<CR>
+    " setlocal makeprg=clear;php\ ~/bin/update_templates.php\ %:p
+    setlocal makeprg=tmux\ split-window\ -v\ -p\ 20\ \"php\ ~/bin/update_templates.php\ %:p\ ;\ sleep\ 1\"
+    " nmap <buffer> <C-b> :make!<CR>
+    nmap <buffer> <C-b> :silent make!\|redraw!<CR>
+    " imap <buffer> <C-b> <C-o>:make!<CR>
+    imap <buffer> <C-b> <C-o>:silent make!\|redraw!<CR>
 endfun
 
 au BufNewFile,BufRead *.twig               call s:twig_settings()
@@ -267,9 +270,12 @@ function! s:twig_settings()
     setlocal softtabstop=2
     setlocal shiftwidth=2
     setlocal textwidth=0
-    setlocal makeprg=clear;php\ ~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p
-    nmap <buffer> <C-b> :make!<CR>
-    imap <buffer> <C-b> <C-o>:make!<CR>
+    " setlocal makeprg=clear;php\ ~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p
+    setlocal makeprg=tmux\ split-window\ -v\ -p\ 20\ \"~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p\ ;\ sleep\ 1\"
+    " nmap <buffer> <C-b> :make!<CR>
+    nmap <buffer> <C-b> :silent make!\|redraw!<CR>
+    " imap <buffer> <C-b> <C-o>:make!<CR>
+    imap <buffer> <C-b> <C-o>:silent make!\|redraw!<CR>
 endfun
 
 au BufNewFile,BufRead *.html               call s:html_settings()
