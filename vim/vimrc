@@ -1,5 +1,44 @@
 " vim: ts=4 sts=4 sw=4 et ai
 
+set nocompatible
+filetype off
+
+" Vundle start
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'godlygeek/tabular'
+Plugin 'Smart-Home-Key'
+Plugin 'matchit.zip'
+
+" UltiSnips
+Plugin 'SirVer/ultisnips'
+
+" Command-T
+Plugin 'wincent/command-t'
+
+" JavaScript
+Bundle "pangloss/vim-javascript"
+
+" Fish
+Plugin 'dag/vim-fish'
+
+" SASS
+Plugin 'JulesWang/css.vim'
+Plugin 'cakebaker/scss-syntax.vim'
+
+" Twig
+Plugin 'evidens/vim-twig'
+Plugin 'tokutake/twig-indent'
+
+call vundle#end()
+" Vundle end
+
 if &term =~ '^screen'
     " tmux will send xterm-style keys when its xterm-keys option is on
     execute "set <xUp>=\e[1;*A"
@@ -26,7 +65,6 @@ if has("mouse")
 endif
 set nobackup
 set nocindent
-set nocompatible
 set noignorecase
 set ruler
 set scrolloff=5
@@ -368,6 +406,16 @@ xmap <Leader>t= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
 nmap <Leader>t: :Tabularize /^[^:]\+\zs:<CR>
 xmap <Leader>t: :Tabularize /^[^:]\+\zs:<CR>
 
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" CommandT
+nnoremap <silent> t :CommandT<CR>
+let g:CommandTAcceptSelectionMap = '<C-t>'
+let g:CommandTAcceptSelectionTabMap = '<CR>'
+
 " PHP-QA
 " let g:phpqa_codesniffer_cmd      = "/home/collin/pear/phpcs"
 " let g:phpqa_messdetector_cmd     = "/home/collin/pear/phpmd"
@@ -379,4 +427,4 @@ if filereadable($HOME."/.config/vim/localrc")
     source ~/.config/vim/localrc
 endif
 
-call pathogen#infect()
+" call pathogen#infect()
