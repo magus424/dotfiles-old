@@ -8,35 +8,23 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'godlygeek/tabular'
 Plugin 'Smart-Home-Key'
 Plugin 'matchit.zip'
-
-" UltiSnips
 Plugin 'SirVer/ultisnips'
-
-" Command-T
 Plugin 'wincent/command-t'
-
-" JavaScript
-Bundle "pangloss/vim-javascript"
-
-" Fish
+Bundle 'pangloss/vim-javascript'
 Plugin 'dag/vim-fish'
-
-" SASS
 Plugin 'JulesWang/css.vim'
 Plugin 'cakebaker/scss-syntax.vim'
-
-" Twig
 Plugin 'evidens/vim-twig'
 Plugin 'tokutake/twig-indent'
 
 call vundle#end()
+
 " Vundle end
 
 if &term =~ '^screen'
@@ -367,8 +355,8 @@ let g:html_indent_script1 = "inc"
 let g:html_indent_style1  = "inc"
 
 " Taglist
-noremap <silent> <Leader>tt :TlistToggle<CR>
-let g:Tlist_Auto_Open=0
+" noremap <silent> <Leader>tt :TlistToggle<CR>
+" let g:Tlist_Auto_Open=0
 
 " SuperTab
 " let b:SuperTabDisabled=1
@@ -379,7 +367,7 @@ let g:Tlist_Auto_Open=0
 " let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " NERDTree
-let NERDTreeQuitOnOpen=1
+" let NERDTreeQuitOnOpen=1
 
 " SmartHome
 noremap  <silent> [1~ :SmartHomeKey<CR>
