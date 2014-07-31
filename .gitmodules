@@ -1,30 +1,30 @@
-[submodule "vim/bundle/css3"]
-	path = vim/bundle/css3
-	url = http://github.com/hail2u/vim-css3-syntax.git
-[submodule "vim/bundle/fugitive"]
-	path = vim/bundle/fugitive
-	url = http://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
-	url = http://github.com/magus424/nerdtree.git
-[submodule "vim/bundle/tabman"]
-	path = vim/bundle/tabman
-	url = http://github.com/kien/tabman.vim.git
-[submodule "vim/bundle/tabular"]
-	path = vim/bundle/tabular
-	url = http://github.com/godlygeek/tabular.git
-[submodule "vim/bundle/tcomment"]
-	path = vim/bundle/tcomment
-	url = http://github.com/tomtom/tcomment_vim
-[submodule "vim/bundle/vim-twig"]
-	path = vim/bundle/vim-twig
-	url = https://github.com/evidens/vim-twig.git
-[submodule "vim/bundle/twig-indent"]
-	path = vim/bundle/twig-indent
-	url = https://github.com/tokutake/twig-indent.git
-[submodule "vim/bundle/css"]
-	path = vim/bundle/css
-	url = https://github.com/JulesWang/css.vim.git
-[submodule "vim/bundle/scss"]
-	path = vim/bundle/scss
-	url = https://github.com/cakebaker/scss-syntax.vim.git
+#[submodule "vim/bundle/css3"]
+#	path = vim/bundle/css3
+#	url = http://github.com/hail2u/vim-css3-syntax.git
+#[submodule "vim/bundle/fugitive"]
+#	path = vim/bundle/fugitive
+#	url = http://github.com/tpope/vim-fugitive.git
+#[submodule "vim/bundle/nerdtree"]
+#	path = vim/bundle/nerdtree
+#	url = http://github.com/magus424/nerdtree.git
+#[submodule "vim/bundle/tabman"]
+#	path = vim/bundle/tabman
+#	url = http://github.com/kien/tabman.vim.git
+#[submodule "vim/bundle/tabular"]
+#	path = vim/bundle/tabular
+#	url = http://github.com/godlygeek/tabular.git
+#[submodule "vim/bundle/tcomment"]
+#	path = vim/bundle/tcomment
+#	url = http://github.com/tomtom/tcomment_vim
+#[submodule "vim/bundle/vim-twig"]
+#	path = vim/bundle/vim-twig
+#	url = https://github.com/evidens/vim-twig.git
+#[submodule "vim/bundle/twig-indent"]
+#	path = vim/bundle/twig-indent
+#	url = https://github.com/tokutake/twig-indent.git
+#[submodule "vim/bundle/css"]
+#	path = vim/bundle/css
+#	url = https://github.com/JulesWang/css.vim.git
+#[submodule "vim/bundle/scss"]
+#	path = vim/bundle/scss
+#	url = https://github.com/cakebaker/scss-syntax.vim.git
