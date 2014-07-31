@@ -412,9 +412,11 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " CommandT
-nnoremap <silent> t :CommandT<CR>
+nnoremap <silent> <Leader>t :CommandT ~/html/<CR>
+nnoremap <silent> t :CommandT ~/html/<CR>
 let g:CommandTAcceptSelectionMap = '<C-t>'
 let g:CommandTAcceptSelectionTabMap = '<CR>'
+let g:CommandTWildIgnore=&wildignore . ",**/bower_components/*,**/node_modules/*,**/vendor/*,**/trac/*,**/blog/*,**/bootstrap_assets/*,**/external_libraries/*,**/googleapi/*,**/xhprof/*,**/node.js/*,**/SD1.0/*,**/WAP1.0/*,**/Hybrid/Classic/*,**/Hybrid/Tablet/*,**/Hybrid/Ice/*,**/Hybrid/Midnight/*"
 
 " PHP-QA
 " let g:phpqa_codesniffer_cmd      = "/home/collin/pear/phpcs"
