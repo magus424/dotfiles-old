@@ -99,7 +99,7 @@ set background=dark
 
 " fix colors
 highlight DiffText ctermbg=1
-highlight LineNr ctermbg=232 ctermfg=235 guibg=#80810 guifg=#262626
+highlight LineNr ctermbg=233 ctermfg=240 guibg=#80810 guifg=#262626
 
 if has("autocmd")
     filetype plugin on
