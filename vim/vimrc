@@ -22,6 +22,8 @@ Plugin 'JulesWang/css.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'evidens/vim-twig'
 Plugin 'tokutake/twig-indent'
+Plugin 'tacahiroy/vim-bestfriend'
+Plugin 'Townk/vim-autoclose'
 
 call vundle#end()
 
