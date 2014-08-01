@@ -16,12 +16,14 @@ Plugin 'Smart-Home-Key'
 Plugin 'matchit.zip'
 Plugin 'SirVer/ultisnips'
 Plugin 'wincent/command-t'
-Bundle 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
 Plugin 'dag/vim-fish'
 Plugin 'JulesWang/css.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'evidens/vim-twig'
 Plugin 'tokutake/twig-indent'
+" Plugin 'jsoriano/vim-dbgp'
+Plugin 'joonty/vdebug.git'
 
 call vundle#end()
 
@@ -100,6 +102,7 @@ if has("autocmd")
     filetype plugin on
     filetype indent on
     let php_folding=1
+    au BufEnter Debugger* setlocal scrolloff=0
     " let php_sql_query=1
     " let php_htmlInStrings=1
     " augroup per_window_search
