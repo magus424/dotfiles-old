@@ -23,7 +23,7 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'evidens/vim-twig'
 Plugin 'tokutake/twig-indent'
 " Plugin 'jsoriano/vim-dbgp'
-Plugin 'joonty/vdebug.git'
+Plugin 'joonty/vdebug'
 Plugin 'tacahiroy/vim-bestfriend'
 Plugin 'Townk/vim-autoclose'
 
