@@ -26,6 +26,7 @@ Plugin 'tokutake/twig-indent'
 Plugin 'joonty/vdebug'
 Plugin 'tacahiroy/vim-bestfriend'
 Plugin 'Townk/vim-autoclose'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()
 
@@ -101,6 +102,8 @@ set background=dark
 highlight DiffText ctermbg=1
 highlight LineNr ctermbg=233 ctermfg=240 guibg=#80810 guifg=#262626
 
+colorscheme mycolors
+
 if has("autocmd")
     filetype plugin on
     filetype indent on
@@ -111,21 +114,25 @@ endif
 " Highlight conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-set statusline=%f    " Path.
-set statusline+=%m   " Modified flag.
-set statusline+=%r   " Readonly flag.
-set statusline+=%w   " Preview window flag.
-set statusline+=\    " Space.
-set statusline+=%=   " Right align.
+" highlight User1 ctermbg=233 ctermfg=240
 
-" File format, encoding and type.  Ex: "(unix/utf-8/python)"
-set statusline+=(
-set statusline+=%{&ff}                        " Format (unix/DOS).
-set statusline+=/
-set statusline+=%{strlen(&fenc)?&fenc:&enc}   " Encoding (utf-8).
-set statusline+=/
-set statusline+=%{&ft}                        " Type (python).
-set statusline+=)
+set statusline=
+" set statusline+=%1*
+set statusline+=%f                              " Path
+set statusline+=%m                              " Modified flag
+set statusline+=%r                              " Readonly flag
+set statusline+=%w                              " Preview window flag
+set statusline+=\                               " Space
+set statusline+=%=                              " Right align
+set statusline+=%{fugitive#statusline()}        " Git info
+set statusline+=\                               " Space
+set statusline+=(                               " (
+set statusline+=%{&ff}                          " Format (unix/DOS)
+set statusline+=/                               " /
+set statusline+=%{strlen(&fenc)?&fenc:&enc}     " Encoding (utf-8)
+set statusline+=/                               " /
+set statusline+=%{&ft}                          " Type (python)
+set statusline+=)                               " )
 
 " Line and column position and counts.
 set statusline+=\ (line\ %l\/%L,\ col\ %03c)
