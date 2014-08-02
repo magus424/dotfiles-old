@@ -27,6 +27,9 @@ Plugin 'joonty/vdebug'
 Plugin 'tacahiroy/vim-bestfriend'
 Plugin 'Townk/vim-autoclose'
 Plugin 'scrooloose/syntastic'
+Plugin 'mileszs/ack.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-obsession'
 
 call vundle#end()
 
@@ -127,15 +130,15 @@ set statusline+=%=                              " Right align
 set statusline+=%{fugitive#statusline()}        " Fugitive info
 set statusline+=\                               " Space
 set statusline+=(                               " (
-set statusline+=%{&ff}                          " Format (unix/DOS)
+set statusline+=%{&ff}                          " Format (unix/dos)
 set statusline+=/                               " /
 set statusline+=%{strlen(&fenc)?&fenc:&enc}     " Encoding (utf-8)
 set statusline+=/                               " /
-set statusline+=%{&ft}                          " Type (python)
+set statusline+=%{strlen(&ft)?&ft:'none'}       " Type (python)
 set statusline+=)                               " )
+set statusline+=\ (line\ %l\/%L,\ col\ %03c)    " Line and column position and counts.
 
-" Line and column position and counts.
-set statusline+=\ (line\ %l\/%L,\ col\ %03c)
+echo synIDattr(synID(line('.'),col('.'),1),'name')
 
 if &term == "screen" || &term == "screen-256color"
     set t_ts=k
