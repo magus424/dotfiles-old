@@ -117,14 +117,14 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " highlight User1 ctermbg=233 ctermfg=240
 
 set statusline=
-" set statusline+=%1*
 set statusline+=%f                              " Path
 set statusline+=%m                              " Modified flag
 set statusline+=%r                              " Readonly flag
 set statusline+=%w                              " Preview window flag
 set statusline+=\                               " Space
+set statusline+=%{SyntasticStatuslineFlag()}    " Syntastic info
 set statusline+=%=                              " Right align
-set statusline+=%{fugitive#statusline()}        " Git info
+set statusline+=%{fugitive#statusline()}        " Fugitive info
 set statusline+=\                               " Space
 set statusline+=(                               " (
 set statusline+=%{&ff}                          " Format (unix/DOS)
@@ -365,6 +365,9 @@ let g:html_indent_style1  = "inc"
 " SmartHome
 noremap  <silent> [1~ :SmartHomeKey<CR>
 inoremap <silent> [1~ <C-o>:SmartHomeKey<CR>
+
+" Syntastic
+let g:syntastic_enable_signs=1
 
 " TComment
 let g:tcommentGuessFileType_php = 'php'
