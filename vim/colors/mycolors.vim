@@ -12,18 +12,24 @@ hi Normal                   ctermfg=7
 
 hi StatusLine               ctermfg=244 ctermbg=233 cterm=none
 hi StatusLineNC             ctermfg=244 ctermbg=0   cterm=none
-hi VertSplit                ctermfg=244 ctermbg=233 cterm=none
+hi VertSplit                ctermfg=24  ctermbg=0   cterm=none
 hi LineNr                   ctermfg=240 ctermbg=233 cterm=none
 
-hi TabLine                  ctermfg=244 ctermbg=234 cterm=underline
-hi TabLineSel               ctermfg=244 ctermbg=0   cterm=none
-hi TabLineFill              ctermfg=244 ctermbg=234 cterm=none
+hi TabLine                  ctermfg=255 ctermbg=24  cterm=none
+hi TabLineSel               ctermfg=255 ctermbg=0   cterm=none
+hi clear TabLineFill
+hi link TabLineFill TabLine
 
 hi SignColumn               ctermfg=244 ctermbg=232
 hi GitGutterAdd             ctermfg=34  ctermbg=232
 hi GitGutterDelete          ctermfg=124 ctermbg=232
 hi GitGutterChange          ctermfg=142 ctermbg=232
 hi GitGutterChangeDelete    ctermfg=208 ctermbg=232
+
+hi Pmenu                    ctermfg=7   ctermbg=13
+hi PmenuSel                 ctermfg=231 ctermbg=23
+hi PmenuSbar                ctermbg=200
+hi PmenuThumb               cterm=reverse
 
 hi IncSearch                term=reverse cterm=reverse gui=reverse
 hi Search                   term=reverse ctermfg=0 ctermbg=11 guifg=Black guibg=Yellow
@@ -57,10 +63,6 @@ hi SpellBad                 term=reverse ctermbg=9 gui=undercurl guisp=Red
 hi SpellCap                 term=reverse ctermbg=12 gui=undercurl guisp=Blue
 hi SpellRare                term=reverse ctermbg=13 gui=undercurl guisp=Magenta
 hi SpellLocal               term=underline ctermbg=14 gui=undercurl guisp=Cyan
-hi Pmenu                    ctermbg=13 guibg=Magenta
-hi PmenuSel                 ctermbg=242 guibg=DarkGrey
-hi PmenuSbar                ctermbg=248 guibg=Grey
-hi PmenuThumb               cterm=reverse gui=reverse
 hi CursorColumn             term=reverse ctermbg=242 guibg=Grey40
 hi CursorLine               term=underline cterm=underline guibg=Grey40
 hi ColorColumn              term=reverse ctermbg=1 guibg=DarkRed
