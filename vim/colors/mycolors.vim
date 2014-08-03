@@ -6,21 +6,22 @@ set bg=dark
 hi clear
 hi clear VisualNOS
 
-hi StatusLine               ctermfg=244 ctermbg=233 guifg=#808080 guibg=#121212 term=none cterm=none
-hi StatusLineNC             ctermfg=244 ctermbg=0   guifg=#808080 guibg=#000000 term=none cterm=none
-hi VertSplit                ctermfg=244 ctermbg=233 guifg=#808080 guibg=#121212 term=none cterm=none
+hi Normal                   ctermfg=7
 
-hi TabLine                  ctermfg=244 ctermbg=234 guifg=#808080 guibg=#1c1c1c term=underline cterm=underline gui=underline
-hi TabLineSel               ctermfg=244 ctermbg=0   guifg=#808080 guibg=#000000 term=none cterm=none
-hi TabLineFill              ctermfg=244 ctermbg=234 guifg=#808080 guibg=#1c1c1c term=none cterm=none gui=none
+hi StatusLine               ctermfg=244 ctermbg=233 cterm=none
+hi StatusLineNC             ctermfg=244 ctermbg=0   cterm=none
+hi VertSplit                ctermfg=244 ctermbg=233 cterm=none
 
-hi SignColumn               ctermfg=244 ctermbg=233 guifg=#808080 guibg=#121212 term=none
-hi GitGutterAdd             ctermfg=34  ctermbg=233 guifg=#00af00 guibg=#121212 term=none
-hi GitGutterDelete          ctermfg=124 ctermbg=233 guifg=#af0000 guibg=#121212 term=none
-hi GitGutterChange          ctermfg=142 ctermbg=233 guifg=#afaf00 guibg=#121212 term=none
-hi GitGutterChangeDelete    ctermfg=208 ctermbg=233 guifg=#ff8700 guibg=#121212 term=none
+hi TabLine                  ctermfg=244 ctermbg=234 cterm=underline
+hi TabLineSel               ctermfg=244 ctermbg=0   cterm=none
+hi TabLineFill              ctermfg=244 ctermbg=234 cterm=none
 
-hi Normal                   ctermfg=Grey
+hi SignColumn               ctermfg=244 ctermbg=232
+hi GitGutterAdd             ctermfg=34  ctermbg=232
+hi GitGutterDelete          ctermfg=124 ctermbg=232
+hi GitGutterChange          ctermfg=142 ctermbg=232
+hi GitGutterChangeDelete    ctermfg=208 ctermbg=232
+
 hi SpecialKey               term=bold ctermfg=81 guifg=Cyan
 hi NonText                  term=bold ctermfg=12 gui=bold guifg=Blue
 hi Directory                term=bold ctermfg=159 guifg=Cyan
