@@ -297,31 +297,39 @@ inoremap <Esc>[4~ <End>
 au VimResized * exe "normal! \<c-w>="
 
 " Special vb template bind
-au BufNewFile,BufRead */templates/*.html   call s:template_binds()
+au BufNewFile,BufRead */templates/*.html call s:template_binds()
 function! s:template_binds()
-    " setlocal makeprg=clear;php\ ~/bin/update_templates.php\ %:p
-    setlocal makeprg=tmux\ split-window\ -v\ -p\ 5\ \"php\ ~/bin/update_templates.php\ %:p\ ;\ sleep\ 1\";tmux\ select-pane\ -U
-    " nmap <buffer> <C-b> :make!<CR>
-    nmap <buffer> <C-b> :silent make!\|redraw!<CR>
-    " imap <buffer> <C-b> <C-o>:make!<CR>
-    imap <buffer> <C-b> <C-o>:silent make!\|redraw!<CR>
+    let tmux=$TMUX
+    if tmux
+        setlocal makeprg=tmux\ split-window\ -v\ -p\ 5\ \"php\ ~/bin/update_templates.php\ %:p\ ;\ sleep\ 1\";tmux\ select-pane\ -U
+        nmap <buffer> <C-b> :silent make!\|redraw!<CR>
+        imap <buffer> <C-b> <C-o>:silent make!\|redraw!<CR>
+    else
+        setlocal makeprg=clear;php\ ~/bin/update_templates.php\ %:p
+        nmap <buffer> <C-b> :make!<CR>
+        imap <buffer> <C-b> <C-o>:make!<CR>
+    endif
 endfun
 
-au BufNewFile,BufRead *.twig               call s:twig_settings()
+au BufNewFile,BufRead,BufEnter *.twig call s:twig_settings()
 function! s:twig_settings()
     setlocal tabstop=2
     setlocal softtabstop=2
     setlocal shiftwidth=2
     setlocal textwidth=0
-    " setlocal makeprg=clear;php\ ~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p
-    setlocal makeprg=tmux\ split-window\ -v\ -p\ 5\ \"~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p\ ;\ sleep\ 1\";tmux\ select-pane\ -U
-    " nmap <buffer> <C-b> :make!<CR>
-    nmap <buffer> <C-b> :silent make!\|redraw!<CR>
-    " imap <buffer> <C-b> <C-o>:make!<CR>
-    imap <buffer> <C-b> <C-o>:silent make!\|redraw!<CR>
+    let tmux=$TMUX
+    if tmux
+        setlocal makeprg=tmux\ split-window\ -v\ -p\ 5\ \"~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p\ ;\ sleep\ 1\";tmux\ select-pane\ -U
+        nmap <buffer> <C-b> :silent make!\|redraw!<CR>
+        imap <buffer> <C-b> <C-o>:silent make!\|redraw!<CR>
+    else
+        setlocal makeprg=clear;php\ ~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p
+        nmap <buffer> <C-b> :make!<CR>
+        imap <buffer> <C-b> <C-o>:make!<CR>
+    endif
 endfun
 
-au BufNewFile,BufRead *.html               call s:html_settings()
+au BufNewFile,BufRead *.html call s:html_settings()
 function! s:html_settings()
     setlocal tabstop=2
     setlocal softtabstop=2
@@ -392,20 +400,20 @@ let g:tcommentMapLeader1 = ''
 let g:tcommentMapLeader2 = ''
 let g:tcommentMapLeaderOp1 = ''
 let g:tcommentMapLeaderOp2 = ''
-nmap C :TComment<CR>
-xmap C :TComment<CR>
+nmap <silent> C :TComment<CR>
+xmap <silent> C :TComment<CR>
 
 " Tabularize
-nmap `= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
-xmap `= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
-nmap `; :Tabularize /^[^:]\+\zs:<CR>
-xmap `; :Tabularize /^[^:]\+\zs:<CR>
-nmap `4 :Tabularize /^[^\$]\+\zs\$\S\+<CR>
-xmap `4 :Tabularize /^[^\$]\+\zs\$\S\+<CR>
-nmap <Leader>t= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
-xmap <Leader>t= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
-nmap <Leader>t: :Tabularize /^[^:]\+\zs:<CR>
-xmap <Leader>t: :Tabularize /^[^:]\+\zs:<CR>
+nmap <silent> `= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
+xmap <silent> `= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
+nmap <silent> `; :Tabularize /^[^:]\+\zs:<CR>
+xmap <silent> `; :Tabularize /^[^:]\+\zs:<CR>
+nmap <silent> `4 :Tabularize /^[^\$]\+\zs\$\S\+<CR>
+xmap <silent> `4 :Tabularize /^[^\$]\+\zs\$\S\+<CR>
+nmap <silent> <Leader>t= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
+xmap <silent> <Leader>t= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
+nmap <silent> <Leader>t: :Tabularize /^[^:]\+\zs:<CR>
+xmap <silent> <Leader>t: :Tabularize /^[^:]\+\zs:<CR>
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
