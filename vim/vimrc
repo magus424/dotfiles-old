@@ -311,7 +311,7 @@ function! s:template_binds()
     endif
 endfun
 
-au BufNewFile,BufRead,BufEnter *.twig call s:twig_settings()
+au BufNewFile,BufRead *.twig call s:twig_settings()
 function! s:twig_settings()
     setlocal tabstop=2
     setlocal softtabstop=2
