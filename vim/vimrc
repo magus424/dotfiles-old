@@ -32,12 +32,12 @@ Plugin 'tokutake/twig-indent'
 " Plugin 'jsoriano/vim-dbgp'
 " Plugin 'joonty/vdebug'
 Plugin 'tacahiroy/vim-bestfriend'
-" Plugin 'Townk/vim-autoclose'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'mileszs/ack.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-obsession'
+
 if python_version > 5
     Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 elseif version >= 720
@@ -111,8 +111,8 @@ set wildignore+=*.spl,.sw?,.py?                     " more binary stuff
 set suffixes=.bak,~,.o,.info,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx
 
 syntax on
+set background=dark
 colorscheme mycolors
-" set background=dark
 
 if has("autocmd")
     filetype plugin on
@@ -357,6 +357,17 @@ function! s:php_binds()
     imap <buffer> <C-b> <C-o>:make!<CR>
 endfun
 
+function! ResCur()
+  if line("'\"") <= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
+
+augroup resCur
+  autocmd!
+  autocmd BufRead * call ResCur()
+augroup END
 
 """ Custom Commands
 
