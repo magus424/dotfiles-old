@@ -7,6 +7,7 @@ ln -sf ~/.config/vim/vimrc ~/.vimrc
 ln -sf ~/.config/vim/gvimrc ~/.gvimrc
 ln -sf ~/.config/tmux.conf ~/.tmux.conf
 
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+mkdir ~/.config/vim/bundle 2>/dev/null
+git clone https://github.com/gmarik/Vundle.vim.git ~/.config/vim/bundle/Vundle.vim
 vim +PluginInstall +qa
 
