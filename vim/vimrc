@@ -37,6 +37,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'mileszs/ack.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-obsession'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'ap/vim-css-color'
 
 if python_version > 5
     Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -165,7 +167,9 @@ set statusline+=%{strlen(&ft)?&ft:'none'}       " Type (python)
 set statusline+=)                               " )
 set statusline+=\ (line\ %l\/%L,\ col\ %03c)    " Line and column position and counts.
 
-echo synIDattr(synID(line('.'),col('.'),1),'name')
+function! GetSyntaxID()
+    echo synIDattr(synID(line('.'),col('.'),1),'name')
+endfunction
 
 if &term == "screen" || &term == "screen-256color"
     set t_ts=k
