@@ -1,0 +1,24 @@
+[core]
+    excludesfile = /home/collin/.gitignore
+    autocrlf     = input
+    safecrlf     = warn
+    editor       = vim
+
+[alias]
+    changes  = diff --name-status -r
+    diffstat = diff --stat -r
+    stdiff   = diff --staged -w
+    st       = status
+    ci       = commit
+    co       = checkout
+    um       = fetch origin master:master
+    unstage  = reset HEAD --
+
+[push]
+    default = simple
+
+[merge]
+    tool = vimdiff
+
+[color]
+    ui = true
