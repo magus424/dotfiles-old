@@ -8,6 +8,10 @@ if type -f dircolors > /dev/null
     eval (dircolors -c | sed 's/>&\/dev\/null$//')
 end
 
+set -x POWERLINE_COMMAND ~/.config/vim/bundle/powerline/scripts/powerline-render
+set -x PYTHONPATH ~/.config/vim/bundle/powerline/
+~/.config/vim/bundle/powerline/scripts/powerline-daemon -q
+
 set -x WHOIS_HIDE 1
 set EDITOR vim
 if test -z "$TMUX"
