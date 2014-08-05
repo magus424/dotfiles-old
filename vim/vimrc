@@ -277,7 +277,7 @@ nmap <C-b> <nop>
 imap <C-b> <nop>
 
 " :w!! = write a file as sudo
-cmap w!! w !sudo tee % > /dev/null
+cmap W!! w !sudo tee % > /dev/null
 
 " Map _$ to trim whitespace on the end of lines
 function! Preserve(command)
@@ -324,7 +324,7 @@ au VimResized * exe "normal! \<c-w>="
 au BufNewFile,BufRead */templates/*.html call s:template_binds()
 function! s:template_binds()
     let tmux=$TMUX
-    if tmux
+    if tmux =~# "tmux"
         setlocal makeprg=tmux\ split-window\ -v\ -p\ 5\ \"php\ ~/bin/update_templates.php\ %:p\ ;\ sleep\ 1\";tmux\ select-pane\ -U
         nmap <buffer> <C-b> :silent make!\|redraw!<CR>
         imap <buffer> <C-b> <C-o>:silent make!\|redraw!<CR>
@@ -342,7 +342,7 @@ function! s:twig_settings()
     setlocal shiftwidth=2
     setlocal textwidth=0
     let tmux=$TMUX
-    if tmux
+    if tmux =~# "tmux"
         setlocal makeprg=tmux\ split-window\ -v\ -p\ 5\ \"~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p\ ;\ sleep\ 1\";tmux\ select-pane\ -U
         nmap <buffer> <C-b> :silent make!\|redraw!<CR>
         imap <buffer> <C-b> <C-o>:silent make!\|redraw!<CR>
