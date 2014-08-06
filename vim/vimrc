@@ -176,8 +176,6 @@ function! GetSyntax()
     exec "hi ".synIDattr(GetSyntaxID(), 'name')
 endfunction
 
-nmap <Leader>si :call GetSyntax()<CR>
-
 if &term == "screen" || &term == "screen-256color"
     set t_ts=k
     set t_fs=\
