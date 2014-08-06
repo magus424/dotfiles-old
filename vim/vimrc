@@ -40,6 +40,9 @@ Plugin 'tpope/vim-obsession'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ap/vim-css-color'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'guns/xterm-color-table.vim'
+" Plugin 'Rykka/colorv.vim'
+" Plugin 'Rykka/galaxy.vim'
 
 if python_version > 5
     Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
