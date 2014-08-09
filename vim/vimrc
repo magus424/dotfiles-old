@@ -237,8 +237,8 @@ xnoremap <Tab> >gv
 xnoremap <S-Tab> <gv
 
 " Quick word jumping with Ctrl+Arrows
-inoremap <Esc>[A <C-o>{
-inoremap <Esc>[B <C-o>}
+inoremap <silent> <Esc>[A <C-o>{
+inoremap <silent> <Esc>[B <C-o>}
 inoremap <Esc>[C <S-Right>
 inoremap <Esc>[D <S-Left>
 
@@ -310,6 +310,9 @@ inoremap <Esc>OR *
 inoremap <Esc>OQ /
 inoremap <Esc>Ol +
 inoremap <Esc>OS -
+
+noremap <Esc>OA <Up>
+noremap <Esc>OB <Down>
 
 noremap  <Esc>[1~ <Home>
 cnoremap <Esc>[1~ <Home>
@@ -471,6 +474,8 @@ let g:CommandTWildIgnore=&wildignore . ",**/bower_components/*,**/node_modules/*
 " let g:phpqa_codesniffer_autorun  = 0
 " let g:phpqa_messdetector_autorun = 0
 " let g:phpqa_codesniffer_args     = "--standard=Slickdeals"
+
+cs add ~/.cscope/cscope.out
 
 if filereadable($HOME."/.config/vim/localrc")
     source ~/.config/vim/localrc
