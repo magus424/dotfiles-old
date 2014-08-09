@@ -12,6 +12,8 @@ if python_version < 6
     let g:airline_enable_hunks=0
 endif
 
+let g:delimitMate_excluded_ft = 'scss'
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
