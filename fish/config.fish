@@ -14,9 +14,14 @@ set -x PYTHONPATH ~/.config/vim/bundle/powerline/
 
 set -x WHOIS_HIDE 1
 set EDITOR vim
-if test -z "$TMUX"
-    set PATH ~/bin /opt/nodejs/bin $PATH
+for p in /opt/nodejs/bin ~/gocode/bin ~/bin
+    if not contains $p $PATH
+        set PATH $p $PATH
+    end
 end
+
+set -x GTAGSDBPATH ~/html/.git/gtags/
+set -x GTAGSROOT ~/html/
 
 set -e GREP_OPTIONS
 set -x GREP_COLOR "1;33"
