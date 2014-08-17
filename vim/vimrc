@@ -45,6 +45,12 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'guns/xterm-color-table.vim'
 " Plugin 'Rykka/colorv.vim'
 " Plugin 'Rykka/galaxy.vim'
+Plugin 'Shougo/unite.vim'
+if filereadable($HOME.'/.csearchindex')
+    Plugin 'brandonbloom/csearch.vim'
+    Plugin 'junkblocker/unite-codesearch'
+endif
+
 
 if python_version > 5
     Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -237,8 +243,8 @@ xnoremap <Tab> >gv
 xnoremap <S-Tab> <gv
 
 " Quick word jumping with Ctrl+Arrows
-inoremap <Esc>[A <C-o>{
-inoremap <Esc>[B <C-o>}
+inoremap <silent> <Esc>[A <C-o>{
+inoremap <silent> <Esc>[B <C-o>}
 inoremap <Esc>[C <S-Right>
 inoremap <Esc>[D <S-Left>
 
@@ -310,6 +316,9 @@ inoremap <Esc>OR *
 inoremap <Esc>OQ /
 inoremap <Esc>Ol +
 inoremap <Esc>OS -
+
+noremap <Esc>OA <Up>
+noremap <Esc>OB <Down>
 
 noremap  <Esc>[1~ <Home>
 cnoremap <Esc>[1~ <Home>
@@ -454,16 +463,43 @@ nmap <silent> <Leader>t: :Tabularize /^[^:]\+\zs:<CR>
 xmap <silent> <Leader>t: :Tabularize /^[^:]\+\zs:<CR>
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsExpandTrigger       = "<tab>"
+let g:UltiSnipsJumpForwardTrigger  = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" Unite codesearch
+nnoremap <silent> <Esc>f :Unite codesearch<CR>
+nnoremap <silent> <Esc>g :exec "Unite -input=".expand("<cword>")." codesearch"<CR>
+
+let g:unite_enable_start_insert        = 1
+let g:unite_split_rule                 = "botright"
+let g:unite_force_overwrite_statusline = 0
+let g:unite_winheight                  = 30
+
+call unite#custom#default_action('file', 'tabopen')
 
 " CommandT
-nnoremap <silent> <Leader>t :CommandT ~/html/<CR>
-nnoremap <silent> t :CommandT ~/html/<CR>
-let g:CommandTAcceptSelectionMap = '<C-t>'
-let g:CommandTAcceptSelectionTabMap = '<CR>'
-let g:CommandTWildIgnore=&wildignore . ",**/bower_components/*,**/node_modules/*,**/vendor/*,**/trac/*,**/blog/*,**/bootstrap_assets/*,**/external_libraries/*,**/googleapi/*,**/xhprof/*,**/node.js/*,**/SD1.0/*,**/WAP1.0/*,**/Hybrid/Classic/*,**/Hybrid/Tablet/*,**/Hybrid/Ice/*,**/Hybrid/Midnight/*"
+nnoremap <silent> <Esc>t :CommandT ~/html/<CR>
+
+let g:CommandTAcceptSelectionMap    = "<C-t>"
+let g:CommandTAcceptSelectionTabMap = "<CR>"
+let g:CommandTWildIgnore            = &wildignore
+    \ . ",**/bower_components/*"
+    \ . ",**/node_modules/*"
+    \ . ",**/vendor/*"
+    \ . ",**/trac/*"
+    \ . ",**/blog/*"
+    \ . ",**/bootstrap_assets/*"
+    \ . ",**/external_libraries/*"
+    \ . ",**/googleapi/*"
+    \ . ",**/xhprof/*"
+    \ . ",**/node.js/*"
+    \ . ",**/SD1.0/*"
+    \ . ",**/WAP1.0/*"
+    \ . ",**/Hybrid/Classic/*"
+    \ . ",**/Hybrid/Tablet/*"
+    \ . ",**/Hybrid/Ice/*"
+    \ . ",**/Hybrid/Midnight/*"
 
 " PHP-QA
 " let g:phpqa_codesniffer_cmd      = "/home/collin/pear/phpcs"
@@ -471,6 +507,9 @@ let g:CommandTWildIgnore=&wildignore . ",**/bower_components/*,**/node_modules/*
 " let g:phpqa_codesniffer_autorun  = 0
 " let g:phpqa_messdetector_autorun = 0
 " let g:phpqa_codesniffer_args     = "--standard=Slickdeals"
+
+cs add ~/.cscope/cscope.out
+set cspc=3
 
 if filereadable($HOME."/.config/vim/localrc")
     source ~/.config/vim/localrc
