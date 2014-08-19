@@ -512,7 +512,9 @@ let g:unite_split_rule                 = "botright"
 let g:unite_force_overwrite_statusline = 0
 let g:unite_winheight                  = 30
 
-call unite#custom#default_action('file', 'tabopen')
+if exists("unite#custom#default_action")
+    call unite#custom#default_action('file', 'tabopen')
+endif
 
 " CommandT
 nnoremap <silent> <Esc>t :CommandT ~/html/<CR>
