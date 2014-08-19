@@ -187,6 +187,39 @@ function! GetSyntax()
     exec "hi ".synIDattr(GetSyntaxID(), 'name')
 endfunction
 
+function! Wipeout()
+    " list of *all* buffer numbers
+    let l:buffers = range(1, bufnr('$'))
+
+    " what tab page are we in?
+    let l:currentTab = tabpagenr()
+    try
+        " go through all tab pages
+        let l:tab = 0
+        while l:tab < tabpagenr('$')
+            let l:tab += 1
+
+            " go through all windows
+            let l:win = 0
+            while l:win < winnr('$')
+                let l:win += 1
+                " whatever buffer is in this window in this tab, remove it from
+                " l:buffers list
+                let l:thisbuf = winbufnr(l:win)
+                call remove(l:buffers, index(l:buffers, l:thisbuf))
+            endwhile
+        endwhile
+
+        " if there are any buffers left, delete them
+        if len(l:buffers)
+            execute 'bwipeout' join(l:buffers)
+        endif
+    finally
+        " go back to our original tab page
+        execute 'tabnext' l:currentTab
+    endtry
+endfunction
+
 if &term == "screen" || &term == "screen-256color"
     set t_ts=k
     set t_fs=\
@@ -222,6 +255,9 @@ if &diff
     nnoremap <Leader>d] :diffget 3
 endif
 
+" Alt+P toggles paste
+nnoremap <silent> <Esc>p :set invpaste<CR>
+
 " // clears search highlight
 nnoremap <silent> // :noh<CR>
 
@@ -229,8 +265,8 @@ nnoremap <silent> // :noh<CR>
 nnoremap <Space> za
 xnoremap <Space> za
 
-" C-n toggles line numbers
-nnoremap <silent> <C-n> :set invnumber<CR>
+" C-n toggles line numbers - conflicts with multi-cursor
+" nnoremap <silent> <C-n> :set invnumber<CR>
 
 " z0 = recursively open top-level fold we're in
 nnoremap z0 zCz0
@@ -481,6 +517,9 @@ call unite#custom#default_action('file', 'tabopen')
 " CommandT
 nnoremap <silent> <Esc>t :CommandT ~/html/<CR>
 
+let g:CommandTCancelMap             = ['<ESC>', '<C-c>']
+let g:CommandTSelectNextMap         = ['<ESC>OB']
+let g:CommandTSelectPrevMap         = ['<ESC>OA']
 let g:CommandTAcceptSelectionMap    = "<C-t>"
 let g:CommandTAcceptSelectionTabMap = "<CR>"
 let g:CommandTWildIgnore            = &wildignore
