@@ -2,3 +2,5 @@
 bundle/
 localrc
 session*
+swap/
+backup/

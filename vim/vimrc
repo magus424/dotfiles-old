@@ -51,7 +51,6 @@ if filereadable($HOME.'/.csearchindex')
     Plugin 'junkblocker/unite-codesearch'
 endif
 
-
 if python_version > 5
     Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 elseif version >= 720
@@ -76,7 +75,6 @@ endif
 
 set autowrite
 set backspace=indent,eol,start
-set backupcopy=no
 set history=50
 set hlsearch
 set incsearch
@@ -86,7 +84,6 @@ set listchars=tab:>-,trail:-
 if has("mouse")
     set mouse=a
 endif
-set nobackup
 set nocindent
 set noignorecase
 set number
@@ -123,6 +120,20 @@ set wildignore+=*.spl,.sw?,.py?                     " more binary stuff
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
 set suffixes=.bak,~,.o,.info,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx
+
+let swapdir = expand('~/.vim/swap')
+if !isdirectory(swapdir)
+  call mkdir(swapdir)
+endif
+set directory^=$HOME/.vim/swap
+
+let backupdir = expand('~/.vim/backup')
+if !isdirectory(backupdir)
+  call mkdir(backupdir)
+endif
+set backupdir=$HOME/.vim/backup
+set backupcopy=yes
+set backup
 
 syntax on
 set background=dark
