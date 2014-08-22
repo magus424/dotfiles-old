@@ -8,9 +8,11 @@ if type -f dircolors > /dev/null
     eval (dircolors -c | sed 's/>&\/dev\/null$//')
 end
 
+set -x XDG_CONFIG_HOME ~/.config
+
 set -x POWERLINE_COMMAND ~/.config/vim/bundle/powerline/scripts/powerline-render
 set -x PYTHONPATH ~/.config/vim/bundle/powerline/
-~/.config/vim/bundle/powerline/scripts/powerline-daemon -q
+~/.config/vim/bundle/powerline/scripts/powerline-daemon -q -p ~/.config/powerline
 
 set -x WHOIS_HIDE 1
 set EDITOR vim

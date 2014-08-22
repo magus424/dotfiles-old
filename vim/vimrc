@@ -8,11 +8,12 @@ filetype off
 python import sys; from vim import command; command("let python_version = '%s'" % sys.version[2:3])
 
 if python_version < 6
-    let g:airline_powerline_fonts=1
-    let g:airline_enable_hunks=0
+    let g:airline_powerline_fonts = 1
+    let g:airline_enable_hunks    = 0
 endif
 
-let g:delimitMate_excluded_ft = 'scss'
+" let g:delimitMate_excluded_ft = 'scss'
+let g:delimitMate_expand_cr   = 1
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -24,6 +25,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'Smart-Home-Key'
 Plugin 'matchit.zip'
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'wincent/command-t'
 Plugin 'pangloss/vim-javascript'
 Plugin 'dag/vim-fish'
