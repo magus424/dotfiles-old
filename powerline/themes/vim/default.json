@@ -23,7 +23,7 @@
             },
             {
                 "name": "visual_range",
-                "exclude_modes": ["i", "R", "n", "nc"],
+                "exclude_modes": ["i", "R", "n", "nc", "c"],
                 "priority": 10
             },
             {
