@@ -22,6 +22,8 @@ for p in /opt/nodejs/bin ~/gocode/bin ~/bin
     end
 end
 
+set -x GOPATH ~/gocode/
+
 set -x GTAGSDBPATH ~/html/.git/gtags/
 set -x GTAGSROOT ~/html/
 

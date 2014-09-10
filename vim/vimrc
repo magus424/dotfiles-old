@@ -12,8 +12,10 @@ if python_version < 6
     let g:airline_enable_hunks    = 0
 endif
 
-" let g:delimitMate_excluded_ft = 'scss'
+let g:delimitMate_excluded_ft = 'scss'
 let g:delimitMate_expand_cr   = 1
+
+let g:gitgutter_diff_args = '-w'
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
