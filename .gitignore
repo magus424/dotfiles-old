@@ -2,6 +2,7 @@ compiz-1/
 configstore/
 dconf/
 fish/fish_history.*
+gedit/
 gnome-control-center/
 gtk-2.0/
 gtk-3.0/
