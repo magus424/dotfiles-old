@@ -147,7 +147,9 @@ colorscheme mycolors
 if has("autocmd")
     filetype plugin on
     filetype indent on
-    let php_folding=1
+    let php_folding   = 1
+    let php_sql_query = 1
+    let php_baselib   = 1
     au BufEnter Debugger* setlocal scrolloff=0
 endif
 
