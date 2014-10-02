@@ -15,7 +15,8 @@ endif
 let g:delimitMate_excluded_ft = 'scss'
 let g:delimitMate_expand_cr   = 1
 
-let g:gitgutter_diff_args = '-w'
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_diff_args          = '-w'
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -461,10 +462,10 @@ function! RunCodingStandards()
     call Preserve("%s/\\Cwhile(/while (/e")
     call Preserve("%s/\\Ccatch(/catch (/e")
     call Preserve("%s/\\s\\+$//e")
-    call Preserve("%s/TRUE/true/g")
-    call Preserve("%s/FALSE/false/g")
-    call Preserve("%s/NULL/null/g")
-    call Preserve("g/foreach/s/AS/as/")
+    call Preserve("%s/TRUE/true/ge")
+    call Preserve("%s/FALSE/false/ge")
+    call Preserve("%s/NULL/null/ge")
+    call Preserve("g/foreach/s/AS/as/e")
     call Preserve("v/./,/./-j")
     nohlsearch
 endfun
