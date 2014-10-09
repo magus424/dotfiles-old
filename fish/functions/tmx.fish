@@ -1,3 +1,3 @@
 function tmx
-    tmuxinator $argv;
+    tmuxinator $argv
 end
