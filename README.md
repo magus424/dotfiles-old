@@ -20,18 +20,18 @@ Here lie my dotfiles for vim, fish, and other such apps.
 * [Powerline](https://github.com/Lokaltog/powerline) - vastly improved vim/tmux status lines
 
 # Notable keybinds
-* Ctrl+H/J/K/L - vim/tmux pane navigation
-* Shift+C - comment/uncomment code
 * `;` - alias for `:`
-* Alt+P in normal mode toggles paste mode
 * `//` - clear search highlight
-* Tab/Shift+Tab in normal/visual mode - indent/unindent code; insert mode - snippet completion
-* Space in normal mode toggle folds
+* `,d` - delete line without yanking
+* `_$` - strip trailing whitespace from all lines
+* Ctrl+S - save
+* Ctrl+H/J/K/L - vim/tmux pane navigation
 * Ctrl+Arrows for quick text jumping, like in windows
 * Alt+Left/Right - change tabs
-* `,d` - delete line without yanking
-* Ctrl+S - save
-* `_$` - strip trailing whitespace from all lines
 * Alt+T - activate Command-T
 * Alt+R - activate code search
+* Alt+P in normal mode toggles paste mode
+* Shift+C - comment/uncomment code
+* Tab/Shift+Tab in normal/visual mode - indent/unindent code; insert mode - snippet completion
+* Space in normal mode toggle folds
 
