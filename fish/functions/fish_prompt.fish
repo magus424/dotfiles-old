@@ -53,6 +53,7 @@ function fish_prompt --description 'Write out the prompt'
         end
     end
 
+    echo -ne '\e[0K'
     echo
     set_color normal
     echo -n \u221a' '
