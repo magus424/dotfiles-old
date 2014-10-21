@@ -449,6 +449,11 @@ augroup END
 
 """ Custom Commands
 
+command! Elog call RunElog()
+function! RunElog()
+    call VimuxRunCommand('elog')
+endfunction
+
 command! FixBraces call RunFixBraces()
 function! RunFixBraces()
     call Preserve("%s/\\(\\S\\)\\s*{$/\\1\\r{/")
