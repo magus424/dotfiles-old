@@ -29,6 +29,7 @@ Plugin 'Smart-Home-Key'
 Plugin 'matchit.zip'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'ervandew/supertab'
 Plugin 'wincent/command-t'
 Plugin 'pangloss/vim-javascript'
 Plugin 'dag/vim-fish'
@@ -488,11 +489,11 @@ let g:html_indent_style1  = "inc"
 
 " SuperTab
 " let b:SuperTabDisabled=1
-" set completeopt=menuone,longest
-" let g:SuperTabLongestEnhanced = 1
-" let g:SuperTabLongestHighlight = 1
-" let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-" let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+set completeopt=menuone,longest
+let g:SuperTabLongestEnhanced = 1
+let g:SuperTabLongestHighlight = 1
+let g:SuperTabDefaultCompletionType = "<c-x><c-i>"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-i>"
 
 " SmartHome
 noremap  <silent> [1~ :SmartHomeKey<CR>

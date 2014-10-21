@@ -26,7 +26,7 @@ hi GitGutterDelete          ctermfg=124 ctermbg=232
 hi GitGutterChange          ctermfg=142 ctermbg=232
 hi GitGutterChangeDelete    ctermfg=208 ctermbg=232
 
-hi Pmenu                    ctermfg=7   ctermbg=13
+hi Pmenu                    ctermfg=7   ctermbg=236
 hi PmenuSel                 ctermfg=231 ctermbg=23
 hi PmenuSbar                ctermbg=200
 hi PmenuThumb               cterm=reverse
