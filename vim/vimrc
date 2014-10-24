@@ -494,6 +494,7 @@ let g:SuperTabLongestEnhanced = 1
 let g:SuperTabLongestHighlight = 1
 let g:SuperTabDefaultCompletionType = "<c-x><c-i>"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-i>"
+let g:SuperTabNoCompleteAfter = ['^', ',', '\s', '"', "'"]
 
 " SmartHome
 noremap  <silent> [1~ :SmartHomeKey<CR>
