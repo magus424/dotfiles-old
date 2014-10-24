@@ -501,8 +501,15 @@ noremap  <silent> [1~ :SmartHomeKey<CR>
 inoremap <silent> [1~ <C-o>:SmartHomeKey<CR>
 
 " Syntastic
-let g:syntastic_enable_signs=1
-let g:syntastic_python_flake8_args='--ignore=E501'
+let g:syntastic_enable_signs             = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_python_flake8_args       = '--ignore=E501'
+let g:syntastic_html_tidy_ignore_errors  = [
+            \ '<a> escaping malformed URI reference',
+            \ '<img> escaping malformed URI reference',
+            \ 'trimming empty <span>',
+            \ "plain text isn\'t allowed in <head> elements"
+            \ ]
 
 " TComment
 let g:tcommentGuessFileType_php = 'php'
@@ -552,22 +559,22 @@ let g:CommandTSelectPrevMap         = ['<ESC>OA']
 let g:CommandTAcceptSelectionMap    = "<C-t>"
 let g:CommandTAcceptSelectionTabMap = "<CR>"
 let g:CommandTWildIgnore            = &wildignore
-    \ . ",**/bower_components/*"
-    \ . ",**/node_modules/*"
-    \ . ",**/vendor/*"
-    \ . ",**/trac/*"
-    \ . ",**/blog/*"
-    \ . ",**/bootstrap_assets/*"
-    \ . ",**/external_libraries/*"
-    \ . ",**/googleapi/*"
-    \ . ",**/xhprof/*"
-    \ . ",**/node.js/*"
-    \ . ",**/SD1.0/*"
-    \ . ",**/WAP1.0/*"
-    \ . ",**/Hybrid/Classic/*"
-    \ . ",**/Hybrid/Tablet/*"
-    \ . ",**/Hybrid/Ice/*"
-    \ . ",**/Hybrid/Midnight/*"
+            \ . ",**/bower_components/*"
+            \ . ",**/node_modules/*"
+            \ . ",**/vendor/*"
+            \ . ",**/trac/*"
+            \ . ",**/blog/*"
+            \ . ",**/bootstrap_assets/*"
+            \ . ",**/external_libraries/*"
+            \ . ",**/googleapi/*"
+            \ . ",**/xhprof/*"
+            \ . ",**/node.js/*"
+            \ . ",**/SD1.0/*"
+            \ . ",**/WAP1.0/*"
+            \ . ",**/Hybrid/Classic/*"
+            \ . ",**/Hybrid/Tablet/*"
+            \ . ",**/Hybrid/Ice/*"
+            \ . ",**/Hybrid/Midnight/*"
 
 " PHP-QA
 " let g:phpqa_codesniffer_cmd      = "/home/collin/pear/phpcs"
