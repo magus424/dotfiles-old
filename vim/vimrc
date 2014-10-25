@@ -128,12 +128,12 @@ set wildignore+=*.spl,.sw?,.py?                     " more binary stuff
 " These are files we are not likely to want to edit or read.
 set suffixes=.bak,~,.o,.info,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx
 
-set directory=$HOME/.vim/swap
+set directory=$HOME/.vim/swap//
 if !isdirectory(&directory)
   call mkdir(&directory)
 endif
 
-set backupdir=$HOME/.vim/backup
+set backupdir=$HOME/.vim/backup//
 if !isdirectory(&backupdir)
   call mkdir(&backupdir)
 endif
