@@ -172,30 +172,28 @@ function! AirlineInit()
 endfunction
 autocmd VimEnter * call AirlineInit()
 
-" highlight User1 ctermbg=233 ctermfg=240
-
 set statusline=
-set statusline+=%f                              " Path
-set statusline+=%m                              " Modified flag
-set statusline+=%r                              " Readonly flag
-set statusline+=%w                              " Preview window flag
-if exists("*SyntasticStatuslineFlag")
-    set statusline+=\                               " Space
-    set statusline+=%{SyntasticStatuslineFlag()}    " Syntastic info
+set statusline+=%f                               " Path
+set statusline+=%m                               " Modified flag
+set statusline+=%r                               " Readonly flag
+set statusline+=%w                               " Preview window flag
+if exists('*SyntasticStatuslineFlag')
+    set statusline+=\                            " Space
+    set statusline+=%{SyntasticStatuslineFlag()} " Syntastic info
 endif
-set statusline+=%=                              " Right align
-if exists("fugitive#statusline")
-    set statusline+=%{fugitive#statusline()}        " Fugitive info
-    set statusline+=\                               " Space
+set statusline+=%=                               " Right align
+if exists('fugitive#statusline')
+    set statusline+=%{fugitive#statusline()}     " Fugitive info
+    set statusline+=\                            " Space
 endif
-set statusline+=(                               " (
-set statusline+=%{&ff}                          " Format (unix/dos)
-set statusline+=/                               " /
-set statusline+=%{strlen(&fenc)?&fenc:&enc}     " Encoding (utf-8)
-set statusline+=/                               " /
-set statusline+=%{strlen(&ft)?&ft:'none'}       " Type (python)
-set statusline+=)                               " )
-set statusline+=\ (line\ %l\/%L,\ col\ %03c)    " Line and column position and counts.
+set statusline+=(                                " (
+set statusline+=%{&ff}                           " Format (unix/dos)
+set statusline+=/                                " /
+set statusline+=%{strlen(&fenc)?&fenc:&enc}      " Encoding (utf-8)
+set statusline+=/                                " /
+set statusline+=%{strlen(&ft)?&ft:'none'}        " Type (python)
+set statusline+=)                                " )
+set statusline+=\ (line\ %l\/%L,\ col\ %03c)     " Line and column position and counts.
 
 function! GetSyntaxID()
     return synIDtrans(synID(line('.'), col('.'), 1))
