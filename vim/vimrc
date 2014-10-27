@@ -508,7 +508,12 @@ let g:syntastic_html_tidy_ignore_errors  = [
             \ '<a> escaping malformed URI reference',
             \ '<img> escaping malformed URI reference',
             \ 'trimming empty <span>',
-            \ "plain text isn\'t allowed in <head> elements"
+            \ "plain text isn\'t allowed in <head> elements",
+            \ '<if> is not recognized!',
+            \ 'discarding unexpected <if>',
+            \ 'discarding unexpected </if>',
+            \ '<else> is not recognized!',
+            \ 'discarding unexpected <else>'
             \ ]
 
 " TComment
