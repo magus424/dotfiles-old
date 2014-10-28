@@ -267,6 +267,7 @@ xmap ; :
 
 " Easier diffget
 if &diff
+    set diffopt+=iwhite
     nnoremap <Leader>d[ :diffget 1
     nnoremap <Leader>d] :diffget 3
 endif
