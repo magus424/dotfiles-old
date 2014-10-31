@@ -19,8 +19,8 @@ set completeopt=menuone,longest
 let g:SuperTabCrMapping = 0
 let g:SuperTabLongestEnhanced = 1
 let g:SuperTabLongestHighlight = 1
-let g:SuperTabDefaultCompletionType = "<c-x><c-i>"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-i>"
+let g:SuperTabDefaultCompletionType = "<c-x><c-p>"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-p>"
 let g:SuperTabNoCompleteAfter = ['^', ',', '\s', '"', "'"]
 
 let g:UltiSnipsExpandTrigger       = "<tab>"
