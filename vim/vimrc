@@ -15,8 +15,36 @@ endif
 let g:delimitMate_excluded_ft = 'scss'
 let g:delimitMate_expand_cr   = 1
 
+set completeopt=menuone,longest
+let g:SuperTabCrMapping = 0
+let g:SuperTabLongestEnhanced = 1
+let g:SuperTabLongestHighlight = 1
+let g:SuperTabDefaultCompletionType = "<c-x><c-i>"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-i>"
+let g:SuperTabNoCompleteAfter = ['^', ',', '\s', '"', "'"]
+
+let g:UltiSnipsExpandTrigger       = "<tab>"
+let g:UltiSnipsJumpForwardTrigger  = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_diff_args          = '-w'
+
+let g:syntastic_enable_signs             = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_python_flake8_args       = '--ignore=E501'
+let g:syntastic_html_tidy_ignore_errors  = [
+            \ '<a> escaping malformed URI reference',
+            \ '<img> escaping malformed URI reference',
+            \ 'trimming empty <span>',
+            \ "plain text isn\'t allowed in <head> elements",
+            \ '<if> is not recognized!',
+            \ 'discarding unexpected <if>',
+            \ 'discarding unexpected </if>',
+            \ '<else> is not recognized!',
+            \ 'discarding unexpected <else>',
+            \ "'<' + '/' + letter not allowed here"
+            \ ]
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -390,7 +418,7 @@ au BufNewFile,BufRead */templates/*.html call s:template_binds()
 function! s:template_binds()
     let tmux=$TMUX
     if tmux =~# "tmux"
-        setlocal makeprg=tmux\ split-window\ -v\ -p\ 5\ \"php\ ~/bin/update_templates.php\ %:p\ ;\ sleep\ 1\";tmux\ select-pane\ -U
+        setlocal makeprg=tmux\ split-window\ -v\ -l\ 5\ \"php\ ~/bin/update_templates.php\ %:p\ ;\ sleep\ 1\";tmux\ select-pane\ -U
         nmap <buffer> <C-b> :silent make!\|redraw!<CR>
         imap <buffer> <C-b> <C-o>:silent make!\|redraw!<CR>
     else
@@ -408,7 +436,7 @@ function! s:twig_settings()
     setlocal textwidth=0
     let tmux=$TMUX
     if tmux =~# "tmux"
-        setlocal makeprg=tmux\ split-window\ -v\ -p\ 5\ \"~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p\ ;\ sleep\ 1\";tmux\ select-pane\ -U
+        setlocal makeprg=tmux\ split-window\ -v\ -l\ 5\ \"~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p\ ;\ sleep\ 1\";tmux\ select-pane\ -U
         nmap <buffer> <C-b> :silent make!\|redraw!<CR>
         imap <buffer> <C-b> <C-o>:silent make!\|redraw!<CR>
     else
@@ -484,34 +512,9 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1  = "inc"
 
-" SuperTab
-" let b:SuperTabDisabled=1
-set completeopt=menuone,longest
-let g:SuperTabLongestEnhanced = 1
-let g:SuperTabLongestHighlight = 1
-let g:SuperTabDefaultCompletionType = "<c-x><c-i>"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-i>"
-let g:SuperTabNoCompleteAfter = ['^', ',', '\s', '"', "'"]
-
 " SmartHome
 noremap  <silent> [1~ :SmartHomeKey<CR>
 inoremap <silent> [1~ <C-o>:SmartHomeKey<CR>
-
-" Syntastic
-let g:syntastic_enable_signs             = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_python_flake8_args       = '--ignore=E501'
-let g:syntastic_html_tidy_ignore_errors  = [
-            \ '<a> escaping malformed URI reference',
-            \ '<img> escaping malformed URI reference',
-            \ 'trimming empty <span>',
-            \ "plain text isn\'t allowed in <head> elements",
-            \ '<if> is not recognized!',
-            \ 'discarding unexpected <if>',
-            \ 'discarding unexpected </if>',
-            \ '<else> is not recognized!',
-            \ 'discarding unexpected <else>'
-            \ ]
 
 " TComment
 let g:tcommentGuessFileType_php = 'php'
@@ -533,11 +536,6 @@ nmap <silent> <Leader>t= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
 xmap <silent> <Leader>t= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
 nmap <silent> <Leader>t: :Tabularize /^[^:]\+\zs:<CR>
 xmap <silent> <Leader>t: :Tabularize /^[^:]\+\zs:<CR>
-
-" UltiSnips
-let g:UltiSnipsExpandTrigger       = "<tab>"
-let g:UltiSnipsJumpForwardTrigger  = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Unite codesearch
 nnoremap <silent> <Esc>f :Unite codesearch<CR>
