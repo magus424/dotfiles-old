@@ -30,8 +30,10 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_diff_args          = '-w'
 
-let g:syntastic_enable_signs             = 1
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_enable_signs             = 1
+let g:syntastic_filetype_map             = {"html.twig": "twig"}
+let g:syntastic_javascript_checkers      = ['jshint']
 let g:syntastic_python_flake8_args       = '--ignore=E501'
 let g:syntastic_html_tidy_ignore_errors  = [
             \ '<a> escaping malformed URI reference',
@@ -78,13 +80,13 @@ Plugin 'ap/vim-css-color'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'benmills/vimux'
 Plugin 'guns/xterm-color-table.vim'
-" Plugin 'Rykka/colorv.vim'
-" Plugin 'Rykka/galaxy.vim'
+Plugin 'Rykka/colorv.vim'
 Plugin 'Shougo/unite.vim'
 if filereadable($HOME.'/.csearchindex')
     Plugin 'brandonbloom/csearch.vim'
     Plugin 'junkblocker/unite-codesearch'
 endif
+" Plugin 'vim-scripts/closetag.vim'
 
 if python_version > 5
     Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -108,6 +110,7 @@ if &shell =~# 'fish$'
     set shell=sh
 endif
 
+set autoread
 set autowrite
 set backspace=indent,eol,start
 set history=50
@@ -161,12 +164,12 @@ if !isdirectory(&directory)
   call mkdir(&directory)
 endif
 
-set backupdir=$HOME/.vim/backup//
-if !isdirectory(&backupdir)
-  call mkdir(&backupdir)
-endif
-set backupcopy=yes
-set backup
+" set backupdir=$HOME/.vim/backup//
+" if !isdirectory(&backupdir)
+"   call mkdir(&backupdir)
+" endif
+" set backupcopy=yes
+" set backup
 
 syntax on
 set background=dark
