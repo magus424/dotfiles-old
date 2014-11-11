@@ -14,7 +14,9 @@ endif
 
 let g:easy_align_delimiters = {
 \  '=': { 'pattern': '===\|<=>\|\(&&\|||\|<<\|>>\)=\|=\~[#?]\?\|=>\|=&\|[:+/*!%^=><&|.-]\?=[#?]\?',
-\         'delimiter_align': 'l', 'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 }
+\         'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
+\  ';': { 'pattern': ':',  'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
+\  ':': { 'pattern': ':',  'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 }
 \ }
 
 let g:delimitMate_excluded_ft = 'scss'
@@ -545,18 +547,6 @@ let g:tcommentMapLeaderOp2 = ''
 nmap <silent> C :TComment<CR>
 xmap <silent> C :TComment<CR>
 
-" Tabularize
-nmap <silent> `= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
-xmap <silent> `= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
-nmap <silent> `; :Tabularize /^[^:]\+\zs:<CR>
-xmap <silent> `; :Tabularize /^[^:]\+\zs:<CR>
-nmap <silent> `4 :Tabularize /^[^\$]\+\zs\$\S\+<CR>
-xmap <silent> `4 :Tabularize /^[^\$]\+\zs\$\S\+<CR>
-nmap <silent> <Leader>t= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
-xmap <silent> <Leader>t= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
-nmap <silent> <Leader>t: :Tabularize /^[^:]\+\zs:<CR>
-xmap <silent> <Leader>t: :Tabularize /^[^:]\+\zs:<CR>
-
 " Unite codesearch
 nnoremap <silent> <Esc>f :Unite codesearch<CR>
 nnoremap <silent> <Esc>g :exec "Unite -input=".expand("<cword>")." codesearch"<CR>
@@ -570,9 +560,22 @@ if exists("unite#custom#default_action")
     call unite#custom#default_action('file', 'tabopen')
 endif
 
+" Tabularize
+nmap <silent> `= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
+" xmap <silent> `= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
+nmap <silent> `; :Tabularize /^[^:]\+\zs:<CR>
+" xmap <silent> `; :Tabularize /^[^:]\+\zs:<CR>
+nmap <silent> <Leader>t= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
+xmap <silent> <Leader>t= :Tabularize /^[^=]\+\zs=[&>]\?<CR>
+nmap <silent> <Leader>t: :Tabularize /^[^:]\+\zs:<CR>
+xmap <silent> <Leader>t: :Tabularize /^[^:]\+\zs:<CR>
+
 " EasyAlign
 vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
+
+xmap <silent> `= :EasyAlign =<CR>
+xmap <silent> `; :EasyAlign :<CR>
 
 " CommandT
 nnoremap <silent> <Esc>t :CommandT ~/html/<CR>

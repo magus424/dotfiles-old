@@ -44,21 +44,7 @@ endsnippet
 snippet else "else"
 else
 {
-	${1:// code...}
-}
-endsnippet
-
-snippet for "for"
-for ($${2:i} = 0; $$2 < ${1:count}; $$2${3:++})
-{
-	${4:// code...}
-}
-endsnippet
-
-snippet foreachk "foreachk"
-foreach ($${1:variable} as $${2:key} => $${3:value})
-{
-	${4:// code...}
+	${1:${VISUAL}}
 }
 endsnippet
 
@@ -69,7 +55,7 @@ endsnippet
 snippet if "if"
 if (${1:/* condition */})
 {
-	${2:// code...}
+	${2:${VISUAL}}
 }
 endsnippet
 
@@ -144,56 +130,70 @@ endsnippet
 snippet pub "Public function" b
 public function ${1:name}(${2:$param})
 {
-	${VISUAL}${3:return null;}
+	${3:${VISUAL:return null;}}
 }
 endsnippet
 
 snippet pro "Protected function" b
 protected function ${1:name}(${2:$param})
 {
-	${VISUAL}${3:return null;}
+	${3:${VISUAL:return null;}}
 }
 endsnippet
 
 snippet pri "Private function" b
 private function ${1:name}(${2:$param})
 {
-	${VISUAL}${3:return null;}
+	${3:${VISUAL:return null;}}
 }
 endsnippet
 
 snippet pubs "Public static function" b
 public static function ${1:name}(${2:$param})
 {
-	${VISUAL}${3:return null;}
+	${3:${VISUAL:return null;}}
 }
 endsnippet
 
 snippet pros "Protected static function" b
 protected static function ${1:name}(${2:$param})
 {
-	${VISUAL}${3:return null;}
+	${3:${VISUAL:return null;}}
 }
 endsnippet
 
 snippet pris "Private static function" b
 private static function ${1:name}(${2:$param})
 {
-	${VISUAL}${3:return null;}
+	${3:${VISUAL:return null;}}
 }
 endsnippet
 
 snippet fu "Function snip" b
 function ${1:name}(${2:$param})
 {
-	${VISUAL}${3:return null;}
+	${3:${VISUAL:return null;}}
+}
+endsnippet
+
+snippet for "for"
+for ($${2:i} = 0; $$2 < ${1:count}; $$2${3:++})
+{
+	${4:${VISUAL}}
+}
+endsnippet
+
+snippet forek "Foreach loop w/key"
+foreach ($${1:variable} as $${2:key} => $${3:value})
+{
+	${4:${VISUAL}}
 }
 endsnippet
 
 snippet fore "Foreach loop"
-foreach ($${1:variable} as $${3:value})
+foreach ($${1:variable} as $${2:value})
 {
-	${VISUAL}${4}
+	${3:${VISUAL}}
 }
 endsnippet
 
@@ -233,27 +233,6 @@ snippet construct "__construct()" b
 public function __construct(${1:$dependencies})
 {
 	${1/\$(\w+)(, )*/\n        $this->$1 = $$1;/g}
-}
-endsnippet
-
-snippet ve "Dumb debug helper in HTML"
-    echo '<pre>' . var_export($1, 1) . '</pre>';$0
-endsnippet
-
-snippet pc "Dumb debug helper in cli"
-var_export($1);$0
-endsnippet
-
-# Symfony 2 based snippets
-snippet sfa "Symfony 2 Controller action"
-/**
-* @Route("/${1:route_name}", name="$1")
-* @Template()
-*/
-public function $1Action($2)
-{
-	$3
-	return ${4:array();}$0
 }
 endsnippet
 

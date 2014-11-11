@@ -31,12 +31,7 @@ snippet mcache
 snippet while
 	while (${1:/* condition */})
 	{
-		${2:// code...}
-	}
-snippet fore
-	foreach ($${1:variable} as $${2:value})
-	{
-		${3:// code...}
+		${2:${VISUAL:// code...}}
 	}
 snippet arr
 	$${1:arrayName} = array(
