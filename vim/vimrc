@@ -12,16 +12,21 @@ if python_version < 6
     let g:airline_enable_hunks    = 0
 endif
 
+let g:easy_align_delimiters = {
+\  '=': { 'pattern': '===\|<=>\|\(&&\|||\|<<\|>>\)=\|=\~[#?]\?\|=>\|=&\|[:+/*!%^=><&|.-]\?=[#?]\?',
+\         'delimiter_align': 'l', 'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 }
+\ }
+
 let g:delimitMate_excluded_ft = 'scss'
 let g:delimitMate_expand_cr   = 1
 
 set completeopt=menuone,longest
-let g:SuperTabCrMapping = 0
-let g:SuperTabLongestEnhanced = 1
-let g:SuperTabLongestHighlight = 1
-let g:SuperTabDefaultCompletionType = "<c-x><c-p>"
+let g:SuperTabCrMapping                    = 0
+let g:SuperTabLongestEnhanced              = 1
+let g:SuperTabLongestHighlight             = 1
+let g:SuperTabDefaultCompletionType        = "<c-x><c-p>"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-p>"
-let g:SuperTabNoCompleteAfter = ['^', ',', '\s', '"', "'"]
+let g:SuperTabNoCompleteAfter              = ['^', ',', '\s', '"', "'"]
 
 let g:UltiSnipsExpandTrigger       = "<tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<tab>"
@@ -194,13 +199,13 @@ function! AirlineInit()
     if (exists('g:loaded_airline') && g:loaded_airline)
         let spc = g:airline_symbols.space
         call airline#parts#define_raw('linenr', '%{g:airline_symbols.linenr}%#__accent_bold#%4l/%L %#__restore__#')
-        let g:airline_section_a = airline#section#create_left(['mode', 'paste', 'capslock', 'iminsert'])
-        let g:airline_section_b = airline#section#create(['branch'])
-        let g:airline_section_c = airline#section#create(['%<', 'file', spc, 'readonly'])
-        let g:airline_section_gutter = airline#section#create(['%='])
-        let g:airline_section_x = airline#section#create_right(['tagbar', 'filetype'])
-        let g:airline_section_y = airline#section#create_right(['ffenc'])
-        let g:airline_section_z = airline#section#create(['linenr', ':%3c '])
+        let g:airline_section_a       = airline#section#create_left(['mode', 'paste', 'capslock', 'iminsert'])
+        let g:airline_section_b       = airline#section#create(['branch'])
+        let g:airline_section_c       = airline#section#create(['%<', 'file', spc, 'readonly'])
+        let g:airline_section_gutter  = airline#section#create(['%='])
+        let g:airline_section_x       = airline#section#create_right(['tagbar', 'filetype'])
+        let g:airline_section_y       = airline#section#create_right(['ffenc'])
+        let g:airline_section_z       = airline#section#create(['linenr', ':%3c '])
         let g:airline_section_warning = airline#section#create(['syntastic'])
     endif
 endfunction
@@ -230,11 +235,16 @@ set statusline+=)                                " )
 set statusline+=\ (line\ %l\/%L,\ col\ %03c)     " Line and column position and counts.
 
 function! GetSyntaxID()
-    return synIDtrans(synID(line('.'), col('.'), 1))
+    return synID(line('.'), col('.'), 1)
+endfunction
+
+function! GetSyntaxParentID()
+    return synIDtrans(GetSyntaxID())
 endfunction
 
 function! GetSyntax()
-    exec "hi ".synIDattr(GetSyntaxID(), 'name')
+    echo synIDattr(GetSyntaxID(), 'name')
+    exec "hi ".synIDattr(GetSyntaxParentID(), 'name')
 endfunction
 
 function! Wipeout()
@@ -559,6 +569,10 @@ let g:unite_winheight                  = 30
 if exists("unite#custom#default_action")
     call unite#custom#default_action('file', 'tabopen')
 endif
+
+" EasyAlign
+vmap <Enter> <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
 
 " CommandT
 nnoremap <silent> <Esc>t :CommandT ~/html/<CR>
