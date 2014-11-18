@@ -126,7 +126,8 @@ set hlsearch
 set incsearch
 set laststatus=2
 set list
-set listchars=tab:>-,trail:-
+" set listchars=tab:>-,trail:-
+set listchars=tab:→\ ,trail:∙
 if has("mouse")
     set mouse=a
 endif
