@@ -249,7 +249,7 @@ function! GetSyntax()
     exec "hi ".synIDattr(GetSyntaxParentID(), 'name')
 endfunction
 
-function! Wipeout()
+function! WipeoutOld()
     " list of *all* buffer numbers
     let l:buffers = range(1, bufnr('$'))
 
@@ -280,6 +280,40 @@ function! Wipeout()
         " go back to our original tab page
         execute 'tabnext' l:currentTab
     endtry
+endfunction
+
+function! Wipeout()
+    let l:currentTab = tabpagenr()
+    let l:remove_buffers = []
+    let g:active_buffers = []
+
+    silent let l:cmdt_buf = bufnr("GoToFile")
+    if l:cmdt_buf > -1
+        call add(g:active_buffers, l:cmdt_buf)
+    endif
+
+    silent let l:unite_buf = bufnr("[unite] - default")
+    if l:unite_buf > -1
+        call add(g:active_buffers, l:unite_buf)
+    endif
+
+    tabdo let g:active_buffers += tabpagebuflist()
+
+    let l:buf = 0
+    while l:buf < bufnr('$')
+        let l:buf += 1
+        if index(g:active_buffers, l:buf) == -1
+            call add(l:remove_buffers, l:buf)
+        endif
+    endwhile
+    try
+        if len(l:remove_buffers) > 0
+            execute 'bwipeout' join(l:remove_buffers, ' ')
+        endif
+    finally
+        execute 'tabnext' l:currentTab
+    endtry
+    unlet g:active_buffers
 endfunction
 
 if &term == "screen" || &term == "screen-256color"
