@@ -30,9 +30,10 @@ let g:SuperTabDefaultCompletionType        = "<c-x><c-p>"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-p>"
 let g:SuperTabNoCompleteAfter              = ['^', ',', '\s', '"', "'"]
 
-let g:UltiSnipsExpandTrigger       = "<tab>"
-let g:UltiSnipsJumpForwardTrigger  = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsExpandTrigger       = "<Tab>"
+let g:UltiSnipsListSnippets        = "<C-S-Tab>"
+let g:UltiSnipsJumpForwardTrigger  = "<C-n>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-p>"
 
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_diff_args          = '-w'
@@ -121,6 +122,7 @@ endif
 set autoread
 set autowrite
 set backspace=indent,eol,start
+set diffopt+=iwhite
 set history=50
 set hlsearch
 set incsearch
@@ -133,6 +135,8 @@ if has("mouse")
 endif
 set nocindent
 set noignorecase
+set gdefault
+set smartcase
 set number
 set ruler
 set scrolloff=2
@@ -173,6 +177,14 @@ set directory=$HOME/.vim/swap//
 if !isdirectory(&directory)
   call mkdir(&directory)
 endif
+
+set undodir=$HOME/.vim/undo//
+if !isdirectory(&undodir)
+  call mkdir(&undodir)
+endif
+set undofile
+set undolevels=100
+set undoreload=1000
 
 " set backupdir=$HOME/.vim/backup//
 " if !isdirectory(&backupdir)
@@ -347,7 +359,6 @@ xmap ; :
 
 " Easier diffget
 if &diff
-    set diffopt+=iwhite
     nnoremap <Leader>d[ :diffget 1
     nnoremap <Leader>d] :diffget 3
 endif
@@ -403,7 +414,7 @@ xnoremap p "_dP
 xnoremap P "_dP
 
 " Disable man key
-nnoremap K <nop>
+" nnoremap K <nop>
 
 " Use ,d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
 " yanked stack (also, in visual mode)
@@ -500,6 +511,8 @@ function! s:twig_settings()
         nmap <buffer> <C-b> :make!<CR>
         imap <buffer> <C-b> <C-o>:make!<CR>
     endif
+    nmap <buffer> <silent> C :TCommentAs twig<CR>
+    xmap <buffer> <silent> C :TCommentAs twig_block<CR>
 endfun
 
 au BufNewFile,BufRead *.html call s:html_settings()
@@ -515,6 +528,7 @@ function! s:php_binds()
     setlocal makeprg=clear;php\ -f\ %:p
     nmap <buffer> <C-b> :make!<CR>
     imap <buffer> <C-b> <C-o>:make!<CR>
+    setlocal keywordprg=pman
 endfun
 
 function! ResCur()
@@ -530,6 +544,11 @@ augroup resCur
 augroup END
 
 """ Custom Commands
+
+command! -nargs=1 Gget call RunGitGet(<f-args>)
+function! RunGitGet(ticket)
+    call VimuxRunCommand('clear ; git get ' . a:ticket . ' ; sleep 1 ; exit')
+endfunction
 
 command! Elog call RunElog()
 function! RunElog()
@@ -579,11 +598,22 @@ let g:tcommentMapLeader2 = ''
 let g:tcommentMapLeaderOp1 = ''
 let g:tcommentMapLeaderOp2 = ''
 nmap <silent> C :TComment<CR>
-xmap <silent> C :TComment<CR>
+xmap <silent> C :TCommentBlock<CR>
+
+let g:tcomment_types = {
+            \ 'twig'           : '{# %s #}',
+            \ 'twig_block'     : '{#%s#}'
+            \ }
+" let g:tcommentGuessFileType_twig = 'twig'
+" let g:tcommentGuessFileType_htmltwig = 'twig'
+" let g:tcomment#filetype_map = {
+"             \ 'html.twig': 'twig',
+"             \ 'htmltwig': 'twig'
+"             \ }
 
 " Unite codesearch
 nnoremap <silent> <Esc>f :Unite codesearch<CR>
-nnoremap <silent> <Esc>g :exec "Unite -input=".expand("<cword>")." codesearch"<CR>
+" nnoremap <silent> <Esc>g :exec "Unite -input=".expand("<cword>")." codesearch"<CR>
 
 let g:unite_enable_start_insert        = 1
 let g:unite_split_rule                 = "botright"
