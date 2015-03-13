@@ -13,7 +13,7 @@ endsnippet
 
 snippet do "do"
 do {
-	${2:// code... }
+	${2:${VISUAL}}
 } while (${1:/* condition */});"
 endsnippet
 
@@ -54,6 +54,13 @@ endsnippet
 
 snippet if "if"
 if (${1:/* condition */})
+{
+	${2:${VISUAL}}
+}
+endsnippet
+
+snippet elif "elseif"
+elseif (${1:/* condition */})
 {
 	${2:${VISUAL}}
 }
@@ -145,6 +152,30 @@ snippet pri "Private function" b
 private function ${1:name}(${2:$param})
 {
 	${3:${VISUAL:return null;}}
+}
+endsnippet
+
+snippet cpub "Public Cached Function" b
+private function ${1:name}FromDb(${2:$param})
+{
+	${3:${VISUAL:return null;}}
+}
+
+public function $1($2)
+{
+	return $this->getCache()->$1FromDb($2);
+}
+endsnippet
+
+snippet cpri "Private Cached Function" b
+private function ${1:name}FromDb(${2:$param})
+{
+	${3:${VISUAL:return null;}}
+}
+
+private function $1($2)
+{
+	return $this->getCache()->$1FromDb($2);
 }
 endsnippet
 

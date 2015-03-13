@@ -134,8 +134,8 @@ if has("mouse")
     set mouse=a
 endif
 set nocindent
-set noignorecase
 set gdefault
+set ignorecase
 set smartcase
 set number
 set ruler
@@ -513,6 +513,9 @@ function! s:twig_settings()
     endif
     nmap <buffer> <silent> C :TCommentAs twig<CR>
     xmap <buffer> <silent> C :TCommentAs twig_block<CR>
+
+    setl foldmarker={#,#}
+    setl foldmethod=marker
 endfun
 
 au BufNewFile,BufRead *.html call s:html_settings()
@@ -598,7 +601,7 @@ let g:tcommentMapLeader2 = ''
 let g:tcommentMapLeaderOp1 = ''
 let g:tcommentMapLeaderOp2 = ''
 nmap <silent> C :TComment<CR>
-xmap <silent> C :TCommentBlock<CR>
+xmap <silent> C :TComment<CR>
 
 let g:tcomment_types = {
             \ 'twig'           : '{# %s #}',

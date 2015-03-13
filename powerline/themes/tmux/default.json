@@ -11,10 +11,6 @@
     "segments": {
         "right": [
             {
-                "function": "system_load",
-                "priority": 50
-            },
-            {
                 "function": "date"
             },
             {
