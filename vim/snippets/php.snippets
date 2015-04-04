@@ -19,7 +19,7 @@ snippet mdec
 snippet mdel
 	$vbulletin->sd['memcachemanual']->delete($cache_key, ${1:"namespace"});
 snippet mflush
-	$vbulletin->sd['memcachemanual']->flush($cache_key);
+	$vbulletin->sd['memcachemanual']->flush($namespace);
 snippet minc
 	$vbulletin->sd['memcachemanual']->increment($cache_key, 1, ${1:"namespace"});
 snippet mcache
