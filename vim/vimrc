@@ -99,7 +99,7 @@ endif
 " Plugin 'vim-scripts/closetag.vim'
 
 if python_version > 5
-    Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+    Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 elseif version >= 720
     Plugin 'bling/vim-airline'
 endif
