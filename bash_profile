@@ -1,6 +1,8 @@
 if [ "$PS1" ]; then
     stty -ixon
-    exec fish
+    if [[ -n $(which fish) ]]; then
+        exec fish
+    fi
 fi
 
 if [ -f ~/.bashrc ]; then

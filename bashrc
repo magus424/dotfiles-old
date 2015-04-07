@@ -85,7 +85,9 @@ if [ "$PS1" ]; then
         export GIT_PAGER=$HOME/bin/gitpager
     fi
 
-    exec fish
+    if [[ -n $(which fish) ]]; then
+        exec fish
+    fi
 fi
 
 # vim: ts=4 sts=4 sw=4 et ai nowrap
