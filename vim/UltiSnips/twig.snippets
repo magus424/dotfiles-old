@@ -6,7 +6,12 @@ snippet block "twig block" b
 {% endblock $1 %}
 endsnippet
 
+snippet eblock "empty twig block" b
+{% block ${1} %}{% endblock %}
+endsnippet
+
 snippet media "media macro include" b
+{% import 'macros/media.html.twig' as media %}
 endsnippet
 
 snippet js "twig javascripts" b
@@ -30,5 +35,9 @@ snippet for "twig for" b
 endsnippet
 
 snippet ext "twig extends" b
-{% extends ${1} %}
+{% extends "${1}" %}
+endsnippet
+
+snippet inc "twig include" b
+{% include "${1}" %}
 endsnippet
