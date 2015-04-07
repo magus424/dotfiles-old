@@ -1,8 +1,10 @@
-call UltiSnips#map_keys#MapKeys()
+if exists("UltiSnips#map_keys#MapKeys")
+    call UltiSnips#map_keys#MapKeys()
 
-xunmap <Tab>
-xnoremap <Tab> >gv
+    xunmap <Tab>
+    xnoremap <Tab> >gv
 
-exec "xnoremap <silent> T :call UltiSnips#SaveLastVisualSelection()<cr>gvs"
+    exec "xnoremap <silent> T :call UltiSnips#SaveLastVisualSelection()<cr>gvs"
 
-let did_UltiSnips_after=1
+    let did_UltiSnips_after=1
+endif
