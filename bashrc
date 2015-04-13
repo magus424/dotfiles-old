@@ -64,7 +64,9 @@ if [ "$PS1" ]; then
     CYAN="\[\e[0;36m\]"
 
     if [ $TERM == "screen" -o $TERM == "xterm" -o $TERM == "xterm-color" -o $TERM == "xterm-256color" ]; then
-        PS1='$(__git_ps1 " \e[1;30m(\e[0;32m%s\e[1;30m)")'
+        if [[ -n $(type __git_ps1 2> /dev/null | grep function) ]]; then
+            PS1='$(__git_ps1 " \e[1;30m(\e[0;32m%s\e[1;30m)")'
+        fi
         PS1="\n${CYAN}\h${GREY}:${BLUE}\w${PS1}${NORMAL}\n\\$ "
         PROMPT_COMMAND='history -a;echo -ne "\e]0;${USER}@`uname -n` - `date +"%a %b %d %H:%M %p"` - `uname -sr`\a"'
     elif [ $TERM == "linux" ]; then
@@ -90,7 +92,7 @@ if [ "$PS1" ]; then
         export GIT_PAGER=$HOME/bin/gitpager
     fi
 
-    if [[ -n $(which fish) ]]; then
+    if [[ -n $(which fish 2> /dev/null) ]]; then
         exec fish
     fi
 fi
