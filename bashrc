@@ -6,8 +6,13 @@
 #export DISPLAY
 
 # set PATH so it includes user's private bin if it exists
-if [ -d ~/bin ] ; then
+if [ -d ~/bin ]; then
     PATH=~/bin:"${PATH}"
+fi
+
+if [ -d /usr/local/rvm/rubies/ruby-2.1.2/lib ]; then
+    LD_LIBRARY_PATH="/usr/local/rvm/rubies/ruby-2.1.2/lib"
+    export LD_LIBRARY_PATH
 fi
 
 # If running interactively, then:

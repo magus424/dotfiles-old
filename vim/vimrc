@@ -38,6 +38,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-p>"
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_diff_args          = '-w'
 
+let g:syntastic_disabled_filetypes       = ['scss']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_enable_signs             = 1
 let g:syntastic_filetype_map             = {"html.twig": "twig"}

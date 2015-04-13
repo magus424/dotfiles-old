@@ -1,4 +1,4 @@
-if exists("UltiSnips#map_keys#MapKeys")
+try
     call UltiSnips#map_keys#MapKeys()
 
     xunmap <Tab>
@@ -7,4 +7,5 @@ if exists("UltiSnips#map_keys#MapKeys")
     exec "xnoremap <silent> T :call UltiSnips#SaveLastVisualSelection()<cr>gvs"
 
     let did_UltiSnips_after=1
-endif
+catch /E117/
+endtry
