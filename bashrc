@@ -66,6 +66,8 @@ if [ "$PS1" ]; then
     if [ $TERM == "screen" -o $TERM == "xterm" -o $TERM == "xterm-color" -o $TERM == "xterm-256color" ]; then
         if [[ -n $(type __git_ps1 2> /dev/null | grep function) ]]; then
             PS1='$(__git_ps1 " \e[1;30m(\e[0;32m%s\e[1;30m)")'
+        else
+            PS1=''
         fi
         PS1="\n${CYAN}\h${GREY}:${BLUE}\w${PS1}${NORMAL}\n\\$ "
         PROMPT_COMMAND='history -a;echo -ne "\e]0;${USER}@`uname -n` - `date +"%a %b %d %H:%M %p"` - `uname -sr`\a"'
