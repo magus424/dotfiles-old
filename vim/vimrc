@@ -38,6 +38,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-p>"
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_diff_args          = '-w'
 
+let g:syntastic_disabled_filetypes       = ['scss']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_enable_signs             = 1
 let g:syntastic_filetype_map             = {"html.twig": "twig"}
@@ -81,6 +82,7 @@ Plugin 'tokutake/twig-indent'
 " Plugin 'joonty/vdebug'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
 Plugin 'mileszs/ack.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-obsession'
@@ -98,7 +100,7 @@ endif
 " Plugin 'vim-scripts/closetag.vim'
 
 if python_version > 5
-    Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+    Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 elseif version >= 720
     Plugin 'bling/vim-airline'
 endif
@@ -130,6 +132,8 @@ set laststatus=2
 set list
 " set listchars=tab:>-,trail:-
 set listchars=tab:→\ ,trail:∙
+" set fillchars+=vert:|
+set fillchars+=vert:│
 if has("mouse")
     set mouse=a
 endif

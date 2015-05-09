@@ -8,6 +8,10 @@ if type -f dircolors > /dev/null
     eval (dircolors -c | sed 's/>&\/dev\/null$//')
 end
 
+if test -d /usr/local/rvm/rubies/ruby-2.1.2/lib
+    set -x LD_LIBRARY_PATH /usr/local/rvm/rubies/ruby-2.1.2/lib
+end
+
 set -x XDG_CONFIG_HOME ~/.config
 
 set -x POWERLINE_COMMAND ~/.config/vim/bundle/powerline/scripts/powerline-render

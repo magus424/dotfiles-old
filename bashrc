@@ -6,8 +6,13 @@
 #export DISPLAY
 
 # set PATH so it includes user's private bin if it exists
-if [ -d ~/bin ] ; then
+if [ -d ~/bin ]; then
     PATH=~/bin:"${PATH}"
+fi
+
+if [ -d /usr/local/rvm/rubies/ruby-2.1.2/lib ]; then
+    LD_LIBRARY_PATH="/usr/local/rvm/rubies/ruby-2.1.2/lib"
+    export LD_LIBRARY_PATH
 fi
 
 # If running interactively, then:
@@ -58,8 +63,12 @@ if [ "$PS1" ]; then
     PURPLE="\[\e[1;35m\]"
     CYAN="\[\e[0;36m\]"
 
-    if [ $TERM == "screen" -o $TERM == "xterm" -o $TERM == "xterm-color" ]; then
-        PS1='$(__git_ps1 " \e[1;30m(\e[0;32m%s\e[1;30m)")'
+    if [ $TERM == "screen" -o $TERM == "xterm" -o $TERM == "xterm-color" -o $TERM == "xterm-256color" ]; then
+        if [[ -n $(type __git_ps1 2> /dev/null | grep function) ]]; then
+            PS1='$(__git_ps1 " \e[1;30m(\e[0;32m%s\e[1;30m)")'
+        else
+            PS1=''
+        fi
         PS1="\n${CYAN}\h${GREY}:${BLUE}\w${PS1}${NORMAL}\n\\$ "
         PROMPT_COMMAND='history -a;echo -ne "\e]0;${USER}@`uname -n` - `date +"%a %b %d %H:%M %p"` - `uname -sr`\a"'
     elif [ $TERM == "linux" ]; then
@@ -85,7 +94,9 @@ if [ "$PS1" ]; then
         export GIT_PAGER=$HOME/bin/gitpager
     fi
 
-    exec fish
+    if [[ -n $(which fish 2> /dev/null) ]]; then
+        exec fish
+    fi
 fi
 
 # vim: ts=4 sts=4 sw=4 et ai nowrap

@@ -1,8 +1,12 @@
 if [ "$PS1" ]; then
     stty -ixon
-    exec fish
+    if [[ -n $(which fish 2> /dev/null) ]]; then
+        exec fish
+    fi
 fi
 
 if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
+
+# vim: ts=4 sts=4 sw=4 et ai nowrap ft=sh
