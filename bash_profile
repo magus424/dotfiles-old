@@ -1,7 +1,12 @@
 if [ "$PS1" ]; then
     stty -ixon
+    if [ -f ~/bin/rvm.sh -a -z "$rvm_bin_path" ]; then
+        source ~/bin/rvm.sh
+    fi
+
     if [[ -n $(which fish 2> /dev/null) ]]; then
-        exec fish
+        # exec fish
+        echo
     fi
 fi
 
