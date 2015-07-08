@@ -15,7 +15,7 @@ end
 set -x XDG_CONFIG_HOME ~/.config
 
 set -x POWERLINE_COMMAND ~/.config/vim/bundle/powerline/scripts/powerline-render
-set -x PYTHONPATH ~/.config/vim/bundle/powerline/
+set -x PYTHONPATH ~/.config/vim/bundle/powerline/ ~/src/django-1.6.5
 ~/.config/vim/bundle/powerline/scripts/powerline-daemon -q -p ~/.config/powerline
 
 set -x WHOIS_HIDE 1
