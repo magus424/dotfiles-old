@@ -182,13 +182,13 @@ if !isdirectory(&directory)
   call mkdir(&directory)
 endif
 
-set undodir=$HOME/.vim/undo//
-if !isdirectory(&undodir)
-  call mkdir(&undodir)
-endif
-set undofile
-set undolevels=100
-set undoreload=1000
+" set undodir=$HOME/.vim/undo//
+" if !isdirectory(&undodir)
+"   call mkdir(&undodir)
+" endif
+" set undofile
+" set undolevels=100
+" set undoreload=1000
 
 " set backupdir=$HOME/.vim/backup//
 " if !isdirectory(&backupdir)

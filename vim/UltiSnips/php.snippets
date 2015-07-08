@@ -335,4 +335,34 @@ if ($1 === false)
 }
 endsnippet
 
+snippet twig "Twig template render" b
+$html = SD_Template::renderTemplate("${1:template name}", array(
+	${2}
+));
+print_output($html);
+endsnippet
+
+snippet dc "Database test comment" b
+/**
+ * $1
+ *
+ * @covers $2
+ * @group database
+ */
+ $3
+endsnippet
+
+snippet df "Database test function" b
+/**
+ * $1
+ *
+ * @covers $2
+ * @group database
+ */
+public function test${3:MethodName}()
+{
+	$this->markTestIncomplete('Not yet implemented.');
+}
+endsnippet
+
 # :vim:ft=snippets:
