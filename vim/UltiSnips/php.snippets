@@ -344,25 +344,71 @@ endsnippet
 
 snippet dc "Database test comment" b
 /**
- * $1
- *
- * @covers $2
+ * @covers $1
  * @group database
  */
- $3
+ $2
 endsnippet
 
 snippet df "Database test function" b
 /**
- * $1
- *
- * @covers $2
+ * @covers ::$1
  * @group database
  */
-public function test${3:MethodName}()
+public function test${2:MethodName}()
 {
-	$this->markTestIncomplete('Not yet implemented.');
-}
+	${3:$this->markTestIncomplete('Not yet implemented.');}
+}$4
+endsnippet
+
+snippet tf "Test function" b
+/**
+ * @covers ::$1
+ */
+public function test${2:MethodName}()
+{
+	${3:$this->markTestIncomplete('Not yet implemented.');}
+}$4
+endsnippet
+
+snippet tff "Test function (no comments)"
+public function test${1:MethodName}()
+{
+	${2:$this->markTestIncomplete('Not yet implemented.');}
+}$3
+endsnippet
+
+snippet tfc "Test function comment"
+/**
+ * @covers ::$1
+ */
+endsnippet
+
+snippet doc_v "Doc comment for variable"
+/**
+ * @var $1
+ */
+endsnippet
+
+snippet pubv "Public variable with comment"
+/**
+ * @var $1
+ */
+public ${2:$variable};$3
+endsnippet
+
+snippet prov "Protected variable with comment"
+/**
+ * @var $1
+ */
+protected ${2:$variable};$3
+endsnippet
+
+snippet priv "Private variable with comment"
+/**
+ * @var $1
+ */
+private ${2:$variable};$3
 endsnippet
 
 # :vim:ft=snippets:

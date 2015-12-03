@@ -422,8 +422,18 @@ xnoremap P "_dP
 
 " Use ,d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
 " yanked stack (also, in visual mode)
-nnoremap <silent> <leader>d "_d
-xnoremap <silent> <leader>d "_d
+nnoremap <silent> <Leader>d "_d
+xnoremap <silent> <Leader>d "_d
+
+" <Leader>y, <Leader>yy, etc to yank to system clipboard
+nnoremap <silent> <Leader>y "+y
+xnoremap <silent> <Leader>y "+y
+
+" <Leader>p, <Leader>pp, etc to paste from system clipboard
+nnoremap <silent> <Leader>p "+p
+xnoremap <silent> <Leader>p "+p
+nnoremap <silent> <Leader>P "+P
+xnoremap <silent> <Leader>P "+P
 
 " Save session
 noremap <silent> <F8> :wa <Bar> mksession! ~/.vim/session <Bar> echo "Saved session"<CR>
@@ -532,7 +542,12 @@ endfun
 
 au BufNewFile,BufRead *.php call s:php_binds()
 function! s:php_binds()
-    setlocal makeprg=clear;php\ -f\ %:p
+    let testdir = matchstr(expand('%:p'), 'html/tests/')
+    if testdir != ''
+        setlocal makeprg=cd\ ~/html/;clear;vendor/bin/phpunit\ -c\ tests\ %:p
+    else
+        setlocal makeprg=clear;php\ -f\ %:p
+    endif
     nmap <buffer> <C-b> :make!<CR>
     imap <buffer> <C-b> <C-o>:make!<CR>
     setlocal keywordprg=pman
