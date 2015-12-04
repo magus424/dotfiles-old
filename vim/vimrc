@@ -43,7 +43,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_enable_signs             = 1
 let g:syntastic_filetype_map             = {"html.twig": "twig"}
 let g:syntastic_javascript_checkers      = ['jshint']
-let g:syntastic_python_flake8_args       = '--ignore=E501 --ignore=E128'
+let g:syntastic_python_flake8_args       = '--ignore=E501,E128'
 let g:syntastic_html_tidy_ignore_errors  = [
             \ '<a> escaping malformed URI reference',
             \ '<img> escaping malformed URI reference',
