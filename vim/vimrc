@@ -698,6 +698,7 @@ let g:CommandTWildIgnore            = &wildignore
             \ . ",**/Hybrid/Tablet/*"
             \ . ",**/Hybrid/Ice/*"
             \ . ",**/Hybrid/Midnight/*"
+            \ . ",**/templates/MASTER/**php"
 
 " PHP-QA
 " let g:phpqa_codesniffer_cmd      = "/home/collin/pear/phpcs"
