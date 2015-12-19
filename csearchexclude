@@ -1,0 +1,17 @@
+/blog/
+/css/(2\d\d|30[^6]|305.bak|beta2|black-tie|classic|compiled|modern|hybrid)/
+/d3js/
+/extjs4/
+/fancybox/
+/graphite-scripts/
+/jqplot/
+/xhprof/
+\.min\.js
+bootstrap_assets
+bower_components
+external_libraries
+scripts/jquery-
+scripts/(30[^6]|backup\d+|c|ckeditor|cm|datatables|tabletools)/
+sdincludes/phpExcel/
+templates/MASTER.*php$
+twig/cache

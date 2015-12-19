@@ -57,6 +57,9 @@ let g:syntastic_html_tidy_ignore_errors  = [
             \ "'<' + '/' + letter not allowed here"
             \ ]
 
+" let g:prosession_on_startup = 0
+let g:prosession_per_branch = 1
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -86,6 +89,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'mileszs/ack.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-obsession'
+Plugin 'dhruvasagar/vim-prosession'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ap/vim-css-color'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -124,6 +128,7 @@ endif
 set autoread
 set autowrite
 set backspace=indent,eol,start
+set clipboard+=unnamedplus
 set diffopt+=iwhite
 set history=50
 set hlsearch
