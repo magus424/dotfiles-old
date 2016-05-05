@@ -30,7 +30,7 @@ snippet doc_f "doc_f" b
  * $2
  * @return ${4:void}
  * @author ${5:`!v g:snips_author`}
- **/
+ */
 ${1:public }function ${2:someFunc}(${3})
 {
 	${6}
@@ -42,7 +42,7 @@ snippet doc_i "doc_i" b
  * $1
  * @package ${2:default}
  * @author ${3:`!v g:snips_author`}
- **/
+ */
 interface ${1:someClass}
 {
 	${4}
@@ -164,14 +164,14 @@ private function ${1:name}(${2:$param})
 endsnippet
 
 snippet cpub "Public Cached Function" b
-private function ${1:name}FromDb(${2:$param})
-{
-	${3:${VISUAL:return null;}}
-}
-
 public function $1($2)
 {
-	return $this->getCache()->$1FromDb($2);
+	return $this->getCache()->_$1($2);
+}
+
+protected function _${1:name}(${2:$param})
+{
+	${3:${VISUAL:return null;}}
 }
 endsnippet
 
@@ -409,6 +409,14 @@ snippet priv "Private variable with comment"
  * @var $1
  */
 private ${2:$variable};$3
+endsnippet
+
+snippet sans "Sanitize string"
+${1:$variable} = $db->escape_string($1);
+endsnippet
+
+snippet sani "Sanitize int"
+${1:$variable} = (int)$1;
 endsnippet
 
 # :vim:ft=snippets:
