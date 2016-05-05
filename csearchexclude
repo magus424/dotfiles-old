@@ -13,5 +13,6 @@ external_libraries
 scripts/jquery-
 scripts/(30[^6]|backup\d+|c|ckeditor|cm|datatables|tabletools)/
 sdincludes/phpExcel/
+sdincludes/cassandra
 templates/MASTER.*php$
 twig/cache
