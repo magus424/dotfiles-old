@@ -60,56 +60,58 @@ let g:syntastic_html_tidy_ignore_errors  = [
 " let g:prosession_on_startup = 0
 let g:prosession_per_branch = 1
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if &compatible == 0
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'godlygeek/tabular'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'Smart-Home-Key'
-Plugin 'matchit.zip'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'ervandew/supertab'
-Plugin 'wincent/command-t'
-Plugin 'wellle/targets.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'dag/vim-fish'
-Plugin 'JulesWang/css.vim'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'evidens/vim-twig'
-Plugin 'tokutake/twig-indent'
-" Plugin 'jsoriano/vim-dbgp'
-" Plugin 'joonty/vdebug'
-Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'mileszs/ack.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-obsession'
-Plugin 'dhruvasagar/vim-prosession'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'ap/vim-css-color'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'benmills/vimux'
-Plugin 'guns/xterm-color-table.vim'
-Plugin 'Rykka/colorv.vim'
-Plugin 'Shougo/unite.vim'
-if filereadable($HOME.'/.csearchindex')
-    Plugin 'brandonbloom/csearch.vim'
-    Plugin 'junkblocker/unite-codesearch'
+    Plugin 'gmarik/Vundle.vim'
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'tomtom/tcomment_vim'
+    Plugin 'godlygeek/tabular'
+    Plugin 'junegunn/vim-easy-align'
+    Plugin 'Smart-Home-Key'
+    Plugin 'matchit.zip'
+    Plugin 'SirVer/ultisnips'
+    Plugin 'honza/vim-snippets'
+    Plugin 'ervandew/supertab'
+    Plugin 'wincent/command-t'
+    Plugin 'wellle/targets.vim'
+    Plugin 'pangloss/vim-javascript'
+    Plugin 'dag/vim-fish'
+    Plugin 'JulesWang/css.vim'
+    Plugin 'cakebaker/scss-syntax.vim'
+    Plugin 'evidens/vim-twig'
+    Plugin 'tokutake/twig-indent'
+    " Plugin 'jsoriano/vim-dbgp'
+    " Plugin 'joonty/vdebug'
+    Plugin 'Raimondi/delimitMate'
+    Plugin 'scrooloose/syntastic'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'mileszs/ack.vim'
+    Plugin 'airblade/vim-gitgutter'
+    Plugin 'tpope/vim-obsession'
+    Plugin 'dhruvasagar/vim-prosession'
+    Plugin 'terryma/vim-multiple-cursors'
+    Plugin 'ap/vim-css-color'
+    Plugin 'christoomey/vim-tmux-navigator'
+    Plugin 'benmills/vimux'
+    Plugin 'guns/xterm-color-table.vim'
+    Plugin 'Rykka/colorv.vim'
+    Plugin 'Shougo/unite.vim'
+    if filereadable($HOME.'/.csearchindex')
+        Plugin 'brandonbloom/csearch.vim'
+        Plugin 'junkblocker/unite-codesearch'
+    endif
+    " Plugin 'vim-scripts/closetag.vim'
+
+    if python_version > 5
+        Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+    elseif version >= 720
+        Plugin 'bling/vim-airline'
+    endif
+
+    call vundle#end()
 endif
-" Plugin 'vim-scripts/closetag.vim'
-
-if python_version > 5
-    Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-elseif version >= 720
-    Plugin 'bling/vim-airline'
-endif
-
-call vundle#end()
 
 " Vundle end
 
@@ -499,64 +501,66 @@ inoremap <Esc>[4~ <End>
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
 
-" Special vb template bind
-au BufNewFile,BufRead */templates/*.html call s:template_binds()
-function! s:template_binds()
-    let tmux=$TMUX
-    if tmux =~# "tmux"
-        setlocal makeprg=tmux\ split-window\ -v\ -l\ 5\ \"php\ ~/bin/update_templates.php\ %:p\ ;\ sleep\ 1\";tmux\ select-pane\ -U
-        nmap <buffer> <C-b> :silent make!\|redraw!<CR>
-        imap <buffer> <C-b> <C-o>:silent make!\|redraw!<CR>
-    else
-        setlocal makeprg=clear;php\ ~/bin/update_templates.php\ %:p
+if &compatible == 0
+    " Special vb template bind
+    au BufNewFile,BufRead */templates/*.html call s:template_binds()
+    function! s:template_binds()
+        let tmux=$TMUX
+        if tmux =~# "tmux"
+            setlocal makeprg=tmux\ split-window\ -v\ -l\ 5\ \"php\ ~/bin/update_templates.php\ %:p\ ;\ sleep\ 1\";tmux\ select-pane\ -U
+            nmap <buffer> <C-b> :silent make!\|redraw!<CR>
+            imap <buffer> <C-b> <C-o>:silent make!\|redraw!<CR>
+        else
+            setlocal makeprg=clear;php\ ~/bin/update_templates.php\ %:p
+            nmap <buffer> <C-b> :make!<CR>
+            imap <buffer> <C-b> <C-o>:make!<CR>
+        endif
+    endfun
+
+    au BufNewFile,BufRead *.twig call s:twig_settings()
+    function! s:twig_settings()
+        setlocal tabstop=2
+        setlocal softtabstop=2
+        setlocal shiftwidth=2
+        setlocal textwidth=0
+        let tmux=$TMUX
+        if tmux =~# "tmux"
+            setlocal makeprg=tmux\ split-window\ -v\ -l\ 5\ \"~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p\ ;\ sleep\ 1\";tmux\ select-pane\ -U
+            nmap <buffer> <C-b> :silent make!\|redraw!<CR>
+            imap <buffer> <C-b> <C-o>:silent make!\|redraw!<CR>
+        else
+            setlocal makeprg=clear;php\ ~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p
+            nmap <buffer> <C-b> :make!<CR>
+            imap <buffer> <C-b> <C-o>:make!<CR>
+        endif
+        nmap <buffer> <silent> C :TCommentAs twig<CR>
+        xmap <buffer> <silent> C :TCommentAs twig_block<CR>
+
+        setl foldmarker={#,#}
+        setl foldmethod=marker
+    endfun
+
+    au BufNewFile,BufRead *.html call s:html_settings()
+    function! s:html_settings()
+        setlocal tabstop=2
+        setlocal softtabstop=2
+        setlocal shiftwidth=2
+        setlocal textwidth=0
+    endfun
+
+    au BufNewFile,BufRead *.php call s:php_binds()
+    function! s:php_binds()
+        let testdir = matchstr(expand('%:p'), 'html/tests/')
+        if testdir != ''
+            setlocal makeprg=cd\ ~/html/;clear;vendor/bin/phpunit\ -c\ tests\ %:p
+        else
+            setlocal makeprg=clear;php\ -f\ %:p
+        endif
         nmap <buffer> <C-b> :make!<CR>
         imap <buffer> <C-b> <C-o>:make!<CR>
-    endif
-endfun
-
-au BufNewFile,BufRead *.twig call s:twig_settings()
-function! s:twig_settings()
-    setlocal tabstop=2
-    setlocal softtabstop=2
-    setlocal shiftwidth=2
-    setlocal textwidth=0
-    let tmux=$TMUX
-    if tmux =~# "tmux"
-        setlocal makeprg=tmux\ split-window\ -v\ -l\ 5\ \"~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p\ ;\ sleep\ 1\";tmux\ select-pane\ -U
-        nmap <buffer> <C-b> :silent make!\|redraw!<CR>
-        imap <buffer> <C-b> <C-o>:silent make!\|redraw!<CR>
-    else
-        setlocal makeprg=clear;php\ ~/html/slickdeals/sdincludes/twig/compile_template.php\ %:p
-        nmap <buffer> <C-b> :make!<CR>
-        imap <buffer> <C-b> <C-o>:make!<CR>
-    endif
-    nmap <buffer> <silent> C :TCommentAs twig<CR>
-    xmap <buffer> <silent> C :TCommentAs twig_block<CR>
-
-    setl foldmarker={#,#}
-    setl foldmethod=marker
-endfun
-
-au BufNewFile,BufRead *.html call s:html_settings()
-function! s:html_settings()
-    setlocal tabstop=2
-    setlocal softtabstop=2
-    setlocal shiftwidth=2
-    setlocal textwidth=0
-endfun
-
-au BufNewFile,BufRead *.php call s:php_binds()
-function! s:php_binds()
-    let testdir = matchstr(expand('%:p'), 'html/tests/')
-    if testdir != ''
-        setlocal makeprg=cd\ ~/html/;clear;vendor/bin/phpunit\ -c\ tests\ %:p
-    else
-        setlocal makeprg=clear;php\ -f\ %:p
-    endif
-    nmap <buffer> <C-b> :make!<CR>
-    imap <buffer> <C-b> <C-o>:make!<CR>
-    setlocal keywordprg=pman
-endfun
+        setlocal keywordprg=pman
+    endfun
+endif
 
 function! ResCur()
   if line("'\"") <= line("$")
@@ -569,6 +573,14 @@ augroup resCur
   autocmd!
   autocmd BufRead * call ResCur()
 augroup END
+
+function! GitBufEnter()
+    if &filetype == "gitcommit"
+        call setpos('.', [0, 1, 24, 0])
+    endif
+    setl tw=0
+endfunction
+au BufEnter * call GitBufEnter()
 
 """ Custom Commands
 
