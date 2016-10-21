@@ -402,15 +402,19 @@ xnoremap <Tab> >gv
 xnoremap <S-Tab> <gv
 
 " Quick word jumping with Ctrl+Arrows
-inoremap <silent> <Esc>[A <C-o>{
-inoremap <silent> <Esc>[B <C-o>}
 inoremap <Esc>[C <S-Right>
 inoremap <Esc>[D <S-Left>
 
-nnoremap <Esc>[A {
-nnoremap <Esc>[B }
 nnoremap <Esc>[C <S-Right>
 nnoremap <Esc>[D <S-Left>
+
+" Fix shift+arrow keys
+inoremap <Esc>[A <Up>
+inoremap <Esc>[B <Down>
+nnoremap <Esc>[A <Up>
+nnoremap <Esc>[B <Down>
+xnoremap <Esc>[A <Up>
+xnoremap <Esc>[B <Down>
 
 " Tab movement keys
 nnoremap <silent> <Esc><Right> :tabn<CR>
@@ -610,9 +614,10 @@ function! RunCodingStandards()
     call Preserve("%s/\\Cwhile(/while (/e")
     call Preserve("%s/\\Ccatch(/catch (/e")
     call Preserve("%s/\\s\\+$//e")
+    call Preserve("%s/exit();/exit;/e")
     call Preserve("%s/TRUE/true/ge")
     call Preserve("%s/FALSE/false/ge")
-    call Preserve("%s/NULL/null/ge")
+    call Preserve("g/=/s/NULL/null/e")
     call Preserve("g/foreach/s/AS/as/e")
     call Preserve("v/./,/./-j")
     nohlsearch

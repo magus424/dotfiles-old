@@ -6,21 +6,22 @@ function work
             cd ~/html/slickdeals/
             tmux new-session -d -s SD
             tmux rename-window -t SD:0 vim
-            tmux send-keys -t SD:0 'vim -S ~/.vim/sessions/general' C-m
+            tmux send-keys -t SD:0 'vim' C-m
 
             tmux new-window -c ~/html/slickdeals/ -t SD:1
 
-            tmux new-window -c ~/html/slickdeals/css/306/sass/modern/ -n sass -t SD:7
-            tmux send-keys -t SD:7.0 'compass watch --poll' C-m
-            tmux split-window -c ~/html/slickdeals/css/306/sass/newmobile3/ -t SD:7 -h -l 50
-            tmux send-keys -t SD:7.1 'compass watch --poll' C-m
-            tmux select-pane -t SD:7.0
+            tmux new-window -c ~/html/slickdeals/css/306/sass/modern/ -n sass -t SD:8
+            tmux send-keys -t SD:8.0 'compass watch --poll' C-m
+            tmux split-window -c ~/html/slickdeals/css/306/sass/newmobile3/ -t SD:8 -h
+            tmux send-keys -t SD:8.1 'compass watch --poll' C-m
+            tmux split-window -c ~/html/slickdeals/css/306/sass/sem/ -t SD:8.0 -v
+            tmux send-keys -t SD:8.2 'compass watch --poll' C-m
+            tmux split-window -c ~/html/slickdeals/css/306/sass/blackfriday/ -t SD:8.1 -v
+            tmux send-keys -t SD:8.3 'compass watch --poll' C-m
+            tmux select-pane -t SD:8.0
 
-            tmux new-window -c ~ -n vem1-git -t SD:8
-            tmux send-keys -t SD:8 'ssh vem1' C-m
-
-            tmux new-window -c ~ -n vem1-sync -t SD:9
-            tmux send-keys -t SD:9 'ssh vem1' C-m
+            tmux new-window -c ~ -n deploy -t SD:9
+            tmux send-keys -t SD:9.0 'ssh rm01.lv.slickdeals.net' C-m
 
             tmux select-window -t SD:0
         end
