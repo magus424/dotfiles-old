@@ -20,7 +20,8 @@ define('${1}'${2});${3}
 endsnippet
 
 snippet do "do" b
-do {
+do
+{
 	${2:${VISUAL}}
 } while (${1:/* condition */});"
 endsnippet
@@ -278,7 +279,7 @@ endsnippet
 snippet while "while loop" b
 while (${1:/* condition */})
 {
-	${2:${VISUAL:\/\/ code...}}
+	${2:${VISUAL}}
 }
 endsnippet
 
