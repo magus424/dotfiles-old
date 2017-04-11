@@ -15,18 +15,19 @@ end
 set -x XDG_CONFIG_HOME ~/.config
 
 set -x POWERLINE_COMMAND ~/.config/vim/bundle/powerline/scripts/powerline-render
-set -x PYTHONPATH ~/.config/vim/bundle/powerline/ ~/src/django-1.6.5
-~/.config/vim/bundle/powerline/scripts/powerline-daemon -q -p ~/.config/powerline
-
-set -x WHOIS_HIDE 1
-set EDITOR vim
-for p in /opt/nodejs/bin ~/gocode/bin ~/bin
-    if not contains $p $PATH
-        set PATH $p $PATH
+for p in ~/.config/vim/bundle/powerline/ ~/src/django-1.6.5
+    if not contains $p $PYTHONPATH and test -d $p
+        set PYTHONPATH $p $PYTHONPATH
     end
 end
 
-set -x GOPATH ~/gocode/
+set -x WHOIS_HIDE 1
+set EDITOR vim
+for p in /opt/nodejs/bin ~/bin
+    if not contains $p $PATH and test -d $p
+        set PATH $p $PATH
+    end
+end
 
 set -x GTAGSDBPATH ~/html/.git/gtags/
 set -x GTAGSROOT ~/html/
