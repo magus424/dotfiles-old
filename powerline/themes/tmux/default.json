@@ -1,5 +1,5 @@
 {
-    "default_module": "powerline.segments.common",
+    "default_module": "powerline.segments.common.time",
     "segment_data": {
         "date": {
             "before": ""

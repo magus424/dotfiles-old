@@ -23,7 +23,7 @@ end
 
 set -x WHOIS_HIDE 1
 set EDITOR vim
-for p in /opt/nodejs/bin ~/bin
+for p in /opt/nodejs/bin ~/bin ~/.local/bin
     if not contains $p $PATH and test -d $p
         set PATH $p $PATH
     end

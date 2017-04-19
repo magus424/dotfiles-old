@@ -444,7 +444,7 @@ elseif exists("php_folding") && php_folding==2
 
   set foldmethod=syntax
   syn region  phpFoldHtmlInside matchgroup=Delimiter start="?>" end="<?\(php\)\=" contained transparent contains=@htmlTop
-  syn region  phpParent matchgroup=Delimiter start="{" end="}"  contained contains=@phpClFunction,phpFoldHtmlInside transparent fold
+  " syn region  phpParent matchgroup=Delimiter start="{" end="}"  contained contains=@phpClFunction,phpFoldHtmlInside transparent fold
 else
   syn keyword phpDefine function  contained
   syn keyword phpStructure  abstract class interface  contained

@@ -82,10 +82,12 @@ if &compatible == 0
     Plugin 'cakebaker/scss-syntax.vim'
     Plugin 'evidens/vim-twig'
     Plugin 'tokutake/twig-indent'
-    " Plugin 'jsoriano/vim-dbgp'
-    " Plugin 'joonty/vdebug'
     Plugin 'Raimondi/delimitMate'
-    Plugin 'scrooloose/syntastic'
+    if v:version >= 800
+        Plugin 'w0rp/ale'
+    else
+        Plugin 'scrooloose/syntastic'
+    endif
     Plugin 'scrooloose/nerdtree'
     Plugin 'mileszs/ack.vim'
     Plugin 'airblade/vim-gitgutter'
@@ -98,11 +100,13 @@ if &compatible == 0
     Plugin 'guns/xterm-color-table.vim'
     Plugin 'Rykka/colorv.vim'
     Plugin 'Shougo/unite.vim'
-    if filereadable($HOME.'/.csearchindex')
-        Plugin 'brandonbloom/csearch.vim'
-        Plugin 'junkblocker/unite-codesearch'
-    endif
+    " if filereadable($HOME.'/.csearchindex')
+    "     Plugin 'brandonbloom/csearch.vim'
+    "     Plugin 'junkblocker/unite-codesearch'
+    " endif
     " Plugin 'vim-scripts/closetag.vim'
+    " Plugin 'jsoriano/vim-dbgp'
+    " Plugin 'joonty/vdebug'
 
     if python_version > 5
         Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -137,9 +141,7 @@ set hlsearch
 set incsearch
 set laststatus=2
 set list
-" set listchars=tab:>-,trail:-
 set listchars=tab:→\ ,trail:∙
-" set fillchars+=vert:|
 set fillchars+=vert:│
 if has("mouse")
     set mouse=a
@@ -151,7 +153,6 @@ set smartcase
 set number
 set ruler
 set scrolloff=2
-" set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages,winsize
 set sessionoptions-=options
 set shell=/bin/bash
 set showcmd
@@ -211,7 +212,7 @@ colorscheme mycolors
 if has("autocmd")
     filetype plugin on
     filetype indent on
-    let php_folding   = 1
+    let php_folding   = 2
     let php_sql_query = 1
     let php_baselib   = 1
     au BufEnter Debugger* setlocal scrolloff=0
