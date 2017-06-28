@@ -23,6 +23,8 @@ function work
             tmux new-window -c ~ -n deploy -t SD:9
             tmux send-keys -t SD:9.0 'ssh rm01.lv.slickdeals.net' C-m
 
+            tmux new-window -c ~/html/slickdeals/sdincludes/util/ -n js -t SD:10
+
             tmux select-window -t SD:0
         end
         tmux -2 attach -d -t SD

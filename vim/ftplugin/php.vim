@@ -1,4 +1,5 @@
-setlocal foldmethod=syntax
+setlocal foldmethod=marker
+setlocal foldmarker={,}
 setlocal foldlevel=99
 
 setlocal smartindent

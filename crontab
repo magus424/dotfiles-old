@@ -1,0 +1,5 @@
+# prune old session files
+0 0 * * * find /home/vagrant/.config/vim/session -mtime +90 -exec rm \{\} \; > /dev/null
+
+# build ctags
+0 0 * * * /home/vagrant/bin/gen_ctags > /dev/null
