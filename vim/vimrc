@@ -61,7 +61,9 @@ let g:syntastic_html_tidy_ignore_errors  = [
             \ "'<' + '/' + letter not allowed here"
             \ ]
 
-" let g:prosession_on_startup = 0
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+
 let g:prosession_per_branch = 1
 
 if &compatible == 0
@@ -104,7 +106,8 @@ if &compatible == 0
     Plugin 'benmills/vimux'
     Plugin 'guns/xterm-color-table.vim'
     Plugin 'Rykka/colorv.vim'
-    Plugin 'Shougo/unite.vim'
+    Plugin 'nathanaelkane/vim-indent-guides'
+    " Plugin 'Shougo/unite.vim'
     " if filereadable($HOME.'/.csearchindex')
     "     Plugin 'brandonbloom/csearch.vim'
     "     Plugin 'junkblocker/unite-codesearch'

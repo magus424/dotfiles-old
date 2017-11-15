@@ -16,6 +16,8 @@ hi VertSplit                ctermfg=24  ctermbg=0   cterm=none
 hi LineNr                   ctermfg=240 ctermbg=233 cterm=none
 hi SpecialKey               ctermfg=240
 
+hi IndentGuidesEven         ctermbg=233 cterm=none
+
 hi TabLine                  ctermfg=255 ctermbg=24  cterm=none
 hi TabLineSel               ctermfg=255 ctermbg=0   cterm=none
 hi clear TabLineFill
