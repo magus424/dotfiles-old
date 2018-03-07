@@ -16,15 +16,15 @@ limitations under the License.
 
 :root {
     /* Modify these to change your theme colors: */
-    
+
     --primary: #0085dd;
     --text: #ABB2BF;
     --background: #282C34;
     --background-transparent: #282C3400;
     --background-elevated: #3B4048;
-    
+
     /* These should be less important: */
-    
+
     --background-hover: rgba(255, 255, 255, 0.1);
     --background-light: #AAA;
     --background-bright: #FFF;
@@ -50,27 +50,32 @@ h4 {
 
 /* NEW ADDS */
 
+.p-message_pane .p-message_pane__top_banners:not(:empty) + div .c-message_list:not(.c-virtual_list--scrollbar):before,
+.p-message_pane .p-message_pane__top_banners:not(:empty) + div .c-message_list.c-virtual_list--scrollbar > .c-scrollbar__hider:before {
+    box-shadow: none;
+}
+
 .p-degraded_list__loading {
-	background: var(--background);
+    background: var(--background);
     color: var(--text);
 }
 
 .CodeMirror {
-	border-radius: 0px;
+    border-radius: 0px;
 }
 
 .c-file_container {
-	background: var(--background-light);
+    background: var(--background-light);
 }
 
 .c-snippet__code .CodeMirror-code > div:before {
-	background: var(--background-light);
+    background: var(--background-light);
     border-right-color: var(--background-light);
     color: var(--border-dim);
 }
 
 .c-file_container--gradient::after {
-	background: linear-gradient(180deg, var(--background-transparent), var(--background));
+    background: linear-gradient(180deg, var(--background-transparent), var(--background));
 }
 
 .c-mrkdwn__member--link,
@@ -96,7 +101,7 @@ div.c-message.c-message--light.c-message--hover {
 .c-message:hover:not(.c-message--highlight):not(.c-message--standalone):not(.c-message--pinned):not(.c-message--ephemeral):not(.c-message--custom_response):not(.c-message--starred):not(.c-message--sli_highlight),
 .c-message--hover:not(.c-message--highlight):not(.c-message--standalone):not(.c-message--pinned):not(.c-message--ephemeral):not(.c-message--custom_response):not(.c-message--starred):not(.c-message--sli_highlight),
 .c-message--focus:not(.c-message--highlight):not(.c-message--standalone):not(.c-message--pinned):not(.c-message--ephemeral):not(.c-message--custom_response):not(.c-message--starred):not(.c-message--sli_highlight) {
-	background-color: var(--background-elevated);
+    background-color: var(--background-elevated);
 }
 
 span.c-message__body,
@@ -108,19 +113,19 @@ div.p-message_pane__foreword__description span {
 
 .p-message_pane .c-message_list:not(.c-virtual_list--scrollbar):before,
 .p-message_pane .c-message_list.c-virtual_list--scrollbar > .c-scrollbar__hider:before {
-	background-color: var(--background-elevated);
+    background-color: var(--background-elevated);
     border-bottom-color: var(--background-elevated);
 }
 
 .c-message_list__day_divider__label__pill {
-	background-color: var(--background-elevated);
+    background-color: var(--background-elevated);
     color: var(--text-bright);
 }
 
 .c-member__display-name,
 .c-team__display-name,
 .c-usergroup__handle {
-	color: var(--text);
+    color: var(--text);
 }
 
 pre.special_formatting {
@@ -297,7 +302,7 @@ li.active[class] span,
 .p-channel_sidebar__badge,
 .p-channel_sidebar__banner--mentions {
     /*inverted because important*/
-    
+
     background-color: var(--border-bright) !important;
     border-color: var(--text-bright);
     color: var(--text-bright);
@@ -574,7 +579,7 @@ code {
 .supports_custom_scrollbar:not(.slim_scrollbar) #msgs_scroller_div::-webkit-scrollbar-thumb,
 .supports_custom_scrollbar:not(.slim_scrollbar) #col_channels:hover #channels_scroller::-webkit-scrollbar-thumb {
     /* scrollbar draggy bit */
-    
+
     color: transparent !important;
     border: 1px solid var(--scrollbar-border) !important;
     background-color: transparent !important;
@@ -584,7 +589,7 @@ code {
 .supports_custom_scrollbar:not(.slim_scrollbar) #msgs_scroller_div::-webkit-scrollbar-track,
 .supports_custom_scrollbar:not(.slim_scrollbar) #col_channels:hover #channels_scroller::-webkit-scrollbar-track {
     /* scrollbar endcaps */
-    
+
     color: transparent !important;
     border: 1px solid var(--border-dim) !important;
     background-color: transparent !important;
@@ -644,7 +649,7 @@ ts-message a.timestamp {
 
 .greigh {
     /* greigh = label?? */
-    
+
     color: var(--text) !important;
 }
 
@@ -745,7 +750,7 @@ ts-mention.ts_tip:hover {
 
 .emoji-sizer {
     /* outline for black-on-transparent emojis */
-    
+
     -webkit-filter: drop-shadow( 1px 0 0 var(--background-bright)) drop-shadow(-1px 0 0 var(--background-bright)) drop-shadow(-0 1px 0 var(--background-bright)) drop-shadow( 0 -1px 0 var(--background-bright));
     margin: 0 !important;
 }
