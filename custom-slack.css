@@ -50,6 +50,17 @@ h4 {
 
 /* NEW ADDS */
 
+.notification_prefs_icon:before,
+.channel_prefs_body__section_header_title,
+.channel_prefs_modal_footer__text,
+.channel_prefs__muting_checkbox_label:not(.subtle_silver) {
+    color: var(--text) !important;
+}
+
+ts-jumper .highlighted .channel_name {
+    color: var(--text-bright) !important;
+}
+
 .c-message_attachment__border {
     background-color: var(--background-elevated);
 }
