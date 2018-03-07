@@ -113,12 +113,16 @@ div.p-message_pane__foreword__description span {
 
 .p-message_pane .c-message_list:not(.c-virtual_list--scrollbar):before,
 .p-message_pane .c-message_list.c-virtual_list--scrollbar > .c-scrollbar__hider:before {
-    background-color: var(--background-elevated);
-    border-bottom-color: var(--background-elevated);
+    background-color: var(--background);
+    border-bottom-color: var(--background);
+}
+
+.c-message_list__day_divider__line {
+    border-top-color: var(--background-elevated);
 }
 
 .c-message_list__day_divider__label__pill {
-    background-color: var(--background-elevated);
+    background-color: var(--background);
     color: var(--text-bright);
 }
 
