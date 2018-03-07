@@ -50,6 +50,10 @@ h4 {
 
 /* NEW ADDS */
 
+.sidebar_menu_list_item {
+    color: var(--text);
+}
+
 .notification_prefs_icon:before,
 .channel_prefs_body__section_header_title,
 .channel_prefs_modal_footer__text,
