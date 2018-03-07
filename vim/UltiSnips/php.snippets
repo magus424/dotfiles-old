@@ -416,4 +416,17 @@ snippet sani "Sanitize int"
 ${1:$variable} = (int)$1;
 endsnippet
 
+snippet switch "Switch statement"
+switch ($${1:variable})
+{
+	case '${2:value}':
+		${3}
+		break;
+	${0}
+	default:
+		${4}
+		break;
+}
+endsnippet
+
 # :vim:ft=snippets:
