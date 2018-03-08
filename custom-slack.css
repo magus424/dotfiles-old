@@ -50,6 +50,7 @@ h4 {
 
 /* NEW ADDS */
 
+.c-message_attachment,
 .sidebar_menu_list_item {
     color: var(--text);
 }
