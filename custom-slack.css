@@ -50,6 +50,41 @@ h4 {
 
 /* NEW ADDS */
 
+.alert.alert_info>i:first-of-type,
+.alert.alert_info>ts-icon:first-of-type {
+    color: var(--primary);
+}
+
+#im_browser .qs_tip.alert {
+    border-color: var(--background-light);
+}
+
+.alert {
+    background: var(--background-light);
+    border-color: var(--background-light);
+    color: white;
+    text-shadow: 0 1px 0 var(--background-partial);
+}
+
+#im_browser #im_list_container:not(.keyboard_active).not_scrolling .im_browser_row:not(.disabled_dm):hover,
+#im_browser .im_browser_row.highlighted {
+    background: var(--background-hover);
+    border-color: var(--background-hover);
+}
+
+#im_browser .im_browser_row.multiparty,
+.c-member__secondary-name--medium {
+    color: var(--text);
+}
+
+#im_browser .im_browser_row {
+    border-top-color: var(--background-hover);
+}
+
+#im_browser_tokens {
+    background-color: var(--background);
+}
+
 .c-message_attachment,
 .sidebar_menu_list_item {
     color: var(--text);
