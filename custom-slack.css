@@ -50,6 +50,18 @@ h4 {
 
 /* NEW ADDS */
 
+.flexpane_file_title .title a,
+.flexpane_file_title .file_action_list a,
+.flexpane_file_title .file_action_list .ts_icon_ellipsis_o {
+    color: var(--primary);
+}
+
+.comment .member,
+.flexpane_file_title .member,
+.flexpane_file_title .service_link {
+    color: var(--text) !important;
+}
+
 .alert.alert_info>i:first-of-type,
 .alert.alert_info>ts-icon:first-of-type {
     color: var(--primary);
