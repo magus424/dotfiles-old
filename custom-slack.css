@@ -50,10 +50,15 @@ h4 {
 
 /* NEW ADDS */
 
+.file_comment_submit_container .indifferent_grey {
+    color: var(--text) !important;
+}
+
+.file_comment_submit_container button,
 .flexpane_file_title .title a,
 .flexpane_file_title .file_action_list a,
 .flexpane_file_title .file_action_list .ts_icon_ellipsis_o {
-    color: var(--primary);
+    color: var(--primary) !important;
 }
 
 .comment .member,
