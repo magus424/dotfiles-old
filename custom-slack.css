@@ -50,6 +50,14 @@ h4 {
 
 /* NEW ADDS */
 
+.c-message__reply_bar:hover,
+.c-message__reply_bar--focus,
+.c-message__reply_bar:hover .c-message__reply_bar_view_thread,
+.c-message__reply_bar--focus .c-message__reply_bar_view_thread {
+    background-color: var(--background-elevated);
+    color: var(--text);
+}
+
 .c-message--ephemeral {
     background-color: var(--background-elevated);
 }
