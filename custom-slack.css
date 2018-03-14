@@ -50,6 +50,31 @@ h4 {
 
 /* NEW ADDS */
 
+.tab_complete_ui {
+    background: var(--background-elevated);
+}
+
+.tab_complete_ui .tab_complete_ui_header {
+    background: var(--background-elevated);
+    color: var(--text);
+}
+
+.app_preview_link_slug,
+.internal_member_link,
+.internal_user_group_link,
+ts-mention {
+    background: var(--background-elevated);
+    color: var(--text-bright);
+}
+
+.app_preview_link_slug:hover,
+.internal_member_link:hover,
+.internal_user_group_link:hover,
+ts-mention:hover {
+    background: var(--background-elevated);
+    color: var(--primary);
+}
+
 .file_comment_submit_container .indifferent_grey {
     color: var(--text) !important;
 }
