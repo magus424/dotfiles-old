@@ -50,6 +50,54 @@ h4 {
 
 /* NEW ADDS */
 
+.c-message--ephemeral {
+    background-color: var(--background-elevated);
+}
+
+.c-input_select_options_list_container:not(.c-input_select_options_list_container--always-open) {
+    background-color: var(--background-elevated);
+    border-color: var(--border-dim);
+}
+
+.c-input_select_options_list__option {
+    color: var(--text);
+}
+
+.c-input_select_options_list__option--active {
+    color: var(--text-bright);
+}
+
+.c-button--outline-primary {
+    background-color: var(--background-elevated);
+    color: var(--primary);
+    box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.c-button--outline {
+    background-color: var(--background-elevated);
+    color: var(--text-bright);
+    box-shadow: inset 0 0 0 1px var(--border-dim);
+}
+
+.c-input_select,
+.c-button--outline:hover {
+    color: var(--text-bright);
+}
+
+.c-input_select {
+    background-color: var(--background-elevated);
+    border: 1px solid var(--border-dim);
+}
+
+.c-input_select--short input.c-input_select__filter_input {
+    background-color: var(--background-elevated) !important;
+    color: var(--text-bright);
+}
+
+.c-input_select--short input.c-input_select__filter_input::placeholder {
+    color: var(--text-bright);
+}
+
 .tab_complete_ui {
     background: var(--background-elevated);
 }
