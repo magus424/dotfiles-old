@@ -28,6 +28,7 @@ limitations under the License.
     --background-hover: rgba(255, 255, 255, 0.1);
     --background-light: #AAA;
     --background-bright: #FFF;
+    --background-bright-transparent: #FFFFFFA0;
     --background-special: #0072bc;
     --border-dim: #666;
     --border-bright: var(--primary);
@@ -918,7 +919,7 @@ ts-mention.ts_tip:hover {
 .emoji-sizer {
     /* outline for black-on-transparent emojis */
 
-    -webkit-filter: drop-shadow( 1px 0 0 var(--background-bright)) drop-shadow(-1px 0 0 var(--background-bright)) drop-shadow(-0 1px 0 var(--background-bright)) drop-shadow( 0 -1px 0 var(--background-bright));
+    -webkit-filter: drop-shadow( 1px 0 0 var(--background-bright-transparent)) drop-shadow(-1px 0 0 var(--background-bright-transparent)) drop-shadow(-0 1px 0 var(--background-bright-transparent)) drop-shadow( 0 -1px 0 var(--background-bright-transparent));
     margin: 0 !important;
 }
 
