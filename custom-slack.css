@@ -51,6 +51,15 @@ h4 {
 
 /* NEW ADDS */
 
+ts-jumper .p-jumper__help {
+    background-color: var(--background-elevated);
+    color: var(--text);
+}
+
+ts-jumper .p-jumper__results {
+    border-top-color: var(--border-dim);
+}
+
 .tab_complete_ui ul.type_cmds li.tab_complete_ui_group .group_name,
 .tab_complete_ui ul.type_cmds .cmdname {
     color: var(--text-bright);
