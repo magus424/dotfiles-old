@@ -51,6 +51,12 @@ h4 {
 
 /* NEW ADDS */
 
+.menu_member_header .member_details .member_current_status,
+.menu_member_header .member_details .member_timezone_value,
+.texty_legacy .ql-placeholder {
+    color: var(--text);
+}
+
 .p-channel_sidebar__static_list {
     zoom: 0.9;
 }
