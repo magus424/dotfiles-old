@@ -51,6 +51,16 @@ h4 {
 
 /* NEW ADDS */
 
+.im_browser_row .c-team__display-name,
+.im_browser_row .c-unified_member__display-name,
+.im_browser_row .c-unified_member__secondary-name--medium,
+.im_browser_row .c-usergroup__handle,
+.p-jumper__row .c-team__display-name,
+.p-jumper__row .c-unified_member__display-name,
+.p-jumper__row .c-usergroup__handle {
+    color: var(--text);
+}
+
 .p-message_pane .c-message_list:not(.c-virtual_list--scrollbar),
 .p-message_pane .c-message_list.c-virtual_list--scrollbar > .c-scrollbar__hider {
     background: var(--background) !important;
