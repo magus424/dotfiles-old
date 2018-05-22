@@ -51,6 +51,12 @@ h4 {
 
 /* NEW ADDS */
 
+.c-team__display-name,
+.c-unified_member__display-name,
+.c-usergroup__handle,
+.tab_complete_ui_item .c-team__display-name,
+.tab_complete_ui_item .c-unified_member__display-name,
+.tab_complete_ui_item .c-usergroup__handle,
 #select_share_channels .lazy_filter_select .lfs_item,
 #select_share_channels .lazy_filter_select .lfs_value .lfs_item.selected,
 .im_browser_row .c-team__display-name,
