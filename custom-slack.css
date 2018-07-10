@@ -51,6 +51,8 @@ h4 {
 
 /* NEW ADDS */
 
+.comment .special_formatting_quote .content,
+.comment_body,
 .c-message_attachment__pretext,
 .c-team__display-name,
 .c-unified_member__display-name,
