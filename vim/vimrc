@@ -752,6 +752,7 @@ let g:CommandTWildIgnore              = &wildignore
             \ . ",*/SD1.0/*"
             \ . ",*/WAP1.0/*"
             \ . ",*/css/compiled/*"
+            " \ . ",*/templates/MASTER/*.php"
             " \ . ",*/templates/MASTER/*"
             " \ . ",*/templates/MASTER/*/*.php"
 
