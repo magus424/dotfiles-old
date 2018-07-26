@@ -51,6 +51,44 @@ h4 {
 
 /* NEW ADDS */
 
+#reply_container.upload_in_threads .inline_message_input_container,
+#threads_msgs .inline_message_input_container.with_file_upload {
+    background: transparent !important;
+    color: var(--text) !important;
+    border-color: var(--border-dim) !important;
+}
+
+#reply_container.upload_in_threads .inline_message_input_container .inline_file_upload,
+#threads_msgs .inline_message_input_container.with_file_upload .inline_file_upload {
+    background: transparent !important;
+    color: var(--text) !important;
+    border-color: var(--border-dim) !important;
+}
+
+.p-file_list__filters,
+.p-flexpane_header {
+    background: var(--background-elevated);
+}
+
+.c-pillow_file_container {
+    background: var(--background);
+}
+
+.c-pillow_file__title,
+.p-file_list__file_type_select .c-input_select__selected_value--placeholder {
+    color: var(--text);
+}
+
+.p-file_list__filters,
+.p-file_list__file.c-pillow_file_container--full_width {
+    border-color: var(--border-dim);
+}
+
+.p-file_list__file.c-pillow_file_container--full_width:hover {
+    background: var(--background-elevated);
+    border-color: var(--border-dim);
+}
+
 .p-message_pane__foreword__description,
 .p-message_pane__limited_history_alert,
 .comment .special_formatting_quote .content,
