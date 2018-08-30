@@ -51,6 +51,21 @@ h4 {
 
 /* NEW ADDS */
 
+.c-file__slide--meta {
+    background: var(--background-light);
+}
+
+.c-dialog__title,
+.c-dialog__footer .p-file_upload_dialog__footer_share_inputs {
+    color: var(--text);
+}
+
+.c-dialog__header,
+.c-dialog__content,
+.c-dialog__footer {
+    background-color: var(--background-elevated);
+}
+
 #reply_container.upload_in_threads .inline_message_input_container,
 #threads_msgs .inline_message_input_container.with_file_upload {
     background: transparent !important;
