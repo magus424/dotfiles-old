@@ -7,6 +7,8 @@ filetype off
 
 python import sys; from vim import command; command("let python_version = '%s'" % sys.version[2:3])
 
+let g:netrw_silent = 1
+
 if python_version < 6
     let g:airline_powerline_fonts = 1
     let g:airline_enable_hunks    = 0
@@ -35,7 +37,8 @@ let g:UltiSnipsListSnippets        = "<C-S-Tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<C-n>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-p>"
 
-let g:gitgutter_sign_column_always = 1
+" let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 let g:gitgutter_diff_args          = '-w'
 
 if isdirectory("/home/vagrant/html/standards/Slickdeals")
@@ -95,6 +98,9 @@ if &compatible == 0
     else
         Plugin 'scrooloose/syntastic'
     endif
+
+    " Plugin 'lvht/phpcd.vim'
+
     Plugin 'scrooloose/nerdtree'
     Plugin 'mileszs/ack.vim'
     Plugin 'airblade/vim-gitgutter'
@@ -105,8 +111,9 @@ if &compatible == 0
     Plugin 'christoomey/vim-tmux-navigator'
     Plugin 'benmills/vimux'
     Plugin 'guns/xterm-color-table.vim'
-    Plugin 'Rykka/colorv.vim'
-    Plugin 'nathanaelkane/vim-indent-guides'
+
+    " Plugin 'Rykka/colorv.vim'
+    " Plugin 'nathanaelkane/vim-indent-guides'
     " Plugin 'Shougo/unite.vim'
     " if filereadable($HOME.'/.csearchindex')
     "     Plugin 'brandonbloom/csearch.vim'
@@ -557,6 +564,7 @@ if &compatible == 0
         setl foldmethod=marker
     endfun
 
+    au BufNewFile,BufRead *.yaml call s:html_settings()
     au BufNewFile,BufRead *.html call s:html_settings()
     function! s:html_settings()
         setlocal tabstop=2
@@ -651,13 +659,20 @@ inoremap <silent> [1~ <C-o>:SmartHomeKey<CR>
 
 " TComment
 
-let g:tcommentGuessFileType_php = 'php'
-let g:tcommentMapLeader1 = ''
-let g:tcommentMapLeader2 = ''
-let g:tcommentMapLeaderOp1 = ''
-let g:tcommentMapLeaderOp2 = ''
+let g:tcomment_opleader1 = ''
+let g:tcomment_mapleader1 = ''
+let g:tcomment_mapleader2 = ''
+let g:tcomment#filetype#guess_php = 'php'
+
+" let g:tcommentGuessFileType_php = 'php'
+" let g:tcommentMapLeader1 = ''
+" let g:tcommentMapLeader2 = ''
+" let g:tcommentMapLeaderOp1 = ''
+" let g:tcommentMapLeaderOp2 = ''
 nmap <silent> C :TComment<CR>
 xmap <silent> C :TComment<CR>
+nmap <silent> <Leader>cs :TCommentAs sql<CR>
+xmap <silent> <Leader>cs :TCommentAs sql<CR>
 
 let g:tcomment_types = {
             \ 'twig'           : '{# %s #}',
