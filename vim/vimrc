@@ -28,8 +28,8 @@ set completeopt=menuone,longest
 let g:SuperTabCrMapping                    = 0
 let g:SuperTabLongestEnhanced              = 1
 let g:SuperTabLongestHighlight             = 1
-let g:SuperTabDefaultCompletionType        = "<c-x><c-p>"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-p>"
+let g:SuperTabDefaultCompletionType        = '<c-x><c-p>'
+let g:SuperTabContextDefaultCompletionType = '<c-x><c-p>'
 let g:SuperTabNoCompleteAfter              = ['^', ',', '\s', '"', "'"]
 
 let g:UltiSnipsExpandTrigger       = "<Tab>"
@@ -99,7 +99,7 @@ if &compatible == 0
         Plugin 'scrooloose/syntastic'
     endif
 
-    " Plugin 'lvht/phpcd.vim'
+    Plugin 'lvht/phpcd.vim'
 
     Plugin 'scrooloose/nerdtree'
     Plugin 'mileszs/ack.vim'
@@ -584,6 +584,12 @@ if &compatible == 0
         nmap <buffer> <C-b> :make!<CR>
         imap <buffer> <C-b> <C-o>:make!<CR>
         setlocal keywordprg=pman
+        let b:SuperTabDefaultCompletionType        = "context"
+        let b:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
+        let b:SuperTabContextTextOmniPrecedence    = ['&completefunc', '&omnifunc']
+        if &omnifunc != ''
+            call SuperTabChain(&omnifunc, "<c-p>")
+        endif
     endfun
 endif
 
