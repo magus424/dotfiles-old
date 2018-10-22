@@ -25,6 +25,10 @@ set -x ACK_COLOR_MATCH "bold yellow"
 set -x PAGER vimpager
 set -x GIT_PAGER less
 
+if type -q thefuck
+    thefuck --alias | source
+end
+
 # if test -d /usr/local/rvm/rubies/ruby-2.1.2/lib
 #     set -x LD_LIBRARY_PATH /usr/local/rvm/rubies/ruby-2.1.2/lib
 # end
