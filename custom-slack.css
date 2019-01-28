@@ -51,10 +51,31 @@ h4 {
 
 /* NEW ADDS */
 
+html,
+body,
+#client_body:before {
+    background: var(--background) !important;
+}
+
+#client_body:not(.onboarding):not(.feature_global_nav_layout):before {
+    box-shadow: none !important;
+}
+
 .c-file__slide--meta {
     background: var(--background-light);
 }
 
+.p-channel_insights__channel .channel_link {
+    color: var(--text-special) !important;
+}
+
+.p-shortcuts_flexpane__title,
+.p-shortcuts_flexpane__shortcut_title,
+#details_tab .feature_sli_channel_insights .channel_created_section .creator_link,
+#details_tab .feature_sli_channel_insights .channel_purpose_section .channel_purpose_text,
+.pinned_item .pin_file_title,
+.p-threads_flexpane__separator_count,
+.p-threads_flexpane__header_channel_name,
 .c-dialog__title,
 .c-dialog__footer .p-file_upload_dialog__footer_share_inputs {
     color: var(--text);
@@ -65,14 +86,11 @@ h4 {
 .c-dialog__footer {
     background-color: var(--background-elevated);
 }
-
+ 
+.p-threads_footer__input--legacy .p-message_input_plus,
+.p-threads_footer__input .p-message_input_field,
 #reply_container.upload_in_threads .inline_message_input_container,
-#threads_msgs .inline_message_input_container.with_file_upload {
-    background: transparent !important;
-    color: var(--text) !important;
-    border-color: var(--border-dim) !important;
-}
-
+#threads_msgs .inline_message_input_container.with_file_upload,
 #reply_container.upload_in_threads .inline_message_input_container .inline_file_upload,
 #threads_msgs .inline_message_input_container.with_file_upload .inline_file_upload {
     background: transparent !important;
@@ -400,7 +418,7 @@ pre.special_formatting {
     background-color: #222 !important;
     color: #8f8f8f !important;
     border: solid;
-    border-width: 1 px !important;
+    border-width: 1px !important;
 }
 
 /* END NEW ADDS */
@@ -999,9 +1017,6 @@ ts-mention.ts_tip:hover {
     height: 28px;
 }
 
-.rxn[data-emoji]:hover {
-}
-
 .rxn[data-emoji] .emoji_rxn_count {
     font-size: 0.9rem;
 }
@@ -1328,7 +1343,9 @@ div::-webkit-scrollbar-thumb {
 #channel_scroll_down,
 #channel_scroll_up {
     background-color: var(--background) !important;
-    border: 0 1px 1px 1px solid var(--border-bright) !important;
+    border-color: var(--border-bright) !important;
+    border-style: solid !important;
+    border-width: 0 1px 1px 1px !important;
 }
 
 #team_menu,
