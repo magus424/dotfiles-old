@@ -63,6 +63,11 @@ h4 {
     color: var(--text);
 }
 
+.p-downloads_list__shift_hint {
+    background: linear-gradient(180deg,hsla(0,0%,100%,0),var(--background-elevated) 25%,var(--background-elevated));
+    color: var(--text);
+}
+
 html,
 body,
 #client_body:before {
