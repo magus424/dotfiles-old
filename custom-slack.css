@@ -51,6 +51,18 @@ h4 {
 
 /* NEW ADDS */
 
+.p-download_item__container .p-download_item__name_row {
+    color: var(--text);
+}
+
+.p-download_item__actions {
+    background-color: transparent;
+}
+
+.p-download_item__size_row {
+    color: var(--text);
+}
+
 html,
 body,
 #client_body:before {
