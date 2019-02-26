@@ -51,6 +51,28 @@ h4 {
 
 /* NEW ADDS */
 
+#channel_browser .channel_browser_divider {
+    color: var(--text);
+    background: var(--background-elevated);
+}
+
+#channel_browser .sk_black {
+    color: var(--primary);
+}
+
+#channel_browser #channel_list_container:not(.keyboard_active).not_scrolling .channel_browser_row:hover,
+#channel_browser .channel_browser_row.highlighted {
+    background: var(--background);
+    border: 1px solid var(--background);
+}
+
+#fs_modal .fs_modal_btn,
+#channel_browser .channel_browser_row_header,
+.feature_channel_browser_dropdown .channel_browser_sort_container .lfs_input_container .selected,
+.feature_channel_browser_dropdown .show_which_channels_container .lfs_input_container .selected {
+    color: var(--text);
+}
+
 .p-download_item__container .p-download_item__name_row {
     color: var(--text);
 }
