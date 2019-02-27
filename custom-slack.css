@@ -51,6 +51,10 @@ h4 {
 
 /* NEW ADDS */
 
+.c-message_kit__file__meta {
+    color: var(--text);
+}
+
 #channel_browser .channel_browser_divider {
     color: var(--text);
     background: var(--background-elevated);
