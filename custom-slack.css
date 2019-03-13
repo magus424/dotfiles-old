@@ -51,6 +51,28 @@ h4 {
 
 /* NEW ADDS */
 
+.client_channels_list_container #team_menu,
+.client_channels_list_container #team_menu_overlay {
+    border-color: transparent !important;
+}
+
+.c-search_autocomplete__suggestion_item .token {
+    background: var(--background);
+    color: var(--text);
+}
+
+.c-search_autocomplete__suggestion_item,
+.c-search_modal:not(.c-search_modal--primarysearch) .c-search__input_box,
+.c-search_autocomplete footer,
+.c-search_modal .popover>div {
+    background: var(--background-elevated);
+    color: var(--text);
+}
+
+.c-reaction--feature_new_reactions {
+    background: #fff;
+}
+
 .c-message_kit__file__meta {
     color: var(--text);
 }
@@ -1391,9 +1413,7 @@ div::-webkit-scrollbar-thumb {
     border-width: 0 1px 1px 1px !important;
 }
 
-#team_menu,
 #quick_switcher_btn,
-#team_menu_overlay,
 #col_channels_overlay {
     border-color: transparent !important;
 }
