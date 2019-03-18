@@ -69,6 +69,7 @@ h4 {
     color: var(--text);
 }
 
+.c-reaction,
 .c-reaction--feature_new_reactions {
     background: #fff;
 }
