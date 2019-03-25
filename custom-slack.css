@@ -73,7 +73,8 @@ h4 {
 .p_threads_view_load_newer_button,
 .p_threads_view_load_older_button,
 .p-threads_view_root,
-.p-threads_view_reply {
+.p-threads_view_reply,
+.p-threads_view__footer {
     border-color: var(--background-elevated);
 }
 
