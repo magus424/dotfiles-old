@@ -28,8 +28,8 @@ set completeopt=menuone,longest
 let g:SuperTabCrMapping                    = 0
 let g:SuperTabLongestEnhanced              = 1
 let g:SuperTabLongestHighlight             = 1
-let g:SuperTabDefaultCompletionType        = '<c-x><c-p>'
-let g:SuperTabContextDefaultCompletionType = '<c-x><c-p>'
+let g:SuperTabDefaultCompletionType        = '<c-p>'
+let g:SuperTabContextDefaultCompletionType = '<c-p>'
 let g:SuperTabNoCompleteAfter              = ['^', ',', '\s', '"', "'"]
 
 let g:UltiSnipsExpandTrigger       = "<Tab>"
@@ -41,6 +41,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-p>"
 set signcolumn=yes
 let g:gitgutter_diff_args          = '-w'
 
+let g:ale_completion_enabled = 1
 if isdirectory("/home/vagrant/html/standards/Slickdeals")
     let g:ale_php_phpcs_standard = '/home/vagrant/html/standards/Slickdeals'
 endif
@@ -123,10 +124,10 @@ if &compatible == 0
     " Plugin 'jsoriano/vim-dbgp'
     " Plugin 'joonty/vdebug'
 
-    if python_version > 5
+    if python_version > 5 && !has('nvim')
         Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
     elseif version >= 720
-        Plugin 'bling/vim-airline'
+        Plugin 'vim-airline/vim-airline'
     endif
 
     call vundle#end()
@@ -166,6 +167,7 @@ set gdefault
 set ignorecase
 set smartcase
 set number
+set redrawtime=5000
 set ruler
 set scrolloff=2
 set sessionoptions-=options
@@ -236,18 +238,70 @@ endif
 " Highlight conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
+function! Airpower_ffenc()
+    let expected = get(g:, 'airline#parts#ffenc#skip_expected_string', '')
+    let bomb     = &l:bomb ? '[BOM]' : ''
+    let ff       = strlen(&ff) ? &ff : ''
+    let fe       = strlen(&fenc) ? '  '.&fenc : ''
+    let ft       = strlen(&filetype) ? '  '.&filetype : ''
+    if expected is# ff.fe.bomb.ft
+        return ''
+    else
+        return ff.fe.bomb.ft
+    endif
+endfunction
+
+function! Airpower_modified()
+    if &modified
+        " call airline#parts#define_accent('airpower_modified', 'yellow')
+        return ' M'
+    else
+        return ''
+    endif
+endfunction
+
 function! AirlineInit()
     if (exists('g:loaded_airline') && g:loaded_airline)
-        let spc = g:airline_symbols.space
-        call airline#parts#define_raw('linenr', '%{g:airline_symbols.linenr}%#__accent_bold#%4l/%L %#__restore__#')
-        let g:airline_section_a       = airline#section#create_left(['mode', 'paste', 'capslock', 'iminsert'])
-        let g:airline_section_b       = airline#section#create(['branch'])
-        let g:airline_section_c       = airline#section#create(['%<', 'file', spc, 'readonly'])
-        let g:airline_section_gutter  = airline#section#create(['%='])
-        let g:airline_section_x       = airline#section#create_right(['tagbar', 'filetype'])
-        let g:airline_section_y       = airline#section#create_right(['ffenc'])
-        let g:airline_section_z       = airline#section#create(['linenr', ':%3c '])
-        let g:airline_section_warning = airline#section#create(['syntastic'])
+
+        let g:airline_skip_empty_sections = 1
+
+        let g:airline_left_sep = ''
+        let g:airline_left_alt_sep = ''
+        let g:airline_right_sep = ''
+        let g:airline_right_alt_sep = ''
+        let g:airline_symbols.branch = ''
+        let g:airline_symbols.readonly = ''
+        let g:airline_symbols.linenr = ''
+        let g:airline_symbols.maxlinenr = '☰'
+
+        " call airline#parts#define_raw('linenr', '%{g:airline_symbols.linenr} #__accent_green#%4l:%-2v#__restore__#')
+
+        call airline#highlighter#add_accent('grcol')
+        call airline#highlighter#add_accent('ymod')
+        call airline#highlighter#add_accent('gsplit')
+
+        let g:airline_section_b = airline#section#create([
+                    \ 'branch',
+                    \ ' %#__accent_gsplit#%#__restore__# %F',
+                    \ '%#__accent_ymod#%{Airpower_modified()}%#__restore__#'])
+        let g:airline_section_c = ' '
+        let g:airline_section_x = "%{airline#util#wrap(Airpower_ffenc(),0)}"
+        let g:airline_section_y = "%2p%%"
+        let g:airline_section_z = "%{g:airline_symbols.linenr} %4l%#__accent_grcol#:%-2v%#__restore__#"
+        " let g:airline_section_z = airline#section#create(['linenr'])
+
+        " call airline#load_theme()
+        AirlineTheme airpower
+
+        " let g:airline#extensions#tabline#enabled = 1
+        " let g:airline_symbols.space = "\ua0"
+        " let spc = g:airline_symbols.space
+        " let g:airline_section_a       = airline#section#create_left(['mode', 'paste', 'capslock', 'iminsert'])
+        " let g:airline_section_c       = airline#section#create(['%<', 'file', spc, 'readonly'])
+        " let g:airline_section_gutter  = airline#section#create(['%='])
+        " let g:airline_section_x       = airline#section#create_right(['tagbar', 'filetype'])
+        " let g:airline_section_y       = airline#section#create_right(['ffenc'])
+        " let g:airline_section_z       = airline#section#create(['linenr', ':%3c '])
     endif
 endfunction
 autocmd VimEnter * call AirlineInit()
@@ -358,13 +412,17 @@ endfunction
 if &term == "screen" || &term == "screen-256color"
     set t_ts=k
     set t_fs=\
-    set ttymouse=xterm2
+    if !has('nvim')
+        set ttymouse=xterm2
+    end
 endif
 
-if has("mouse_sgr")
-    set ttymouse=sgr
-else
-    set ttymouse=xterm2
+if !has('nvim')
+    if has("mouse_sgr")
+        set ttymouse=sgr
+    else
+        set ttymouse=xterm2
+    end
 end
 
 " Set window title to same as statusline
@@ -392,6 +450,7 @@ endif
 
 " Alt+P toggles paste
 nnoremap <silent> <Esc>p :set invpaste<CR>
+nnoremap <silent> <A-p> :set invpaste<CR>
 
 " // clears search highlight
 nnoremap <silent> // :noh<CR>
@@ -435,6 +494,8 @@ xnoremap <Esc>[B <Down>
 " Tab movement keys
 nnoremap <silent> <Esc><Right> :tabn<CR>
 nnoremap <silent> <Esc><Left> :tabp<CR>
+nnoremap <silent> <A-Right> :tabn<CR>
+nnoremap <silent> <A-Left> :tabp<CR>
 
 " Change Y to copy from current character to end of line
 " (mimic y0's behavior but backwards)
@@ -564,7 +625,12 @@ if &compatible == 0
         setl foldmethod=marker
     endfun
 
-    au BufNewFile,BufRead *.yaml call s:html_settings()
+    au BufNewFile,BufRead *.yaml call s:yaml_settings()
+    function! s:yaml_settings()
+        call s:html_settings()
+        let b:SuperTabDefaultCompletionType = '<c-p>'
+    endfun
+
     au BufNewFile,BufRead *.html call s:html_settings()
     function! s:html_settings()
         setlocal tabstop=2
@@ -661,6 +727,8 @@ let g:html_indent_style1  = "inc"
 
 " SmartHomeKey
 
+noremap  <silent> <Home> :SmartHomeKey<CR>
+inoremap <silent> <Home> <C-o>:SmartHomeKey<CR>
 noremap  <silent> [1~ :SmartHomeKey<CR>
 inoremap <silent> [1~ <C-o>:SmartHomeKey<CR>
 
@@ -739,6 +807,7 @@ xmap <silent> `; :EasyAlign :<CR>
 " Command-T
 
 nnoremap <silent> <Esc>t :CommandT ~/html/<CR>
+nnoremap <silent> <A-t> :CommandT ~/html/<CR>
 
 let g:CommandTCancelMap               = ['<ESC>', '<C-c>']
 let g:CommandTSelectNextMap           = ['<ESC>OB']
@@ -774,12 +843,14 @@ let g:CommandTWildIgnore              = &wildignore
             \ . ",*/SD1.0/*"
             \ . ",*/WAP1.0/*"
             \ . ",*/css/compiled/*"
+            \ . ",*/cache/clientscript/*"
+            \ . ",*/cache/scripts/*"
             " \ . ",*/templates/MASTER/*.php"
             " \ . ",*/templates/MASTER/*"
             " \ . ",*/templates/MASTER/*/*.php"
 
-cs add ~/.cscope/cscope.out
-set cspc=3
+" cs add ~/.cscope/cscope.out
+" set cspc=3
 
 if filereadable($HOME."/.config/vim/localrc")
     source ~/.config/vim/localrc

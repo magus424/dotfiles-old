@@ -1,6 +1,6 @@
 if test $TERM = 'screen' -o $TERM = 'screen-bce'
     set -x TERM screen-256color
-else
+else if test $TERM != 'putty-256color'
     set -x TERM xterm-256color
 end
 
