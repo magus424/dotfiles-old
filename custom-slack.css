@@ -51,6 +51,32 @@ h4 {
 
 /* NEW ADDS */
 
+.p-threads_view {
+    background: var(--background);
+}
+
+.p-threads_view_header__permalink {
+    color: var(--text-special) !important;
+}
+
+.p-threads_view_header__participant_list {
+    color: var(--text);
+}
+
+.p_threads_view_load_newer_button,
+.p_threads_view_load_older_button,
+.p-threads_view_reply--new_reply,
+.p-threads_view__default_background {
+    background: var(--background-elevated);
+}
+
+.p_threads_view_load_newer_button,
+.p_threads_view_load_older_button,
+.p-threads_view_root,
+.p-threads_view_reply {
+    border-color: var(--background-elevated);
+}
+
 .c-pillow_file__content--collapsed:after {
     background: linear-gradient(0deg,var(--background),hsla(0,0%,100%,0) 40px);
 }
