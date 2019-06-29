@@ -51,6 +51,13 @@ h4 {
 
 /* NEW ADDS */
 
+span.emoji.emoji-sizer[data-codepoints^='bigger-'],
+span.emoji.emoji-sizer[data-codepoints^='big_'],
+span.emoji.emoji-sizer[data-codepoints^='big-'],
+span.emoji.emoji-sizer[data-codepoints^='thinkingbig'] {
+    -webkit-filter: none !important;
+}
+
 .p-threads_footer__broadcast_controls.p-threads_footer__broadcast_controls--visible {
     height: 40px !important;
 }
