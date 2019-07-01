@@ -51,6 +51,14 @@ h4 {
 
 /* NEW ADDS */
 
+.c-message_attachment__author_name,
+.c-message_attachment__author_name.c-link--button,
+.c-message_attachment__author_name.c-link--button:active,
+.c-message_attachment__author_name.c-link--button:focus,
+.c-message_attachment__author_name.c-link--button:hover {
+    color: var(--text-bright) !important;
+}
+
 span.emoji.emoji-sizer[data-codepoints^='bigger-'],
 span.emoji.emoji-sizer[data-codepoints^='big_'],
 span.emoji.emoji-sizer[data-codepoints^='big-'],
