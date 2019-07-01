@@ -56,7 +56,7 @@ h4 {
 .c-message_attachment__author_name.c-link--button:active,
 .c-message_attachment__author_name.c-link--button:focus,
 .c-message_attachment__author_name.c-link--button:hover {
-    color: var(--text-bright) !important;
+    color: var(--text) !important;
 }
 
 span.emoji.emoji-sizer[data-codepoints^='bigger-'],
