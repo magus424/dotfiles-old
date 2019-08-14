@@ -51,6 +51,7 @@ h4 {
 
 /* NEW ADDS */
 
+.p-workspace__secondary_view,
 .p-classic_nav__team_header {
     background: var(--background-elevated);
 }
@@ -73,6 +74,7 @@ h4 {
     color: var(--border-dim);
 }
 
+.p-flexpane_header,
 .p-classic_nav__right__search {
     border-color: var(--border-dim);
 }
