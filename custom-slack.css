@@ -51,6 +51,28 @@ h4 {
 
 /* NEW ADDS */
 
+.p-workspace__top_nav,
+.p-workspace__primary_view_footer,
+.p-workspace__input .p-message_input_field {
+    background: var(--background);
+}
+
+.p-classic_nav__right__search__placeholder,
+.c-texty_input .ql-placeholder {
+    color: var(--text)
+}
+
+.p-classic_nav__model__title__info,
+.p-classic_nav__model__button,
+.p-classic_nav__right__button,
+.p-classic_nav__right__search__icon {
+    color: var(--border-dim);
+}
+
+.p-classic_nav__right__search {
+    border-color: var(--border-dim);
+}
+
 .c-message_attachment__author_name,
 .c-message_attachment__author_name.c-link--button,
 .c-message_attachment__author_name.c-link--button:active,
