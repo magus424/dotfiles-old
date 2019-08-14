@@ -62,6 +62,7 @@ h4 {
     background: var(--background);
 }
 
+.c-timestamp__label,
 .p-classic_nav__right__search__placeholder,
 .c-texty_input .ql-placeholder {
     color: var(--text)
