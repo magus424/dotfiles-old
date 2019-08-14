@@ -33,6 +33,7 @@ limitations under the License.
     --border-dim: #666;
     --border-bright: var(--primary);
     --text-bright: #FFF;
+    --text-dim: #7d889c;
     --text-special: var(--primary);
     --scrollbar-background: #000;
     --scrollbar-border: var(--primary);
@@ -62,7 +63,10 @@ h4 {
     background: var(--background);
 }
 
-.c-timestamp__label,
+.c-timestamp__label {
+    color: var(--text-dim);
+}
+
 .p-classic_nav__right__search__placeholder,
 .c-texty_input .ql-placeholder {
     color: var(--text)
