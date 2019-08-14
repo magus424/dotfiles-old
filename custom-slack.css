@@ -74,6 +74,8 @@ h4 {
     color: var(--border-dim);
 }
 
+hr,
+.p-threads_flexpane__separator_line,
 .p-flexpane_header,
 .p-classic_nav__right__search {
     border-color: var(--border-dim);
