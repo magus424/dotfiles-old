@@ -52,6 +52,12 @@ h4 {
 
 /* NEW ADDS */
 
+.c-app_badge,
+.c-app_label {
+    color: var(--text);
+    background: var(--background-elevated);
+}
+
 .p-workspace__secondary_view,
 .p-classic_nav__team_header {
     background: var(--background-elevated);
