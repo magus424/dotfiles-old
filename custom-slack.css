@@ -60,7 +60,7 @@ h4 {
 
 .p-workspace__secondary_view,
 .p-classic_nav__team_header {
-    background: var(--background-elevated);
+    background: var(--background-elevated) !important;
 }
 
 .p-workspace__top_nav,
@@ -69,6 +69,7 @@ h4 {
     background: var(--background);
 }
 
+.p-classic_nav__model__title__name__status--im,
 .c-timestamp__label {
     color: var(--text-dim);
 }
