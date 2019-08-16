@@ -52,6 +52,11 @@ h4 {
 
 /* NEW ADDS */
 
+.p-channel_details__dm_section__tz_label,
+.p-file_viewer__header__meta__name {
+    color: var(--text-bright);
+}
+
 .c-app_badge,
 .c-app_label {
     color: var(--text);
@@ -63,17 +68,26 @@ h4 {
     background: var(--background-elevated) !important;
 }
 
+.c-fullscreen_modal__content,
+.c-message_kit__pillow,
 .p-workspace__top_nav,
 .p-workspace__primary_view_footer,
 .p-workspace__input .p-message_input_field {
     background: var(--background);
 }
 
+.p-pinned_items__empty_list,
+.c-unified_member__other-names--large,
+.c-unified_member__display-name--large,
+.c-unified_member__title--large,
+.p-classic_nav__model__title__name--dim,
 .p-classic_nav__model__title__name__status--im,
 .c-timestamp__label {
     color: var(--text-dim);
 }
 
+.p-pinned_items__empty_list .p-pinned_items__empty_list_action,
+.c-fullscreen_modal__body,
 .p-classic_nav__right__search__placeholder,
 .c-texty_input .ql-placeholder {
     color: var(--text)
