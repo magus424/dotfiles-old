@@ -72,6 +72,7 @@ h4 {
 .c-message_kit__pillow,
 .p-workspace__top_nav,
 .p-workspace__primary_view_footer,
+.workspace__primary_view_footer,
 .p-workspace__input .p-message_input_field {
     background: var(--background);
 }
