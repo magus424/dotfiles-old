@@ -16,3 +16,11 @@
     --sk_primary_foreground: 171, 178, 191;
     --sk_secondary_highlight: 242, 199, 68;
 }
+
+.p-channel_sidebar__list {
+    zoom: 0.9;
+}
+
+code {
+    color: rgb(var(--sk_highlight));
+}
