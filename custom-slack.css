@@ -35,5 +35,5 @@ code {
 .c-member_slug--mention,
 .c-member_slug--mention:hover {
     color: rgb(var(--sk_highlight_hover));
-    background-color: rgb(var(--sk_highlight));
+    background-color: rgba(var(--sk_highlight),0.7);
 }
