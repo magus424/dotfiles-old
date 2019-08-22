@@ -1,3 +1,5 @@
+/* Base color definitions */
+
 :root {
     --sk_foreground_high: 171, 178, 191;
     --sk_foreground_high_solid: 134, 134, 134;
@@ -17,13 +19,23 @@
     --sk_secondary_highlight: 242, 199, 68;
 }
 
+/* zoom the sidebar out slightly */
+
 .p-channel_sidebar__list {
     zoom: 0.9;
 }
 
+/* minor weird color tweaks */
+
 code {
     color: rgb(var(--sk_highlight));
 }
+
+.c-search_autocomplete__query_parts .token {
+    background-color: rgba(var(--sk_foreground_min_solid,248,248,248),1);
+}
+
+/* @here and @myname pings */
 
 .c-mrkdwn__broadcast--mention,
 .c-mrkdwn__broadcast--mention:hover,
@@ -36,4 +48,56 @@ code {
 .c-member_slug--mention:hover {
     color: rgb(var(--sk_highlight_hover));
     background-color: rgba(var(--sk_highlight),0.7);
+}
+
+/* Emoji tweaks */
+
+.c-emoji {
+    filter: drop-shadow( 1px 0 0 #FFFFFFA0) drop-shadow(-1px 0 0 #FFFFFFA0) drop-shadow(-0 1px 0 #FFFFFFA0) drop-shadow( 0 -1px 0 #FFFFFFA0);
+}
+
+img.c-emoji[data-stringify-emoji^=':bigger-'],
+img.c-emoji[data-stringify-emoji^=':big_'],
+img.c-emoji[data-stringify-emoji^=':big-'],
+img.c-emoji[data-stringify-emoji^=':thinkingbig'] {
+    filter: none !important;
+}
+
+.c-reaction {
+    background: rgb(var(--sk_foreground_min_solid));
+    border: 1px solid rgb(var(--sk_primary_background));
+}
+
+/* Attachment background color */
+
+.c-message_attachment__image.
+.c-search_autocomplete__query_parts .token {
+    background-color: rgba(var(--sk_foreground_low_solid,221,221,221),1);
+}
+
+/* Code Mirror styles for syntax highlighting */
+
+.cm-s-default .cm-builtin,
+.cm-s-default .cm-keyword {
+    color: #c792ea;
+}
+
+.cm-s-default .cm-number {
+    color: #f78c6c;
+}
+
+.cm-s-default .cm-comment {
+    color: #637777;
+}
+
+.cm-s-default .cm-string {
+    color: #ecc48d;
+}
+
+.cm-s-default .cm-atom {
+    color: #ffcb8b;
+}
+
+.cm-s-default .cm-variable-2 {
+    color: #7fdbca;
 }
