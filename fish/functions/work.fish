@@ -5,24 +5,21 @@ function work
         if not tmux has-session -t SD 2> /dev/null
             cd ~/html/slickdeals/
             tmux new-session -d -s SD
-            tmux move-window -t 1
 
-            tmux new-window -c ~/html/slickdeals/ -t SD:2
+            tmux split-window -v -b "tail -n 20 -F /var/log/lighttpd/error.log"
+            tmux resize-pane -t 0.1 -y 13
+            tmux split-window -t 0.1 -h -l 95 -c /var/log/slickdeals/worker "tail -F current"
 
-            tmux new-window -c ~/html/slickdeals/css/306/sass/modern/ -n sass -t SD:8
-            tmux send-keys -t SD:8.0 'compass watch' C-m
-            tmux split-window -c ~/html/slickdeals/css/306/sass/newmobile3/ -t SD:8 -h
-            tmux send-keys -t SD:8.1 'compass watch' C-m
-            tmux split-window -c ~/html/slickdeals/css/306/sass/sem/ -t SD:8.0 -v
-            tmux send-keys -t SD:8.2 'compass watch' C-m
-            tmux split-window -c ~/html/slickdeals/sass/ -t SD:8.1 -v
-            tmux send-keys -t SD:8.3 'compass watch' C-m
-            tmux select-pane -t SD:8.0
+            tmux new-window -c ~/html/slickdeals/ -t SD:1
+
+            tmux new-window -c ~/html/ -n sass -t SD:8
+            tmux send-keys -t SD:8.0 './node_modules/.bin/gulp watch:sass' C-m
 
             tmux new-window -c ~ -n deploy -t SD:9
             tmux send-keys -t SD:9.0 'ssh rm01.lv.slickdeals.net' C-m
 
-            tmux select-window -t SD:1
+            tmux select-window -t SD:0
+            tmux select-pane -t 0
         end
         tmux -2 attach -d -t SD
     end

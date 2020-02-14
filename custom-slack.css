@@ -68,6 +68,10 @@ img.c-emoji[data-stringify-emoji^=':thinkingbig'] {
     border: 1px solid rgb(var(--sk_primary_background));
 }
 
+.c-emoji__large {
+    zoom: 2;
+}
+
 /* Attachment background color */
 
 .c-message_attachment__image.
