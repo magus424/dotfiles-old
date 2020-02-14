@@ -27,6 +27,7 @@
 
 /* minor weird color tweaks */
 
+.sk-client-theme--dark .c-mrkdwn__code,
 code {
     color: rgb(var(--sk_highlight));
 }
