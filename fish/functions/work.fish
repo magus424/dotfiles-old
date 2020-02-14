@@ -12,11 +12,18 @@ function work
 
             tmux new-window -c ~/html/slickdeals/ -t SD:1
 
+            tmux new-window -c ~/html/ -n cms -t SD:7
+            tmux send-keys -t SD:7.0 "ssh vagrant@cms-collin.dev.sdhq.local" C-m
+            tmux split-window -v -b
+            tmux resize-pane -t 7.1 -y 13
+            tmux send-keys -t SD:7.1 "ssh vagrant@cms-collin.dev.sdhq.local" C-m
+            tmux send-keys -t SD:7.1 "sudo tail -F /var/log/php-fpm/www-error.log" C-m
+
             tmux new-window -c ~/html/ -n sass -t SD:8
-            tmux send-keys -t SD:8.0 './node_modules/.bin/gulp watch:sass' C-m
+            tmux send-keys -t SD:8.0 "./node_modules/.bin/gulp watch:sass" C-m
 
             tmux new-window -c ~ -n deploy -t SD:9
-            tmux send-keys -t SD:9.0 'ssh rm01.lv.slickdeals.net' C-m
+            tmux send-keys -t SD:9.0 "ssh rm01.lv.slickdeals.net" C-m
 
             tmux select-window -t SD:0
             tmux select-pane -t 0
