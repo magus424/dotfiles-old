@@ -38,7 +38,7 @@ let g:UltiSnipsJumpForwardTrigger  = "<C-n>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-p>"
 
 " let g:gitgutter_sign_column_always = 1
-set signcolumn=yes
+" set signcolumn=yes
 let g:gitgutter_diff_args          = '-w'
 
 let g:ale_completion_enabled = 1

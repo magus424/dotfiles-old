@@ -24,6 +24,7 @@ set -x GREP_COLOR "1;33"
 set -x ACK_COLOR_MATCH "bold yellow"
 set -x PAGER vimpager
 set -x GIT_PAGER less
+set -x XDEBUG_SESSION 1
 
 if type -q thefuck
     thefuck --alias | source
