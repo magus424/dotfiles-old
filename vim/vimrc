@@ -81,8 +81,8 @@ if &compatible == 0
     Plugin 'junegunn/vim-easy-align'
     Plugin 'Smart-Home-Key'
     Plugin 'matchit.zip'
-    Plugin 'SirVer/ultisnips'
-    Plugin 'honza/vim-snippets'
+    " Plugin 'SirVer/ultisnips'
+    " Plugin 'honza/vim-snippets'
     Plugin 'ervandew/supertab'
     Plugin 'wincent/command-t'
     Plugin 'wellle/targets.vim'
@@ -100,13 +100,13 @@ if &compatible == 0
         Plugin 'scrooloose/syntastic'
     endif
 
-    Plugin 'lvht/phpcd.vim'
+    " Plugin 'lvht/phpcd.vim'
 
     Plugin 'scrooloose/nerdtree'
     Plugin 'mileszs/ack.vim'
     Plugin 'airblade/vim-gitgutter'
     Plugin 'tpope/vim-obsession'
-    Plugin 'dhruvasagar/vim-prosession'
+    " Plugin 'dhruvasagar/vim-prosession'
     Plugin 'terryma/vim-multiple-cursors'
     Plugin 'ap/vim-css-color'
     Plugin 'christoomey/vim-tmux-navigator'

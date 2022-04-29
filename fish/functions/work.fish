@@ -23,7 +23,7 @@ function work
             #tmux send-keys -t SD:7.0 "sudo tail -F /var/log/php-fpm/www-error.log" C-m
 
             tmux new-window -c ~/html/ -n sass -t SD:8
-            tmux send-keys -t SD:8.0 "./node_modules/.bin/gulp watch:sass" C-m
+            tmux send-keys -t SD:8.0 "npx gulp watch:sass" C-m
 
             tmux new-window -c ~ -n deploy -t SD:9
             tmux send-keys -t SD:9.0 "ssh rm01.lv.slickdeals.net" C-m
