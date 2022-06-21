@@ -9,7 +9,7 @@ function work
             cd ~/html/
             tmux new-session -d -x $x -y $y -s SD
 
-            tmux split-window -v -b "tail -n 20 -F /var/log/lighttpd/error.log"
+            tmux split-window -v -b "tail -n 20 -F /var/log/lighttpd/error.log /var/log/lighttpd/coupons-error.log"
             tmux resize-pane -t 0.0 -y 13
             tmux split-window -t 0.0 -h -l 145 -c /var/log/slickdeals/worker "sudo journalctl -u worker01 -f"
 
