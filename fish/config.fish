@@ -13,6 +13,7 @@ set -x fish_color_end green
 set -x fish_color_escape cyan
 set -x fish_color_operator cyan
 
+set -x RIPGREP_CONFIG_PATH ~/.config/ripgreprc
 set -x XDG_CONFIG_HOME ~/.config
 set -x POWERLINE_COMMAND ~/.config/vim/bundle/powerline/scripts/powerline-render
 set -x WHOIS_HIDE 1
