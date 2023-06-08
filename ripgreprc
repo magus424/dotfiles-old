@@ -22,3 +22,7 @@ web:*.{html,scss,js,php}*
 --glob=!thttpd/
 --glob=!LoadStaticDataCommand.php
 --glob=!datastore.sql
+--glob=!braintree-data-collector.js
+--glob=!prebid-v7*.js
+--glob=!testReactApp
+--glob=!ckeditor
