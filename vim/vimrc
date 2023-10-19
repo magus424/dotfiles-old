@@ -5,7 +5,7 @@ filetype off
 
 " Vundle start
 
-python import sys; from vim import command; command("let python_version = '%s'" % sys.version[2:3])
+pythonx import sys; from vim import command; command("let python_version = '%s'" % sys.version[2:3])
 
 let g:netrw_silent = 1
 
