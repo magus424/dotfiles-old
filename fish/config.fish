@@ -80,3 +80,5 @@ complete --command aws --no-files --arguments '(begin; set --local --export COMP
 #        tmux
 #    end
 #end
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH
