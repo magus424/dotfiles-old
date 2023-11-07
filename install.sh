@@ -1,9 +1,9 @@
 #!/bin/bash
 
+git config --global include.path /home/cgrady/.config/gitconfig
+
 ln -sf ~/.config/bashrc ~/.bashrc
 ln -sf ~/.config/bash_profile ~/.bash_profile
-ln -sf ~/.config/gitconfig ~/.gitconfig
-ln -sf ~/.config/tmux.conf ~/.tmux.conf
 ln -sf ~/.config/vim ~/.vim
 ln -sf ~/.config/vim/vimrc ~/.vimrc
 ln -sf ~/.config/vim/gvimrc ~/.gvimrc
