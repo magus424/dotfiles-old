@@ -23,8 +23,9 @@ set -x GTAGSROOT ~/html/
 set -e GREP_OPTIONS
 set -x GREP_COLOR "1;33"
 set -x ACK_COLOR_MATCH "bold yellow"
-set -x PAGER vimpager
-set -x GIT_PAGER less
+if test -e ~/bin/vimpager
+    set -x PAGER ~/bin/vimpager
+end
 set -x XDEBUG_SESSION 1
 
 if type -q thefuck
@@ -67,6 +68,9 @@ complete -f -c git -n '__fish_git_needs_command' -a get -d 'Checkout and switch 
 complete -f -c git -n '__fish_git_using_command get' -a '(__fish_git_branches)' --description 'Branch'
 complete -f -c git -n '__fish_git_needs_command' -a delbr -d 'Delete a branch from both local and remote repos'
 complete -f -c git -n '__fish_git_using_command delbr' -a '(__fish_git_branches)' --description 'Branch'
+
+# AWS CLI completion
+complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 
 #if test -z "$TMUX"
 #    set -l TMUX_SESSIONS (tmux list-sessions)

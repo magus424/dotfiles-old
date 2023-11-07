@@ -3,7 +3,10 @@
 --heading
 
 --type-add
-web:*.{html,scss,js,php}*
+web:*.{html,scss,js,php,ts,vue}*
+
+--type-add
+vue:*.vue
 
 --colors=path:fg:green
 --colors=path:style:bold

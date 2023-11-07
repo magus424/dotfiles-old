@@ -6,9 +6,9 @@
 #export DISPLAY
 
 # set PATH so it includes user's private bin if it exists
-# if [ -d ~/bin ]; then
-#     PATH=~/bin:"${PATH}"
-# fi
+if [ -d ~/bin ]; then
+    PATH=~/bin:"${PATH}"
+fi
 
 # if [ -d /usr/local/rvm/rubies/ruby-2.1.2/lib ]; then
 #     LD_LIBRARY_PATH="/usr/local/rvm/rubies/ruby-2.1.2/lib"
@@ -53,7 +53,7 @@ if [ "$PS1" ]; then
     alias rehash='source ~/.bashrc'
     alias aamp='mplayer -framedrop -vo aa'
 
-    if [ -f ~/.localrc ]; then
+    if [[ -f ~/.localrc ]]; then
         . ~/.localrc
     fi
 
@@ -63,7 +63,7 @@ if [ "$PS1" ]; then
     PURPLE="\[\e[1;35m\]"
     CYAN="\[\e[0;36m\]"
 
-    if [ $TERM == "screen" -o $TERM == "xterm" -o $TERM == "xterm-color" -o $TERM == "xterm-256color" ]; then
+    if [ $TERM == "screen" -o $TERM == "xterm" -o $TERM == "xterm-24bit" -o $TERM == "xterm-256color" ]; then
         if [[ -n $(type __git_ps1 2> /dev/null | grep function) ]]; then
             PS1='$(__git_ps1 " \e[1;30m(\e[0;32m%s\e[1;30m)")'
         else
@@ -86,13 +86,13 @@ if [ "$PS1" ]; then
         export PYTHONSTARTUP=$HOME/.pythonrc
     fi
 
-    if [ -f $HOME/bin/vimpager ]; then
+    if [[ -f $HOME/bin/vimpager ]]; then
         export PAGER=$HOME/bin/vimpager
     fi
 
-    if [ -f $HOME/bin/gitpager ]; then
-        export GIT_PAGER=$HOME/bin/gitpager
-    fi
+    # if [ -f $HOME/bin/gitpager ]; then
+    #     export GIT_PAGER=$HOME/bin/gitpager
+    # fi
 
     if [ -f ~/bin/rvm.sh -a -z "$rvm_bin_path" ]; then
         source ~/bin/rvm.sh

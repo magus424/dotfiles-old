@@ -1,23 +1,50 @@
 [core]
-    excludesfile = /home/collin/.gitignore
-    autocrlf     = input
-    safecrlf     = warn
-    editor       = vim
+    excludesfile = /home/cgrady/.gitignore
+    autocrlf = input
+    safecrlf = warn
+    editor = vim
+#    pager = delta
+
+#[interactive]
+#    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false
+    true-color = always
+    map-styles = "bold purple => 255 #330033, bold cyan => 255 #000033, bold yellow => 255 #333300"
+    minus-style = "255 #330000"
+    plus-style = "255 #003300"
+    file-style = "cyan"
+    file-decoration-style = "cyan ul"
+    hunk-header-decoration-style = "cyan box"
+    hunk-header-line-number-style = "cyan"
+
+[diff]
+    colorMoved = default
 
 [alias]
-    changes  = diff --name-status -r
+    changes = diff --name-status -r
     diffstat = diff --stat -r
-    stdiff   = diff --staged -w
-    st       = status
-    ci       = commit
-    co       = checkout
-    um       = fetch origin master:master
-    unstage  = reset HEAD --
+    stdiff = diff --staged -w
+    st = status
+    ci = commit
+    co = checkout
+    um = fetch origin master:master
+    unstage = reset HEAD --
+	lg = log --pretty='format:%C(red)%h%C(yellow)%d%C(reset) %s %C(cyan)(%ar)%C(reset)'
+	new = lg master..HEAD
+	missing = lg HEAD..master
+	save = stash save --keep-index
 
 [push]
     default = simple
 
+[pull]
+    rebase = false
+
 [merge]
+#    conflictstyle = diff3
     tool = vimdiff
 
 [color]
