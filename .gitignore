@@ -3,6 +3,7 @@ composer/
 configstore/
 dconf/
 fish/fish_history.*
+fish/local.fish
 gedit/
 gnome-control-center/
 gtk-2.0/
@@ -12,5 +13,7 @@ libaccounts-glib/
 nautilus/
 pulse/
 software-center/
+thefuck/
 unity/
 vim/undo/
+wslu/

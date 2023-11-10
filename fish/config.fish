@@ -32,15 +32,11 @@ if type -q thefuck
     thefuck --alias | source
 end
 
-# if test -d /usr/local/rvm/rubies/ruby-2.1.2/lib
-#     set -x LD_LIBRARY_PATH /usr/local/rvm/rubies/ruby-2.1.2/lib
-# end
-#
-# if test -d ~/.rvm/rubies/default/lib
-#     set -x LD_LIBRARY_PATH ~/.rvm/rubies/default/lib
-# end
+if test -f ~/.config/fish/local.fish
+    source ~/.config/fish/local.fish
+end
 
-for p in /home/vagrant/.local/lib ~/.local/lib64 /usr/local/rvm/rubies/ruby-2.1.2/lib ~/.rvm/rubies/default/lib
+for p in /home/vagrant/.local/lib ~/.local/lib64
     if test -d $p
         if not contains $p $LD_LIBRARY_PATH
             set -x LD_LIBRARY_PATH "$p:$LD_LIBRARY_PATH"
@@ -48,7 +44,7 @@ for p in /home/vagrant/.local/lib ~/.local/lib64 /usr/local/rvm/rubies/ruby-2.1.
     end
 end
 
-for p in ~/.config/vim/bundle/powerline/ ~/src/django-1.6.5
+for p in ~/.config/vim/bundle/powerline/
     if test -d $p
         if not contains $p $PYTHONPATH
             set PYTHONPATH $p $PYTHONPATH
@@ -56,7 +52,7 @@ for p in ~/.config/vim/bundle/powerline/ ~/src/django-1.6.5
     end
 end
 
-for p in /opt/nodejs/bin ~/bin ~/.local/bin
+for p in ~/bin
     if test -d $p
         if not contains $p $PATH
             set PATH $p $PATH
@@ -72,11 +68,5 @@ complete -f -c git -n '__fish_git_using_command delbr' -a '(__fish_git_branches)
 # AWS CLI completion
 complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 
-#if test -z "$TMUX"
-#    set -l TMUX_SESSIONS (tmux list-sessions)
-#    if test $status = 0
-#        tmux -2 a
-#    else
-#        tmux
-#    end
-#end
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH
