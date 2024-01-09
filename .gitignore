@@ -5,6 +5,7 @@ dconf/
 fish/fish_history.*
 fish/local.fish
 gedit/
+gh/hosts.yml
 gnome-control-center/
 gtk-2.0/
 gtk-3.0/
