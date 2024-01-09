@@ -1,3 +1,3 @@
-function cdj --description 'cd to ~/html/slickdeals/scripts/306'
-    cd ~/html/slickdeals/scripts/306
+function cdj --description 'cd to ~/src/html/slickdeals/scripts/306'
+    cd ~/src/html/slickdeals/scripts/306
 end

@@ -1,3 +1,3 @@
-function cdh --description 'cd to ~/html'
-    cd ~/html
+function cdh --description 'cd to ~/src/html'
+    cd ~/src/html
 end

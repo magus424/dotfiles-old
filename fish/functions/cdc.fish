@@ -1,3 +1,3 @@
-function cdc --description 'cd to ~/html/slickdeals/css/306'
-    cd ~/html/slickdeals/css/306
+function cdc --description 'cd to ~/src/html/slickdeals/css/306'
+    cd ~/src/html/slickdeals/css/306
 end

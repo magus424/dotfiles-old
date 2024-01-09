@@ -1,3 +1,3 @@
-function cdf --description 'cd to ~/html/slickdeals/forums'
-    cd ~/html/slickdeals/forums
+function cdf --description 'cd to ~/src/html/slickdeals/forums'
+    cd ~/src/html/slickdeals/forums
 end

@@ -1,3 +1,3 @@
-function cdcs --description 'cd to ~/html/slickdeals/clientscript'
-    cd ~/html/slickdeals/clientscript
+function cdcs --description 'cd to ~/src/html/slickdeals/clientscript'
+    cd ~/src/html/slickdeals/clientscript
 end

@@ -25,6 +25,8 @@ vue:*.vue
 --glob=!thttpd/
 --glob=!LoadStaticDataCommand.php
 --glob=!datastore.sql
+--glob=!datastore_options.sql
+--glob=!pushnotification_cleanup_android_uninstall.php
 --glob=!braintree-data-collector.js
 --glob=!prebid-v7*.js
 --glob=!testReactApp

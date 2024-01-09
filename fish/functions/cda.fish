@@ -1,3 +1,3 @@
-function cda --description 'cd to ~/html/admin'
-    cd ~/html/admin
+function cda --description 'cd to ~/src/html/admin'
+    cd ~/src/html/admin
 end

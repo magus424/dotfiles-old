@@ -32,7 +32,7 @@
     co = checkout
     um = fetch origin master:master
     unstage = reset HEAD --
-    lg = log --pretty='format:%C(red)%h%C(yellow)%d%C(reset) %s %C(cyan)(%ar)%C(reset)'
+    lg = log --pretty='format:%C(red)%h%C(auto)%d%C(reset) %s %C(cyan)(%ar)%C(reset)'
     new = lg master..HEAD
     missing = lg HEAD..master
     save = stash save --keep-index

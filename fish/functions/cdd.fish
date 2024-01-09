@@ -1,3 +1,3 @@
-function cdd --description 'cd to ~/html/slickdeals/'
-    cd ~/html/slickdeals
+function cdd --description 'cd to ~/src/html/slickdeals/'
+    cd ~/src/html/slickdeals
 end
