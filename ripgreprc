@@ -31,3 +31,4 @@ vue:*.vue
 --glob=!prebid-v7*.js
 --glob=!testReactApp
 --glob=!ckeditor
+--glob=!keys.txt

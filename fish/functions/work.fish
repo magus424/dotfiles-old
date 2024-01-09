@@ -10,15 +10,15 @@ function work
             tmux new-session -d -x $x -y $y -s SD
 
             tmux split-window -v
-            tmux send-keys -t SD:0.0 "docker compose logs -f --no-log-prefix lighttpd" C-m
+            tmux send-keys -t SD:0.0 "docker compose logs -n 0 -f lighttpd php consumer" C-m
             tmux resize-pane -t 0.0 -y 13
-            tmux split-window -t 0.0 -h -l 80
-            tmux send-keys -t SD:0.1 "docker compose exec consumer tail -F /var/log/consumer.log" C-m
+            # tmux split-window -t 0.0 -h -l 80
+            # tmux send-keys -t SD:0.1 "docker compose logs -f --no-log-prefix consumer" C-m
 
             tmux new-window -c ~/src/vuerango/ -t SD:1
 
-            tmux new-window -c ~/src/html/ -n sass -t SD:8
-            tmux send-keys -t SD:8.0 "docker compose exec devtools npx gulp watch:sass" C-m
+            # tmux new-window -c ~/src/html/ -n sass -t SD:8
+            # tmux send-keys -t SD:8.0 "docker compose exec devtools npx gulp watch:sass" C-m
 
             tmux new-window -c ~/src/html/ -n deploy -t SD:9
             tmux send-keys -t SD:9.0 "ssh rm01.lv.slickdeals.net"
