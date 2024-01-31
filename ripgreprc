@@ -32,3 +32,4 @@ vue:*.vue
 --glob=!testReactApp
 --glob=!ckeditor
 --glob=!keys.txt
+--glob=!phpstan-baseline.neon
