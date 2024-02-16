@@ -30,12 +30,14 @@
     st = status
     ci = commit
     co = checkout
-    um = fetch origin master:master
+    um = fetch origin main:main
     unstage = reset HEAD --
     lg = log --pretty='format:%C(red)%h%C(auto)%d%C(reset) %s %C(cyan)(%ar)%C(reset)'
-    new = lg master..HEAD
-    missing = lg HEAD..master
+    new = lg main..HEAD
+    missing = lg HEAD..main
     save = stash save --keep-index
+    forcepush = push --force-with-lease
+    bb = !better-git-branch.sh
 
 [push]
     default = simple
@@ -49,5 +51,11 @@
 
 [color]
     ui = true
+
+[rerere]
+    enabled = true
+
+[branch]
+    sort = -committerdate
 
 # vim: ft=gitconfig

@@ -38,6 +38,10 @@ if test -f ~/.config/fish/local.fish
     source ~/.config/fish/local.fish
 end
 
+if test -f ~/.homesick/repos/homeshick/homeshick.fish
+    source ~/.homesick/repos/homeshick/homeshick.fish
+end
+
 for p in /home/vagrant/.local/lib ~/.local/lib64
     if test -d $p
         if not contains $p $LD_LIBRARY_PATH
